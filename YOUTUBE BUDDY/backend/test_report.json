@@ -1,0 +1,524 @@
+{
+  "timestamp": "2026-10-21 16:42:56",
+  "summary": {
+    "total_generators_tested": 36,
+    "total_generators_passed": 36,
+    "pass_rate_percentage": 100.0,
+    "image_generators_passed": "13/13",
+    "text_generators_passed": "14/14",
+    "agents_passed": "6/6",
+    "database_persistence_verified": true
+  },
+  "sections": {
+    "system_health": {
+      "status_code": 200,
+      "response": {
+        "status": "ok",
+        "service": "kumar project Backend",
+        "ai_engine": "hybrid-free-tier",
+        "providers": {
+          "gemini": true,
+          "groq": false,
+          "openrouter": false,
+          "ollama_local": false,
+          "offline_synthesizer": true
+        },
+        "gpu": {
+          "gpu_name": "N/A",
+          "vram_total_gb": 0,
+          "vram_used_gb": 0,
+          "cuda_version": "N/A"
+        }
+      },
+      "passed": true
+    },
+    "auth": {
+      "signup_status": 200,
+      "profile_status": 200,
+      "passed": true
+    },
+    "image_generators": {
+      "total": 13,
+      "passed": 13,
+      "results": [
+        {
+          "tool_id": "create",
+          "name": "AI Image Generator",
+          "prompt": "Hyper-realistic cyberpunk coding setup with glowing cyan and purple neon reflections on glass desk, 8k",
+          "duration_seconds": 10.279,
+          "status_code": 200,
+          "passed": true,
+          "file_exists_on_disk": true,
+          "file_size_bytes": 32683,
+          "preview_url": "http://localhost:8000/rendered/create_41c43cc6.png",
+          "simulated": false
+        },
+        {
+          "tool_id": "cineshot",
+          "name": "Cinematic Photos",
+          "prompt": "Anamorphic wide shot of an astronaut gazing at an alien solar eclipse on a red desert planet, cinematic bokeh",
+          "duration_seconds": 3.878,
+          "status_code": 200,
+          "passed": true,
+          "file_exists_on_disk": true,
+          "file_size_bytes": 28918,
+          "preview_url": "http://localhost:8000/rendered/cineshot_3a20e291.png",
+          "simulated": true
+        },
+        {
+          "tool_id": "moodboard",
+          "name": "AI Moodboard",
+          "prompt": "Minimalist Scandinavian design moodboard, warm oak textures, ceramic vases, earthy tones and sage green swatches",
+          "duration_seconds": 1.95,
+          "status_code": 200,
+          "passed": true,
+          "file_exists_on_disk": true,
+          "file_size_bytes": 30053,
+          "preview_url": "http://localhost:8000/rendered/moodboard_fd6b64f6.png",
+          "simulated": true
+        },
+        {
+          "tool_id": "character",
+          "name": "Character Designer",
+          "prompt": "Futuristic cyborg ronin with weathered carbon-fiber armor, glowing orange katana, concept art sheet",
+          "duration_seconds": 2.144,
+          "status_code": 200,
+          "passed": true,
+          "file_exists_on_disk": true,
+          "file_size_bytes": 29103,
+          "preview_url": "http://localhost:8000/rendered/character_775f6542.png",
+          "simulated": true
+        },
+        {
+          "tool_id": "persona",
+          "name": "Influencer Creator",
+          "prompt": "Charismatic tech creator smiling in studio with acoustic foam panels, soft keylight and Sony FX3 on desk",
+          "duration_seconds": 0.783,
+          "status_code": 200,
+          "passed": true,
+          "file_exists_on_disk": true,
+          "file_size_bytes": 30026,
+          "preview_url": "http://localhost:8000/rendered/persona_9ffbcf29.png",
+          "simulated": true
+        },
+        {
+          "tool_id": "aesthetic",
+          "name": "Style Finder",
+          "prompt": "Vintage 1970s analog recording studio with tube amplifiers, magnetic tape reels, and golden sun dust motes",
+          "duration_seconds": 1.516,
+          "status_code": 200,
+          "passed": true,
+          "file_exists_on_disk": true,
+          "file_size_bytes": 29102,
+          "preview_url": "http://localhost:8000/rendered/aesthetic_6fbbc9e3.png",
+          "simulated": true
+        },
+        {
+          "tool_id": "fashion",
+          "name": "Fashion Designer",
+          "prompt": "Avant-garde streetwear jacket with modular magnetic pouches, translucent polymer collar, and reflective seams",
+          "duration_seconds": 1.078,
+          "status_code": 200,
+          "passed": true,
+          "file_exists_on_disk": true,
+          "file_size_bytes": 29359,
+          "preview_url": "http://localhost:8000/rendered/fashion_b7aa24dd.png",
+          "simulated": true
+        },
+        {
+          "tool_id": "draw",
+          "name": "Sketch to Art",
+          "prompt": "Hand-sketched architectural elevation transformed into a luxury waterfall glass villa surrounded by rainforest",
+          "duration_seconds": 1.281,
+          "status_code": 200,
+          "passed": true,
+          "file_exists_on_disk": true,
+          "file_size_bytes": 23863,
+          "preview_url": "http://localhost:8000/rendered/draw_edc85954.png",
+          "simulated": true
+        },
+        {
+          "tool_id": "inpaint",
+          "name": "Object Eraser",
+          "prompt": "Studio portrait with distracting background microphones and cables removed, leaving pure velvet gradient backdrop",
+          "duration_seconds": 1.509,
+          "status_code": 200,
+          "passed": true,
+          "file_exists_on_disk": true,
+          "file_size_bytes": 28073,
+          "preview_url": "http://localhost:8000/rendered/inpaint_f92a44a4.png",
+          "simulated": true
+        },
+        {
+          "tool_id": "faceswap",
+          "name": "Face Swapper",
+          "prompt": "Executive profile headshot in dark navy suit with clean corporate lighting and subtle bokeh",
+          "duration_seconds": 1.503,
+          "status_code": 200,
+          "passed": true,
+          "file_exists_on_disk": true,
+          "file_size_bytes": 27523,
+          "preview_url": "http://localhost:8000/rendered/faceswap_cca58482.png",
+          "simulated": true
+        },
+        {
+          "tool_id": "charswap",
+          "name": "Replace Character",
+          "prompt": "Replace medieval blacksmith with a futuristic plasma weapons armorer inside an orbital shipyard foundry",
+          "duration_seconds": 1.208,
+          "status_code": 200,
+          "passed": true,
+          "file_exists_on_disk": true,
+          "file_size_bytes": 28740,
+          "preview_url": "http://localhost:8000/rendered/charswap_3abd28b8.png",
+          "simulated": true
+        },
+        {
+          "tool_id": "relight",
+          "name": "Photo Lighting",
+          "prompt": "Dramatic split lighting with vibrant blue rim light and warm amber key on a subject looking towards camera",
+          "duration_seconds": 1.809,
+          "status_code": 200,
+          "passed": true,
+          "file_exists_on_disk": true,
+          "file_size_bytes": 29519,
+          "preview_url": "http://localhost:8000/rendered/relight_8df150b4.png",
+          "simulated": true
+        },
+        {
+          "tool_id": "upscale",
+          "name": "Photo Upscaler",
+          "prompt": "Macro photo of human iris with intricate crystalline patterns, enhanced sharpness and restored micro-contrast",
+          "duration_seconds": 1.3,
+          "status_code": 200,
+          "passed": true,
+          "file_exists_on_disk": true,
+          "file_size_bytes": 23987,
+          "preview_url": "http://localhost:8000/rendered/upscale_1b96f00a.png",
+          "simulated": true
+        }
+      ]
+    },
+    "text_and_video_generators": {
+      "total": 14,
+      "passed": 14,
+      "results": [
+        {
+          "tool_id": "script",
+          "name": "AI Video Script Generator",
+          "prompt": "Write a 60-second high-retention video script about 3 AI breakthroughs in 2026 that will replace smartphones",
+          "duration_seconds": 24.486,
+          "status_code": 200,
+          "passed": true,
+          "has_structured_output": true,
+          "has_poster_preview": true,
+          "output_snippet": "{'summary': '{\\n  \"hook\": \"In less than 24 months, the black glass rectangle sitting in your pocket right now will be co...",
+          "simulated": false
+        },
+        {
+          "tool_id": "seo",
+          "name": "YouTube SEO Optimizer",
+          "prompt": "Optimize SEO for a video titled 'I Built an AI Video Generator in 24 Hours' covering nextjs, fastapi, langgraph",
+          "duration_seconds": 19.207,
+          "status_code": 200,
+          "passed": true,
+          "has_structured_output": true,
+          "has_poster_preview": true,
+          "output_snippet": "{'summary': '{\\n  \"primary_keyword\": \"AI Video Generator\",\\n  \"secondary_keywords\": [\\n    \"LangGraph tutorial\",\\n    \"F...",
+          "simulated": false
+        },
+        {
+          "tool_id": "trend",
+          "name": "Trending Topics Analyzer",
+          "prompt": "Analyze current breakout creator trends in AI productivity tools and workflow automation",
+          "duration_seconds": 21.008,
+          "status_code": 200,
+          "passed": true,
+          "has_structured_output": true,
+          "has_poster_preview": true,
+          "output_snippet": "{'summary': '{\\n  \"trending_topics\": [\\n    {\\n      \"topic\": \"Self-Hosted n8n vs. Zapier Cost-Cutting\",\\n      \"growth_...",
+          "simulated": false
+        },
+        {
+          "tool_id": "viral",
+          "name": "Viral Clip & Hook Generator",
+          "prompt": "Create 5 irresistible psychological video hooks for a finance video about compound interest vs real estate",
+          "duration_seconds": 16.155,
+          "status_code": 200,
+          "passed": true,
+          "has_structured_output": true,
+          "has_poster_preview": true,
+          "output_snippet": "{'clip_timestamps': [{'start': '00:00', 'end': '00:06', 'score': 7, 'reason': 'Directly taps into the polarizing financi...",
+          "simulated": false
+        },
+        {
+          "tool_id": "cinematic",
+          "name": "Cinematic Scene Planner",
+          "prompt": "High-octane night car chase through neo-Seoul under torrential neon rain, panning from bumper cam to crane shot",
+          "duration_seconds": 4.36,
+          "status_code": 200,
+          "passed": true,
+          "has_structured_output": true,
+          "has_poster_preview": true,
+          "output_snippet": "{'cta': \"Double tap if this saved you hours, and subscribe for tomorrow's channel breakdown!\"}",
+          "simulated": false
+        },
+        {
+          "tool_id": "voiceover",
+          "name": "AI Voiceover Script Generator",
+          "prompt": "Dramatic BBC-style nature documentary narration exploring deep ocean bioluminescent creatures",
+          "duration_seconds": 15.596,
+          "status_code": 200,
+          "passed": true,
+          "has_structured_output": true,
+          "has_poster_preview": true,
+          "output_snippet": "{'script_text': 'Here, in the crushing abyss... [PAUSE: 0.5s] life does not fade. [PAUSE: 0.4s] [WHISPER] It ignites. [P...",
+          "simulated": false
+        },
+        {
+          "tool_id": "upload",
+          "name": "Upload Metadata Generator",
+          "prompt": "Create complete upload metadata package for a full-length Next.js 15 crash course with chapters and tags",
+          "duration_seconds": 128.416,
+          "status_code": 200,
+          "passed": true,
+          "has_structured_output": true,
+          "has_poster_preview": true,
+          "output_snippet": "{'trigger': 'Urgency & Exclusivity', 'curiosity_gap': 'The untold metric that determines recommendation velocity', 'hook...",
+          "simulated": false
+        },
+        {
+          "tool_id": "ads",
+          "name": "Video Ad Maker",
+          "prompt": "High-converting 15-second TikTok/Reels direct response video ad for a noise-cancelling AI podcast microphone",
+          "duration_seconds": 20.606,
+          "status_code": 200,
+          "passed": true,
+          "has_structured_output": true,
+          "has_poster_preview": true,
+          "output_snippet": "{'campaign_overview': {'platform': 'TikTok / Instagram Reels / YouTube Shorts', 'format': '9:16 Vertical Video (1080x192...",
+          "simulated": false
+        },
+        {
+          "tool_id": "canvas",
+          "name": "Video Idea Canvas",
+          "prompt": "Mind-map concept breakdown exploring 'Can AI Think Like a Human?' across philosophy, neuroscience, and LLMs",
+          "duration_seconds": 21.452,
+          "status_code": 200,
+          "passed": true,
+          "has_structured_output": true,
+          "has_poster_preview": true,
+          "output_snippet": "{'summary': '{\\n  \"video_concept\": {\\n    \"title_options\": [\\n      \"Can AI Actually Think? (Neuroscience vs. Philosophy...",
+          "simulated": false
+        },
+        {
+          "tool_id": "ugc",
+          "name": "AI Human Presenter / UGC",
+          "prompt": "Authentic creator monologue review talking to camera: 'This tool saved my channel 15 hours every single week'",
+          "duration_seconds": 20.73,
+          "status_code": 200,
+          "passed": true,
+          "has_structured_output": true,
+          "has_poster_preview": true,
+          "output_snippet": "{'summary': '{\\n  \"content_strategy\": {\\n    \"target_audience\": \"Solo content creators, freelance video editors, and sma...",
+          "simulated": false
+        },
+        {
+          "tool_id": "motion",
+          "name": "Motion Graphics Planner",
+          "prompt": "Kinetic typography and animated statistic callouts explaining the exponential curve of GPU computing power",
+          "duration_seconds": 21.925,
+          "status_code": 200,
+          "passed": true,
+          "has_structured_output": true,
+          "has_poster_preview": true,
+          "output_snippet": "{'summary': '{\\n  \"project_title\": \"The Exponential GPU Supercurve: Kinetic Typography & Data Motion System\",\\n  \"target...",
+          "simulated": false
+        },
+        {
+          "tool_id": "animate",
+          "name": "Video Animation Planner",
+          "prompt": "Morphing transitions from a physical retro camera lens into digital pixels and exploding into an AI galaxy",
+          "duration_seconds": 21.696,
+          "status_code": 200,
+          "passed": true,
+          "has_structured_output": true,
+          "has_poster_preview": true,
+          "output_snippet": "{'summary': '{\\n  \"project_title\": \"Visual Metaphor Transition: Analog Lens to Cosmic Neural Galaxy\",\\n  \"concept_overvi...",
+          "simulated": false
+        },
+        {
+          "tool_id": "mixed",
+          "name": "Style Blender",
+          "prompt": "Blend 1930s rubber-hose black and white animation with modern synthwave neon color palettes and 60fps physics",
+          "duration_seconds": 22.849,
+          "status_code": 200,
+          "passed": true,
+          "has_structured_output": true,
+          "has_poster_preview": true,
+          "output_snippet": "{'summary': '{\\n  \"concept_overview\": {\\n    \"title\": \"Electro-Hose: 1930s Rubber-Hose × Cyber-Synthwave Hybrid\",\\n    \"...",
+          "simulated": false
+        },
+        {
+          "tool_id": "sketch",
+          "name": "Drawing to Video",
+          "prompt": "Storyboard sketch of a tiny seedling growing into a colossal bioluminescent tree spanning the cloud cover",
+          "duration_seconds": 23.948,
+          "status_code": 200,
+          "passed": true,
+          "has_structured_output": true,
+          "has_poster_preview": true,
+          "output_snippet": "{'project_title': 'Chronicle of the World-Root: Seedling to Colossus', 'concept_overview': 'A high-concept visual sequen...",
+          "simulated": false
+        }
+      ]
+    },
+    "agent_workflows": {
+      "total": 6,
+      "passed": 6,
+      "results": [
+        {
+          "agent_name": "trend",
+          "name": "LangGraph Trend Intelligence Agent",
+          "prompt": "Identify unsaturated high-growth content niches in AI automation for YouTube 2026",
+          "duration_seconds": 241.939,
+          "status_code": 200,
+          "passed": true,
+          "workflow_status": "completed",
+          "output_keys": [
+            "niche",
+            "summary",
+            "opportunities",
+            "recommended_action"
+          ]
+        },
+        {
+          "agent_name": "script",
+          "name": "LangGraph Viral Script Agent",
+          "prompt": "Write a retention-optimized 3-minute video on How to Build Your First LangGraph Agent",
+          "duration_seconds": 81.451,
+          "status_code": 200,
+          "passed": true,
+          "workflow_status": "completed",
+          "output_keys": [
+            "title",
+            "viral_score",
+            "hook",
+            "sections",
+            "call_to_action",
+            "full_narration",
+            "estimated_duration_sec",
+            "audio_vibe"
+          ]
+        },
+        {
+          "agent_name": "seo",
+          "name": "LangGraph Algorithmic SEO Agent",
+          "prompt": "Complete metadata optimization for 'Mastering Python for AI Engineers'",
+          "duration_seconds": 80.28,
+          "status_code": 200,
+          "passed": true,
+          "workflow_status": "completed",
+          "output_keys": [
+            "topic",
+            "best_title",
+            "title_variations",
+            "description",
+            "tags",
+            "hashtags",
+            "optimal_publish_time",
+            "audience_category",
+            "seo_score"
+          ]
+        },
+        {
+          "agent_name": "shorts",
+          "name": "LangGraph Shorts & Viral Moment Agent",
+          "prompt": "Extract 3 viral short-form clips with high rewatchability from a 20-minute founder interview",
+          "duration_seconds": 41.476,
+          "status_code": 200,
+          "passed": true,
+          "workflow_status": "completed",
+          "output_keys": [
+            "analysis",
+            "clip_timestamps",
+            "suggested_titles",
+            "overall_viral_score",
+            "editing_recommendations"
+          ]
+        },
+        {
+          "agent_name": "upload",
+          "name": "LangGraph Publishing & Upload Agent",
+          "prompt": "Prepare launch packaging for a premier YouTube tech video on autonomous agents",
+          "duration_seconds": 199.951,
+          "status_code": 200,
+          "passed": true,
+          "workflow_status": "completed",
+          "output_keys": [
+            "raw",
+            "parsed"
+          ]
+        },
+        {
+          "agent_name": "pipeline",
+          "name": "LangGraph End-to-End Autonomous Pipeline",
+          "prompt": "Building High-Profit Micro-SaaS in 2026 with AI",
+          "duration_seconds": 938.602,
+          "status_code": 200,
+          "passed": true,
+          "workflow_status": "completed",
+          "output_keys": [
+            "status",
+            "topic",
+            "trend",
+            "script",
+            "seo",
+            "upload"
+          ]
+        }
+      ]
+    },
+    "dedicated_and_persistence": {
+      "total": 5,
+      "passed": 5,
+      "results": [
+        {
+          "endpoint": "/api/v1/cinematic/generate",
+          "name": "Dedicated Cinematic Generator",
+          "passed": true,
+          "status_code": 200,
+          "duration": 24.381
+        },
+        {
+          "endpoint": "/api/v1/captions/generate (VTT)",
+          "name": "VTT Caption Generator",
+          "passed": true,
+          "status_code": 200,
+          "duration": 0.031
+        },
+        {
+          "endpoint": "/api/v1/captions/generate (SRT)",
+          "name": "SRT Caption Generator",
+          "passed": true,
+          "status_code": 200,
+          "duration": 0.021
+        },
+        {
+          "endpoint": "/api/v1/studio/history",
+          "name": "Studio Generation Persistence & Query",
+          "passed": true,
+          "status_code": 200,
+          "persisted_count": 20
+        },
+        {
+          "endpoint": "/api/v1/agents/",
+          "name": "Agent Lifecycle & History Tracking",
+          "passed": true,
+          "status_code": 200,
+          "agents_tracked": 6
+        }
+      ]
+    }
+  }
+}

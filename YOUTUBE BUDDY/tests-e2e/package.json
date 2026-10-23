@@ -1,0 +1,15 @@
+{
+  "name": "youtube-buddy-e2e",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "make-video": "ffmpeg -loglevel error -y -f lavfi -i testsrc=duration=6:size=640x360:rate=24 -f lavfi -i sine=frequency=440:duration=6 -c:v libx264 -pix_fmt yuv420p -c:a aac -shortest test.mp4",
+    "test:backend": "python verify_backend.py",
+    "test:browser": "node full_suite.mjs",
+    "test:links": "node links.mjs"
+  },
+  "dependencies": {
+    "@sparticuz/chromium": "153.0.0",
+    "playwright-core": "1.64.1"
+  }
+}
