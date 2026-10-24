@@ -98,6 +98,33 @@ async def list_agents(
     }
 
 
+@router.post("/supervise")
+async def supervise_creative_work(
+    payload: dict = Body(default={}),
+    current_user: UserProfile = Depends(get_current_user),
+    session: AsyncSession = Depends(get_session),
+) -> dict:
+    """Run native LangGraph planning. No model workers or publishing are implicit."""
+    from starlette.concurrency import run_in_threadpool
+    from app.ai.graphs.creative_supervisor import run_creative_supervisor
+    user = await require_user(session, current_user)
+    objective = payload.get("objective", "")
+    tasks = payload.get("tasks", ["brief", "storyboard", "generate", "quality", "delivery"])
+    if not isinstance(tasks, list) or not all(isinstance(t, str) for t in tasks):
+        raise HTTPException(status_code=422, detail="Tasks must be a list of supported task names.")
+    try:
+        result = await run_in_threadpool(run_creative_supervisor, objective, tasks)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    except RuntimeError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+    generation = AIGeneration(user_id=user.id, agent_name="creative-supervisor", prompt=objective, output=json.dumps(result), status=result["status"])
+    session.add(generation)
+    await session.commit()
+    await session.refresh(generation)
+    return {"id": generation.id, **result}
+
+
 @router.post("/run", response_model=AIGenerationResponse)
 async def run_agent(
     request: AIGenerationRequest,

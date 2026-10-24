@@ -1889,29 +1889,29 @@
         "id": "c9-001",
         "name": "Media/bin panel",
         "section": "UI requirements",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "Implemented",
+        "evidence": "EditWorkspace provides local media pool, a real source player, inspector, timeline seek/zoom, undo/redo and persisted sequential cuts. Browser tested with a real MP4. It is not a compositing multitrack renderer."
       },
       {
         "id": "c9-002",
         "name": "Preview monitor",
         "section": "UI requirements",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "Implemented",
+        "evidence": "EditWorkspace provides local media pool, a real source player, inspector, timeline seek/zoom, undo/redo and persisted sequential cuts. Browser tested with a real MP4. It is not a compositing multitrack renderer."
       },
       {
         "id": "c9-003",
         "name": "Multitrack timeline",
         "section": "UI requirements",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "In Development",
+        "evidence": "Sequential source cuts can be trimmed, split, removed and rearranged. JSON edit decisions can be exported. Multiple composited tracks and full rendered sequence export are not implemented."
       },
       {
         "id": "c9-004",
         "name": "Inspector panel",
         "section": "UI requirements",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "Implemented",
+        "evidence": "EditWorkspace provides local media pool, a real source player, inspector, timeline seek/zoom, undo/redo and persisted sequential cuts. Browser tested with a real MP4. It is not a compositing multitrack renderer."
       },
       {
         "id": "c9-005",
@@ -1924,15 +1924,15 @@
         "id": "c9-006",
         "name": "Tool selection",
         "section": "UI requirements",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "Implemented",
+        "evidence": "EditWorkspace provides local media pool, a real source player, inspector, timeline seek/zoom, undo/redo and persisted sequential cuts. Browser tested with a real MP4. It is not a compositing multitrack renderer."
       },
       {
         "id": "c9-007",
         "name": "Timeline zoom and navigation",
         "section": "UI requirements",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "Implemented",
+        "evidence": "EditWorkspace provides local media pool, a real source player, inspector, timeline seek/zoom, undo/redo and persisted sequential cuts. Browser tested with a real MP4. It is not a compositing multitrack renderer."
       },
       {
         "id": "c9-008",
@@ -1945,8 +1945,8 @@
         "id": "c9-009",
         "name": "Export controls",
         "section": "UI requirements",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "In Development",
+        "evidence": "Sequential source cuts can be trimmed, split, removed and rearranged. JSON edit decisions can be exported. Multiple composited tracks and full rendered sequence export are not implemented."
       },
       {
         "id": "c9-010",
@@ -1959,22 +1959,22 @@
         "id": "c9-011",
         "name": "Import and organize media",
         "section": "Core features",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "Implemented",
+        "evidence": "EditWorkspace provides local media pool, a real source player, inspector, timeline seek/zoom, undo/redo and persisted sequential cuts. Browser tested with a real MP4. It is not a compositing multitrack renderer."
       },
       {
         "id": "c9-012",
         "name": "Split, trim, merge and rearrange clips",
         "section": "Core features",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "In Development",
+        "evidence": "Sequential source cuts can be trimmed, split, removed and rearranged. JSON edit decisions can be exported. Multiple composited tracks and full rendered sequence export are not implemented."
       },
       {
         "id": "c9-013",
         "name": "Multiple video and audio tracks",
         "section": "Core features",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "In Development",
+        "evidence": "Sequential source cuts can be trimmed, split, removed and rearranged. JSON edit decisions can be exported. Multiple composited tracks and full rendered sequence export are not implemented."
       },
       {
         "id": "c9-014",
@@ -2001,29 +2001,29 @@
         "id": "c9-017",
         "name": "Undo and redo",
         "section": "Core features",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "Implemented",
+        "evidence": "EditWorkspace provides local media pool, a real source player, inspector, timeline seek/zoom, undo/redo and persisted sequential cuts. Browser tested with a real MP4. It is not a compositing multitrack renderer."
       },
       {
         "id": "c9-018",
         "name": "Playback controls",
         "section": "Core features",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "Implemented",
+        "evidence": "EditWorkspace provides local media pool, a real source player, inspector, timeline seek/zoom, undo/redo and persisted sequential cuts. Browser tested with a real MP4. It is not a compositing multitrack renderer."
       },
       {
         "id": "c9-019",
         "name": "Project persistence",
         "section": "Core features",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "Implemented",
+        "evidence": "EditWorkspace provides local media pool, a real source player, inspector, timeline seek/zoom, undo/redo and persisted sequential cuts. Browser tested with a real MP4. It is not a compositing multitrack renderer."
       },
       {
         "id": "c9-020",
         "name": "Standard export workflows",
         "section": "Core features",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "In Development",
+        "evidence": "Sequential source cuts can be trimmed, split, removed and rearranged. JSON edit decisions can be exported. Multiple composited tracks and full rendered sequence export are not implemented."
       },
       {
         "id": "c9-021",
@@ -2879,8 +2879,8 @@
         "id": "c13-002",
         "name": "Layers",
         "section": "UI requirements",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "Implemented",
+        "evidence": "DesignWorkspace supports editable text/rectangle/image layers, position/size/color controls, local image assets, thumbnail/square/vertical sizes, and raster PNG rendering saved to Assets. No advanced vector or template engine."
       },
       {
         "id": "c13-003",
@@ -2908,42 +2908,42 @@
         "name": "Typography panel",
         "section": "UI requirements",
         "status": "Implemented",
-        "evidence": "Connected in /studios/design/. Browser-local operation; see CATEGORY-GAP-REPORT.md for scope and verification. Source: src/components/studios/ and src/lib/studio/."
+        "evidence": "DesignWorkspace supports editable text/rectangle/image layers, position/size/color controls, local image assets, thumbnail/square/vertical sizes, and raster PNG rendering saved to Assets. No advanced vector or template engine."
       },
       {
         "id": "c13-007",
         "name": "Color picker",
         "section": "UI requirements",
         "status": "Implemented",
-        "evidence": "Connected in /studios/design/. Browser-local operation; see CATEGORY-GAP-REPORT.md for scope and verification. Source: src/components/studios/ and src/lib/studio/."
+        "evidence": "DesignWorkspace supports editable text/rectangle/image layers, position/size/color controls, local image assets, thumbnail/square/vertical sizes, and raster PNG rendering saved to Assets. No advanced vector or template engine."
       },
       {
         "id": "c13-008",
         "name": "Shape and icon library",
         "section": "UI requirements",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "In Development",
+        "evidence": "Text, rectangles, uploaded images and PNG export are available. A full icon library, additional export formats and arbitrary size presets remain planned."
       },
       {
         "id": "c13-009",
         "name": "Asset library",
         "section": "UI requirements",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "Implemented",
+        "evidence": "DesignWorkspace supports editable text/rectangle/image layers, position/size/color controls, local image assets, thumbnail/square/vertical sizes, and raster PNG rendering saved to Assets. No advanced vector or template engine."
       },
       {
         "id": "c13-010",
         "name": "Export panel",
         "section": "UI requirements",
         "status": "Implemented",
-        "evidence": "Connected in /studios/design/. Browser-local operation; see CATEGORY-GAP-REPORT.md for scope and verification. Source: src/components/studios/ and src/lib/studio/."
+        "evidence": "DesignWorkspace supports editable text/rectangle/image layers, position/size/color controls, local image assets, thumbnail/square/vertical sizes, and raster PNG rendering saved to Assets. No advanced vector or template engine."
       },
       {
         "id": "c13-011",
         "name": "Thumbnails",
         "section": "Core features",
         "status": "Implemented",
-        "evidence": "Connected in /studios/design/. Browser-local operation; see CATEGORY-GAP-REPORT.md for scope and verification. Source: src/components/studios/ and src/lib/studio/."
+        "evidence": "DesignWorkspace supports editable text/rectangle/image layers, position/size/color controls, local image assets, thumbnail/square/vertical sizes, and raster PNG rendering saved to Assets. No advanced vector or template engine."
       },
       {
         "id": "c13-012",
@@ -2957,7 +2957,7 @@
         "name": "Social media graphics",
         "section": "Core features",
         "status": "Implemented",
-        "evidence": "Connected in /studios/design/. Browser-local operation; see CATEGORY-GAP-REPORT.md for scope and verification. Source: src/components/studios/ and src/lib/studio/."
+        "evidence": "DesignWorkspace supports editable text/rectangle/image layers, position/size/color controls, local image assets, thumbnail/square/vertical sizes, and raster PNG rendering saved to Assets. No advanced vector or template engine."
       },
       {
         "id": "c13-014",
@@ -2991,8 +2991,8 @@
         "id": "c13-018",
         "name": "Text, shapes and icons",
         "section": "Core features",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "In Development",
+        "evidence": "Text, rectangles, uploaded images and PNG export are available. A full icon library, additional export formats and arbitrary size presets remain planned."
       },
       {
         "id": "c13-019",
@@ -3075,8 +3075,8 @@
         "id": "c13-030",
         "name": "Multiple export sizes and formats",
         "section": "Advanced features",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "In Development",
+        "evidence": "Text, rectangles, uploaded images and PNG export are available. A full icon library, additional export formats and arbitrary size presets remain planned."
       }
     ]
   },

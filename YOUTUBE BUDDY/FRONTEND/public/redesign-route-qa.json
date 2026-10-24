@@ -1,0 +1,162 @@
+[
+  {
+    "route": "/studio/create/",
+    "url": "http://terminal.local:4173/studio/create/",
+    "blocked": true
+  },
+  {
+    "route": "/studio/cinematic/",
+    "url": "http://terminal.local:4173/studio/cinematic/",
+    "blocked": true
+  },
+  {
+    "route": "/studio/canvas/",
+    "url": "http://terminal.local:4173/studio/canvas/",
+    "blocked": true
+  },
+  {
+    "route": "/studio/mixed/",
+    "url": "http://terminal.local:4173/studio/mixed/",
+    "blocked": true
+  },
+  {
+    "route": "/studio/edit/",
+    "url": "http://terminal.local:4173/studio/edit/",
+    "blocked": true
+  },
+  {
+    "route": "/studio/ads/",
+    "url": "http://terminal.local:4173/studio/ads/",
+    "blocked": true
+  },
+  {
+    "route": "/studio/trends/",
+    "url": "http://terminal.local:4173/studio/trends/",
+    "blocked": true
+  },
+  {
+    "route": "/studio/lipsync/",
+    "url": "http://terminal.local:4173/studio/lipsync/",
+    "blocked": true
+  },
+  {
+    "route": "/studio/draw/",
+    "url": "http://terminal.local:4173/studio/draw/",
+    "blocked": true
+  },
+  {
+    "route": "/studio/sketch/",
+    "url": "http://terminal.local:4173/studio/sketch/",
+    "blocked": true
+  },
+  {
+    "route": "/studio/ugc/",
+    "url": "http://terminal.local:4173/studio/ugc/",
+    "blocked": true
+  },
+  {
+    "route": "/studio/upscale/",
+    "url": "http://terminal.local:4173/studio/upscale/",
+    "blocked": true
+  },
+  {
+    "route": "/studio/animate/",
+    "url": "http://terminal.local:4173/studio/animate/",
+    "blocked": true
+  },
+  {
+    "route": "/studio/motion/",
+    "url": "http://terminal.local:4173/studio/motion/",
+    "blocked": true
+  },
+  {
+    "route": "/studio/recast/",
+    "url": "http://terminal.local:4173/studio/recast/",
+    "blocked": true
+  },
+  {
+    "route": "/image/cineshot/",
+    "url": "http://terminal.local:4173/image/cineshot/",
+    "blocked": true
+  },
+  {
+    "route": "/image/moodboard/",
+    "url": "http://terminal.local:4173/image/moodboard/",
+    "blocked": true
+  },
+  {
+    "route": "/image/character/",
+    "url": "http://terminal.local:4173/image/character/",
+    "blocked": true
+  },
+  {
+    "route": "/image/persona/",
+    "url": "http://terminal.local:4173/image/persona/",
+    "blocked": true
+  },
+  {
+    "route": "/image/aesthetic/",
+    "url": "http://terminal.local:4173/image/aesthetic/",
+    "blocked": true
+  },
+  {
+    "route": "/image/relight/",
+    "url": "http://terminal.local:4173/image/relight/",
+    "blocked": true
+  },
+  {
+    "route": "/image/inpaint/",
+    "url": "http://terminal.local:4173/image/inpaint/",
+    "blocked": true
+  },
+  {
+    "route": "/image/faceswap/",
+    "url": "http://terminal.local:4173/image/faceswap/",
+    "blocked": true
+  },
+  {
+    "route": "/image/charswap/",
+    "url": "http://terminal.local:4173/image/charswap/",
+    "blocked": true
+  },
+  {
+    "route": "/image/fashion/",
+    "url": "http://terminal.local:4173/image/fashion/",
+    "blocked": true
+  },
+  {
+    "route": "/audio/voiceover/",
+    "url": "http://terminal.local:4173/audio/voiceover/",
+    "blocked": true
+  },
+  {
+    "route": "/audio/changevoice/",
+    "url": "http://terminal.local:4173/audio/changevoice/",
+    "blocked": true
+  },
+  {
+    "route": "/audio/translation/",
+    "url": "http://terminal.local:4173/audio/translation/",
+    "blocked": true
+  },
+  {
+    "route": "/image/create/",
+    "url": "http://terminal.local:4173/image/create/",
+    "blocked": true
+  },
+  {
+    "route": "/image/draw/",
+    "url": "http://terminal.local:4173/image/draw/",
+    "blocked": true
+  },
+  {
+    "route": "/image/upscale/",
+    "url": "http://terminal.local:4173/image/upscale/",
+    "blocked": true
+  },
+  {
+    "route": "/studio/shorts/",
+    "url": "http://terminal.local:4173/studio/shorts/",
+    "blocked": true
+  }
+]
