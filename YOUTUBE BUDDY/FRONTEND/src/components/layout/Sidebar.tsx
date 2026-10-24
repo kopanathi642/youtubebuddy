@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import categoryRegistry from '@/lib/studio/categories.json';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import {
@@ -54,7 +55,7 @@ type SidebarSection = {
   items: SidebarItem[];
 };
 
-const navSections: SidebarSection[] = [
+export const navSections: SidebarSection[] = [
   {
     label: 'Main',
     items: [
@@ -64,6 +65,10 @@ const navSections: SidebarSection[] = [
       { label: 'Explore', href: '/explore', icon: Globe },
       { label: 'My Videos', href: '/dashboard/videos', icon: Video },
     ],
+  },
+  {
+    label: 'All 30 categories',
+    items: categoryRegistry.map(category=>({label:category.name,href:'/studios/'+category.slug,icon:Sparkles})),
   },
   {
     label: 'Images',
