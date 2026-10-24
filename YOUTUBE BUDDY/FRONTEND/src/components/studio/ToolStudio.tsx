@@ -2,7 +2,8 @@
 import { ChangeEvent, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Sidebar } from '@/components/layout/Sidebar';
-import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
+import {ProcessingAccess} from '@/components/auth/ProcessingAccess';
+import {backend,requireProcessingServer} from '@/lib/studio/runtime';
 import {
   Play, Pause, Download, RotateCcw, Clock, Sparkles, Loader2, Image as ImageIcon,
   Video, Mic, Wand2, Upload, AlignLeft, Settings2, SlidersHorizontal,
@@ -120,6 +121,7 @@ export function ToolStudio({ toolId, category }: { toolId: string; category: Too
 
     setUploadingFile(true);
     try {
+      requireProcessingServer();
       const formData = new FormData();
       formData.append('file', file);
       const response = await api.videos.upload(formData, () => undefined);
@@ -138,7 +140,9 @@ export function ToolStudio({ toolId, category }: { toolId: string; category: Too
   };
 
   const handleGenerate = async () => {
-    const effectivePrompt = prompt.trim();
+    if(!backend.available){toast.error(backend.reason);return;}
+    if(config.requiresUpload&&!uploadId){toast.error('Upload a source file before requesting this operation.');return;}
+    const effectivePrompt = prompt.trim()||(!config.requiresPrompt?`Apply ${config.name} to the supplied source file.`:'');
     if (!effectivePrompt) { toast.error('Describe the result you want first.'); return; }
 
     setGenerating(true);
@@ -172,11 +176,7 @@ export function ToolStudio({ toolId, category }: { toolId: string; category: Too
         createdAt: 'Just now',
       };
       setHistory([newEntry, ...history]);
-      if (response.data?.simulated) {
-        toast('Demo output — AI provider queue busy. Showing simulated layout card.', { icon: 'ℹ️', duration: 5000 });
-      } else {
-        toast.success('Generated successfully!');
-      }
+      toast.success('Provider returned an output. Review it before use.');
     } catch (error: unknown) {
       toast.error(getErrorMessage(error, 'Generation failed.'));
     } finally {
@@ -207,7 +207,7 @@ export function ToolStudio({ toolId, category }: { toolId: string; category: Too
   const Icon = isVideo ? Video : isImage ? ImageIcon : Mic;
 
   return (
-    <ProtectedRoute>
+    <ProcessingAccess>
       <div className="flex h-screen bg-bg-primary overflow-hidden">
         <Sidebar />
         <main className="flex-1 overflow-y-auto scrollbar-thin">
@@ -399,11 +399,12 @@ export function ToolStudio({ toolId, category }: { toolId: string; category: Too
                   fullWidth
                   size="lg"
                   loading={generating}
+                  disabled={!backend.available}
                   onClick={handleGenerate}
                   className={isVideo ? '!bg-neon-cyan !text-black hover:!bg-neon-cyan/90' : isImage ? '!bg-neon-lime !text-black hover:!bg-neon-lime/90' : '!bg-neon-purple !text-white hover:!bg-neon-purple/90'}
                   leftIcon={<Wand2 className="w-5 h-5" />}
                 >
-                  Generate Now
+                  {backend.available?'Generate Now':'Processing server setup required'}
                 </Button>
               </div>
 
@@ -715,6 +716,6 @@ export function ToolStudio({ toolId, category }: { toolId: string; category: Too
           </div>
         </main>
       </div>
-    </ProtectedRoute>
+    </ProcessingAccess>
   );
 }

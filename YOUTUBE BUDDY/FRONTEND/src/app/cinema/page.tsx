@@ -1,9 +1,9 @@
 'use client';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Film, Camera, Layers, Wand2, Zap } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
 
 const features = [
   { label: 'Scene Director', desc: 'AI-driven cinematic storytelling and direction', icon: Film },
@@ -28,7 +28,7 @@ export default function CinemaPage() {
           <p className="text-lg text-white/50 max-w-2xl mx-auto mb-8">
             Direct, shoot and produce cinematic content with AI — no camera crew required.
           </p>
-          <Button variant="primary" size="lg" leftIcon={<Zap className="w-5 h-5" />}>Start Directing</Button>
+          <Link href="/studios/story/" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-lime-300 text-black font-semibold"><Zap className="w-5 h-5"/>Start Directing</Link>
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-4xl mx-auto">
           {features.map((f, i) => {

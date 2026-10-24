@@ -1,8 +1,9 @@
 import axios, { AxiosInstance, AxiosError, InternalAxiosRequestConfig } from 'axios';
 import { auth } from './firebase';
+import {backend,requireProcessingServer} from './studio/runtime';
 
 // ── API Client Configuration ──────────────────────────────────────────────
-const API_URL = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8000');
+const API_URL = backend.url;
 const API_VERSION = process.env.NEXT_PUBLIC_API_VERSION || 'v1';
 
 const apiClient: AxiosInstance = axios.create({
@@ -34,6 +35,7 @@ async function resolveAuthToken(): Promise<string | null> {
 // ── Request Interceptor — Attach auth token ──────────────────────────────
 apiClient.interceptors.request.use(
   async (config: InternalAxiosRequestConfig) => {
+    requireProcessingServer();
     const token = await resolveAuthToken();
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
@@ -65,6 +67,7 @@ apiClient.interceptors.response.use(
 export const createUploadClient = (
   onUploadProgress: (progress: number) => void
 ): AxiosInstance => {
+  requireProcessingServer();
   const uploadClient = axios.create({
     baseURL: `${API_URL}/api/${API_VERSION}`,
     timeout: 300000, // 5 min for large uploads

@@ -3855,21 +3855,21 @@
     "workspace": "youtube",
     "purpose": "Build the connected YouTube intelligence system discussed throughout the project.",
     "acceptance": "The dashboard shows only real, permitted data. Every report identifies its data period and freshness. No fabricated analytics are allowed.",
-    "status": "Blocked",
+    "status": "In Development",
     "features": [
       {
         "id": "c18-001",
         "name": "Google account connection status",
         "section": "UI requirements",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "Blocked",
+        "evidence": "Read-only Google integration code is implemented. Owner OAuth client configuration and a real account consent/API test are required. No private channel data has been read."
       },
       {
         "id": "c18-002",
         "name": "Separate YouTube channel authorization",
         "section": "UI requirements",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "Blocked",
+        "evidence": "Read-only Google integration code is implemented. Owner OAuth client configuration and a real account consent/API test are required. No private channel data has been read."
       },
       {
         "id": "c18-003",
@@ -3882,8 +3882,8 @@
         "id": "c18-004",
         "name": "Channel overview",
         "section": "UI requirements",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "Implemented",
+        "evidence": "ChannelWorkspace supports validated imported daily reports, metric coverage, seven-day comparisons, Markdown export and on-demand local threshold checks. No live OAuth or unattended monitoring verified."
       },
       {
         "id": "c18-005",
@@ -3896,64 +3896,64 @@
         "id": "c18-006",
         "name": "Performance charts",
         "section": "UI requirements",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "Implemented",
+        "evidence": "ChannelWorkspace supports validated imported daily reports, metric coverage, seven-day comparisons, Markdown export and on-demand local threshold checks. No live OAuth or unattended monitoring verified."
       },
       {
         "id": "c18-007",
         "name": "Historical comparisons",
         "section": "UI requirements",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "Implemented",
+        "evidence": "ChannelWorkspace supports validated imported daily reports, metric coverage, seven-day comparisons, Markdown export and on-demand local threshold checks. No live OAuth or unattended monitoring verified."
       },
       {
         "id": "c18-008",
         "name": "Report generator",
         "section": "UI requirements",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "Implemented",
+        "evidence": "ChannelWorkspace supports validated imported daily reports, metric coverage, seven-day comparisons, Markdown export and on-demand local threshold checks. No live OAuth or unattended monitoring verified."
       },
       {
         "id": "c18-009",
         "name": "Last-sync indicator",
         "section": "UI requirements",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "Implemented",
+        "evidence": "ChannelWorkspace supports validated imported daily reports, metric coverage, seven-day comparisons, Markdown export and on-demand local threshold checks. No live OAuth or unattended monitoring verified."
       },
       {
         "id": "c18-010",
         "name": "Monitoring and alert settings",
         "section": "UI requirements",
-        "status": "Planned",
-        "evidence": "No verified implementation mapped to this requirement yet."
+        "status": "Implemented",
+        "evidence": "ChannelWorkspace supports validated imported daily reports, metric coverage, seven-day comparisons, Markdown export and on-demand local threshold checks. No live OAuth or unattended monitoring verified."
       },
       {
         "id": "c18-011",
         "name": "Secure Google OAuth authentication",
         "section": "Core features",
         "status": "Blocked",
-        "evidence": "No verified production model / GPU worker or separately authorized YouTube backend is connected to this hosted release. Provider/OAuth code alone is not a live integration."
+        "evidence": "Read-only Google integration code is implemented. Owner OAuth client configuration and a real account consent/API test are required. No private channel data has been read."
       },
       {
         "id": "c18-012",
         "name": "Separate channel permissions",
         "section": "Core features",
         "status": "Blocked",
-        "evidence": "No verified production model / GPU worker or separately authorized YouTube backend is connected to this hosted release. Provider/OAuth code alone is not a live integration."
+        "evidence": "Read-only Google integration code is implemented. Owner OAuth client configuration and a real account consent/API test are required. No private channel data has been read."
       },
       {
         "id": "c18-013",
         "name": "Authorized channel metadata",
         "section": "Core features",
         "status": "Blocked",
-        "evidence": "No verified production model / GPU worker or separately authorized YouTube backend is connected to this hosted release. Provider/OAuth code alone is not a live integration."
+        "evidence": "Read-only Google integration code is implemented. Owner OAuth client configuration and a real account consent/API test are required. No private channel data has been read."
       },
       {
         "id": "c18-014",
         "name": "Subscriber, view and upload information where available",
         "section": "Core features",
         "status": "Blocked",
-        "evidence": "No verified production model / GPU worker or separately authorized YouTube backend is connected to this hosted release. Provider/OAuth code alone is not a live integration."
+        "evidence": "Read-only Google integration code is implemented. Owner OAuth client configuration and a real account consent/API test are required. No private channel data has been read."
       },
       {
         "id": "c18-015",
@@ -3967,14 +3967,14 @@
         "name": "Views and watch-time analysis where permitted",
         "section": "Core features",
         "status": "Blocked",
-        "evidence": "No verified production model / GPU worker or separately authorized YouTube backend is connected to this hosted release. Provider/OAuth code alone is not a live integration."
+        "evidence": "Read-only Google integration code is implemented. Owner OAuth client configuration and a real account consent/API test are required. No private channel data has been read."
       },
       {
         "id": "c18-017",
         "name": "Available engagement metrics",
         "section": "Core features",
         "status": "Blocked",
-        "evidence": "No verified production model / GPU worker or separately authorized YouTube backend is connected to this hosted release. Provider/OAuth code alone is not a live integration."
+        "evidence": "Read-only Google integration code is implemented. Owner OAuth client configuration and a real account consent/API test are required. No private channel data has been read."
       },
       {
         "id": "c18-018",
@@ -4008,8 +4008,8 @@
         "id": "c18-022",
         "name": "Exportable summaries",
         "section": "Core features",
-        "status": "Blocked",
-        "evidence": "No verified production model / GPU worker or separately authorized YouTube backend is connected to this hosted release. Provider/OAuth code alone is not a live integration."
+        "status": "Implemented",
+        "evidence": "ChannelWorkspace supports validated imported daily reports, metric coverage, seven-day comparisons, Markdown export and on-demand local threshold checks. No live OAuth or unattended monitoring verified."
       },
       {
         "id": "c18-023",
@@ -4036,8 +4036,8 @@
         "id": "c18-026",
         "name": "Threshold alerts",
         "section": "Advanced features",
-        "status": "Blocked",
-        "evidence": "No verified production model / GPU worker or separately authorized YouTube backend is connected to this hosted release. Provider/OAuth code alone is not a live integration."
+        "status": "Implemented",
+        "evidence": "ChannelWorkspace supports validated imported daily reports, metric coverage, seven-day comparisons, Markdown export and on-demand local threshold checks. No live OAuth or unattended monitoring verified."
       },
       {
         "id": "c18-027",
@@ -4050,22 +4050,22 @@
         "id": "c18-028",
         "name": "Report explanations grounded in actual metrics",
         "section": "Advanced features",
-        "status": "Blocked",
-        "evidence": "No verified production model / GPU worker or separately authorized YouTube backend is connected to this hosted release. Provider/OAuth code alone is not a live integration."
+        "status": "Implemented",
+        "evidence": "ChannelWorkspace supports validated imported daily reports, metric coverage, seven-day comparisons, Markdown export and on-demand local threshold checks. No live OAuth or unattended monitoring verified."
       },
       {
         "id": "c18-029",
         "name": "Missing-data warnings",
         "section": "Advanced features",
-        "status": "Blocked",
-        "evidence": "No verified production model / GPU worker or separately authorized YouTube backend is connected to this hosted release. Provider/OAuth code alone is not a live integration."
+        "status": "Implemented",
+        "evidence": "ChannelWorkspace supports validated imported daily reports, metric coverage, seven-day comparisons, Markdown export and on-demand local threshold checks. No live OAuth or unattended monitoring verified."
       },
       {
         "id": "c18-030",
         "name": "API quota and connection status",
         "section": "Advanced features",
         "status": "Blocked",
-        "evidence": "No verified production model / GPU worker or separately authorized YouTube backend is connected to this hosted release. Provider/OAuth code alone is not a live integration."
+        "evidence": "Read-only Google integration code is implemented. Owner OAuth client configuration and a real account consent/API test are required. No private channel data has been read."
       }
     ]
   },
