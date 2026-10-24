@@ -1,4 +1,5 @@
 import { initializeApp, getApps } from 'firebase/app';
+import {authErrorMessage} from '@/lib/studio/auth-errors';
 import {
   getAuth,
   signInWithPopup,
@@ -121,7 +122,7 @@ if (typeof window !== 'undefined') {
 
 const getAuthError = async (response: Response) => {
   const data = await response.json().catch(() => null);
-  return data?.detail || data?.message || 'Authentication failed';
+  return authErrorMessage(response.status,data);
 };
 
 type FirebaseAuthError = {
@@ -390,7 +391,10 @@ export const refreshYouTubeToken = async (): Promise<string | null> => {
 
 // ── Email Auth ──────────────────────────────────────────────────────────────
 
+export const isAccountApiConfigured = process.env.NODE_ENV !== 'production' || Boolean(process.env.NEXT_PUBLIC_API_URL);
+
 export const signInWithEmail = async (email: string, password: string) => {
+  if (!isAccountApiConfigured) throw new Error(authErrorMessage(404,null));
   const response = await fetch(`${API_URL}/api/v1/auth/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
