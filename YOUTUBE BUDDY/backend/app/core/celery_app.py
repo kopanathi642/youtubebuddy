@@ -11,6 +11,7 @@ celery_app = Celery(
     "youtube_buddy",
     broker=settings.CELERY_BROKER_URL,
     backend=settings.CELERY_RESULT_BACKEND,
+    include=["app.workers.celery_tasks", "app.workers.tool_tasks"],
 )
 
 celery_app.conf.update(

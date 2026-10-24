@@ -172,13 +172,7 @@ def get_public_url(file_path: str) -> str:
         from app.core.firebase import get_firebase_download_url
         return get_firebase_download_url(file_path)
 
-    # Local — return path relative to backend for API serving
-    path = Path(file_path)
-    if settings.UPLOAD_DIR in str(path):
-        return f"{settings.BACKEND_HOST}/uploads/{path.name}"
-    if settings.RENDER_DIR in str(path):
-        return f"{settings.BACKEND_HOST}/rendered/{path.name}"
-    return f"{settings.BACKEND_HOST}/files/{path.name}"
+    raise RuntimeError("Unscoped local media URLs are disabled. Request an owner-authorized media grant.")
 
 
 def delete_file(file_path: str) -> bool:

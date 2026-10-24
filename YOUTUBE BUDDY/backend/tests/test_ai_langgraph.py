@@ -43,76 +43,40 @@ def test_parse_json_from_llm():
     assert parsed.get("count") == 3
 
 
-def test_active_providers_telemetry():
-    """Verify provider availability tracking does not leak secrets."""
-    providers = get_active_providers()
-    assert "gemini" in providers
-    assert "groq" in providers
-    assert "openrouter" in providers
-    assert "offline_synthesizer" in providers
-    assert providers["offline_synthesizer"] is True
+from app.ai.providers.errors import ProviderUnavailable
 
+@pytest.fixture
+def engines_offline(monkeypatch):
+    from app.ai.providers import ai_dispatcher
+    from app.core.config import settings
+    monkeypatch.setattr(ai_dispatcher, 'is_ollama_online', lambda: False)
+    monkeypatch.setattr(settings, 'ALLOW_REMOTE_INFERENCE', False)
+    monkeypatch.setattr(settings, 'LOCAL_IMAGE_MODEL_PATH', None)
 
-def test_ai_dispatcher_fallback_cascade():
-    """Verify AI dispatcher generates valid output without throwing when keys are unset."""
-    text = generate_ai_text("Generate 3 viral video titles for tech review", json_mode=True)
-    assert len(text) > 0
-    parsed = parse_json_from_llm(text)
-    assert isinstance(parsed, dict)
+def test_active_providers_telemetry(engines_offline):
+    providers=get_active_providers()
+    assert providers['offline_synthesizer'] is False
+    assert providers['ollama_local'] is False
+    assert not any(providers.values())
 
+@pytest.mark.parametrize('run,args',[
+    (generate_ai_text,('Generate titles',)),
+    (run_trend_agent,('Video tools',)),
+    (run_script_agent,('A tutorial',)),
+    (run_seo_agent,('Creator workflow',)),
+    (run_shorts_agent,('A supplied transcript',)),
+    (run_upload_agent,('Editing guide',)),
+    (run_full_pipeline,('Production planning',)),
+])
+def test_agents_fail_honestly_without_an_engine(engines_offline,run,args):
+    with pytest.raises(ProviderUnavailable):run(*args)
 
-def test_trend_agent_graph():
-    """Verify Trend agent returns structured opportunities via LangGraph."""
-    report = run_trend_agent("AI Video Tools")
-    assert "niche" in report or "summary" in report or "opportunities" in report
+def test_procedural_poster_is_not_returned_as_generated_media():
+    with pytest.raises(RuntimeError):generate_fallback_image('A scene')
 
+def test_whisper_unavailable_is_not_a_transcript():
+    with pytest.raises(ProviderUnavailable):_get_fallback_transcription()
 
-def test_script_agent_graph():
-    """Verify Script agent returns hook and sections via LangGraph."""
-    script = run_script_agent("Top 5 AI Tools")
-    assert "hook" in script or "title" in script
-
-
-def test_seo_agent_graph():
-    """Verify SEO agent returns titles and description via LangGraph."""
-    seo = run_seo_agent("YouTube Growth Strategies")
-    assert "topic" in seo
-    assert "optimal_publish_time" in seo
-
-
-def test_shorts_agent_graph():
-    """Verify Shorts agent detects viral moments via LangGraph."""
-    analysis = run_shorts_agent("Here is why your shorts get zero views.")
-    assert "clip_timestamps" in analysis or "suggested_titles" in analysis
-
-
-def test_upload_agent_graph():
-    """Verify Upload agent generates metadata and thumbnail concept via LangGraph."""
-    result = run_upload_agent("How to edit fast in Premiere Pro")
-    assert "parsed" in result
-
-
-def test_studio_tool_graph_image_fallback():
-    """Verify Studio Graph generates visual card for image tools."""
-    card = generate_fallback_image("Cyberpunk cinematic street at night", aspect_ratio="16:9")
-    assert card.startswith("data:image/png;base64,")
-
-
-def test_whisper_transcription_and_srt():
-    """Verify whisper fallback segments format into valid SRT."""
-    transcription = _get_fallback_transcription()
-    assert "text" in transcription
-    segments = extract_timestamps(transcription)
-    assert len(segments) > 0
-    srt = generate_srt_from_segments(segments)
-    assert "-->" in srt
-
-
-def test_full_pipeline_multi_agent():
-    """Verify multi-agent chain executes all 4 agents."""
-    pipeline = run_full_pipeline("Productivity Hacks For Solopreneurs")
-    assert pipeline.get("status") == "completed"
-    assert "trend" in pipeline
-    assert "script" in pipeline
-    assert "seo" in pipeline
-    assert "upload" in pipeline
+def test_caption_serializer_with_explicit_test_fixture():
+    segments=[{'start':0.0,'end':1.5,'text':'Synthetic serializer fixture.'}]
+    assert '-->' in generate_srt_from_segments(segments)

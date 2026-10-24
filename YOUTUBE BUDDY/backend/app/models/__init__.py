@@ -21,3 +21,4 @@ __all__ = [
     "Subscription",
     "ApiKey",
 ]
+from app.models.tool_job import ToolJob as ToolJob

@@ -10,6 +10,7 @@ from app.core.config import settings
 from app.models.render_job import RenderJob
 from app.schemas.user import UserProfile
 from app.services.ownership import require_user
+from app.services.media_access import signed_media_url
 
 router = APIRouter()
 
@@ -20,9 +21,9 @@ def _job_payload(job: RenderJob) -> dict:
         "upload_id": job.upload_id,
         "type": job.job_type,
         "status": job.status,
-        "progress": job.progress,
+        "progress": 100 if job.status=="completed" else None,
         "result_url": (
-            f"{settings.BACKEND_HOST.rstrip('/')}/rendered/{Path(job.result_path).name}"
+            signed_media_url("rendered", Path(job.result_path).name, job.user_id)
             if job.result_path
             else None
         ),

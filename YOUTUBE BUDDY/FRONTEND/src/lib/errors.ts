@@ -9,6 +9,7 @@ export function getErrorMessage(error: unknown, fallback = 'Something went wrong
   if (isAxiosError(error)) {
     const detail = error.response?.data?.detail;
     if (typeof detail === 'string' && detail) return detail;
+    if (detail && typeof detail === 'object' && typeof detail.message === 'string') return detail.message;
     if (Array.isArray(detail) && detail.length > 0) {
       const first = detail[0];
       if (first && typeof first.msg === 'string') return first.msg;

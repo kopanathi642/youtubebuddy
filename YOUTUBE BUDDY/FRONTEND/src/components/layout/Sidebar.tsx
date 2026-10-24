@@ -58,6 +58,7 @@ const navSections: SidebarSection[] = [
   {
     label: 'Main',
     items: [
+      { label: 'Creative studio', href: '/create', icon: Sparkles, badge: 'NEW' },
       { label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
       { label: 'Explore', href: '/explore', icon: Globe },
       { label: 'My Videos', href: '/dashboard/videos', icon: Video },
@@ -172,7 +173,7 @@ export function Sidebar() {
             exit={{ opacity: 0 }}
             className="font-display font-bold text-base tracking-tight whitespace-nowrap"
           >
-            kumar<span className="text-neon-lime"> project</span>
+            Buddy<span className="text-neon-lime"> X</span>
           </motion.span>
         )}
       </div>
@@ -253,10 +254,10 @@ export function Sidebar() {
             {!collapsed && (
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-medium text-white truncate">
-                  {profile?.displayName || user?.email?.split('@')[0] || 'User'}
+                  {profile?.displayName || user?.email?.split('@')[0] || 'Local workspace'}
                 </p>
                 <p className="text-xs text-white/35 truncate capitalize">
-                  {profile?.plan || 'Free'} plan
+                  {user ? (profile?.plan || 'free') + ' plan' : 'No account connected'}
                 </p>
               </div>
             )}

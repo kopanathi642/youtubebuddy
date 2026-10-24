@@ -21,10 +21,10 @@ const HeroScene = dynamic(() => import('@/components/three/HeroScene').then(m =>
 });
 
 const liveCapabilities = [
-  { icon: Database, label: 'Real uploads' },
-  { icon: Radio, label: 'Live YouTube data' },
+  { icon: Database, label: 'Local motion rendering' },
+  { icon: Radio, label: 'Owner-configured connections' },
   { icon: Bot, label: 'Configured AI providers' },
-  { icon: Server, label: 'Backend render queue' },
+  { icon: Server, label: 'Explicit worker requirements' },
 ];
 
 export function HeroSection() {
@@ -70,7 +70,7 @@ export function HeroSection() {
             className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full border border-neon-lime/20 text-sm text-neon-lime/80 hover:border-neon-lime/40 transition-all group"
           >
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Introducing AI Agent Automation</span>
+            <span>Your local-first creative studio</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </a>
         </motion.div>
@@ -93,8 +93,8 @@ export function HeroSection() {
           transition={{ delay: 0.5, duration: 0.7 }}
           className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          The most powerful AI creator platform for YouTube. Generate viral shorts, cinematic
-          scenes, transcribe videos, and automate your entire content workflow — in minutes.
+          Bring your ideas into motion. Animate your own images, shape your stories,
+          and use configured AI engines — with clear controls and honest results.
         </motion.p>
 
         {/* CTAs */}
@@ -104,22 +104,22 @@ export function HeroSection() {
           transition={{ delay: 0.65 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
         >
-          <Link href="/signup">
+          <Link href="/create">
             <Button
               variant="primary"
               size="xl"
               leftIcon={<Zap className="w-5 h-5" />}
               className="shadow-glow-lime"
             >
-              Start for free
+              Open creative studio
             </Button>
           </Link>
-          <button className="group flex items-center gap-3 text-white/70 hover:text-white transition-colors">
+          <Link href="/demo" className="group flex items-center gap-3 text-white/70 hover:text-white transition-colors">
             <span className="w-12 h-12 rounded-full glass flex items-center justify-center border border-white/10 group-hover:border-neon-cyan/40 group-hover:shadow-glow-cyan transition-all">
               <Play className="w-5 h-5 ml-0.5" />
             </span>
-            <span className="text-base font-medium">Watch overview</span>
-          </button>
+            <span className="text-base font-medium">Try the demo</span>
+          </Link>
         </motion.div>
 
         {/* Live Capability Signals */}

@@ -76,60 +76,26 @@ def generate_mock_image(
     return generate_fallback_image(prompt, aspect_ratio=aspect_ratio, style=style)
 
 
-def generate_image_from_prompt(
-    prompt: str,
-    provider: str = "ollama",
-    tool_id: str = "cineshot",
-    **kwargs: Any,
-) -> str:
-    """Generate image using local Stable Diffusion XL via Studio Graph."""
+def generate_image_from_prompt(prompt: str, provider: str = "ollama", tool_id: str = "cineshot", **kwargs: Any) -> str:
+    if provider not in {"auto", "ollama", "local_sdxl"}:
+        from app.ai.providers.errors import UnsupportedCapability
+        raise UnsupportedCapability("This image adapter supports installed local SDXL only; text providers cannot generate images.", "image")
     aspect_ratio = kwargs.pop("aspect_ratio", "16:9")
     style = kwargs.pop("style", "cinematic")
-    result = run_studio_tool(
-        tool_id=tool_id,
-        prompt=prompt,
-        aspect_ratio=aspect_ratio,
-        style=style,
-        **kwargs,
-    )
-    if result.get("simulated"):
-        set_simulation_flag(True)
-    preview = result.get("preview_url")
-    if preview:
-        return preview
-
-    # Fallback direct call with safety
-    try:
-        full_prompt = build_image_prompt(tool_id, prompt, aspect_ratio=aspect_ratio, style=style, **kwargs)
-        neg = get_negative_prompt(tool_id)
-        return generate_local_image(full_prompt, negative_prompt=neg, aspect_ratio=aspect_ratio)
-    except Exception:
-        set_simulation_flag(True)
-        from app.ai.providers.diffusion_provider import generate_fallback_image
-        return generate_fallback_image(prompt, aspect_ratio=aspect_ratio, style=style)
-
+    full_prompt = build_image_prompt(tool_id, prompt, aspect_ratio=aspect_ratio, style=style, **kwargs)
+    return generate_local_image(full_prompt, negative_prompt=get_negative_prompt(tool_id), aspect_ratio=aspect_ratio)
 
 def save_generated_image(image_url_or_data: str, filename: str) -> str:
-    """Save generated image to disk and return absolute path."""
-    import base64
-    import requests as http_requests
-
-    render_dir = Path(settings.RENDER_DIR)
-    render_dir.mkdir(parents=True, exist_ok=True)
-    output_path = render_dir / filename
-
-    if image_url_or_data.startswith("data:"):
-        header, b64data = image_url_or_data.split(",", 1)
-        output_path.write_bytes(base64.b64decode(b64data))
-    elif image_url_or_data.startswith("http"):
-        resp = http_requests.get(image_url_or_data, timeout=60)
-        resp.raise_for_status()
-        output_path.write_bytes(resp.content)
-    else:
-        raise ValueError(f"Unsupported image source format: {image_url_or_data[:40]}…")
-
-    logger.info("Saved generated image -> %s (%d bytes)", output_path, output_path.stat().st_size)
-    return str(output_path.resolve())
+    import base64, io, re
+    from PIL import Image
+    if filename != Path(filename).name or not re.fullmatch(r"[A-Za-z0-9_.-]+\.png",filename):
+        raise ValueError("Invalid output filename.")
+    if not image_url_or_data.startswith(("data:image/png;base64,","data:image/jpeg;base64,")) or len(image_url_or_data)>45_000_000:
+        raise ValueError("Only bounded engine-produced PNG/JPEG bytes are accepted. Arbitrary URL downloads are disabled.")
+    data=base64.b64decode(image_url_or_data.split(",",1)[1],validate=True)
+    with Image.open(io.BytesIO(data)) as image:image.verify()
+    folder=Path(settings.RENDER_DIR);folder.mkdir(parents=True,exist_ok=True)
+    path=folder/filename;path.write_bytes(data);return str(path.resolve())
 
 
 def generate_studio_text(
@@ -142,7 +108,7 @@ def generate_studio_text(
     system = get_system_prompt(tool_id)
     prompt = build_text_prompt(tool_id, user_prompt, **kwargs)
 
-    raw = generate_local_text(prompt, system=system, json_mode=True)
+    raw = generate_local_text(prompt, system=system, preferred_provider=provider, json_mode=True)
     parsed = _parse_json_or_text(raw)
 
     return {

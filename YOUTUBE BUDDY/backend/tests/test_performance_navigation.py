@@ -26,8 +26,11 @@ async def test_cache_fallback_operations():
 
 
 @pytest.mark.asyncio
-async def test_post_login_navigation_caching(engine):
+async def test_post_login_navigation_caching(engine, monkeypatch):
     """Verify that user profile and analytics overview are cached after the initial request."""
+    from app.core.config import settings
+    monkeypatch.setattr(settings, "ENVIRONMENT", "test")
+    monkeypatch.setattr(settings, "ENABLE_DEMO_LOGIN", True)
     async_session_maker = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
 
     async def override_get_session():

@@ -33,6 +33,13 @@ AsyncSessionLocal = sessionmaker(
 async def init_db() -> None:
     from app.models import base
 
+    if settings.ENVIRONMENT.lower() == "production":
+        from sqlalchemy import inspect
+        async with engine.connect() as conn:
+            tables = await conn.run_sync(lambda c: set(inspect(c).get_table_names()))
+        if not {"users", "uploads", "tool_jobs", "alembic_version"}.issubset(tables):
+            raise RuntimeError("Production schema is not migrated. Run the documented Alembic migration workflow.")
+        return
     async with engine.begin() as conn:
         await conn.run_sync(base.Base.metadata.create_all)
 

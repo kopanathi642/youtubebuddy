@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
+import './creator.css';
 import { AuthProvider } from '@/context/AuthContext';
 import { QueryProvider } from '@/context/QueryProvider';
 import { Toaster } from 'react-hot-toast';
@@ -25,8 +26,8 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'kumar project — AI Creator Platform',
-    template: '%s | kumar project',
+    default: 'YouTube Buddy X — Creative Studio',
+    template: '%s | YouTube Buddy X',
   },
   description:
     'The most advanced AI-powered creator platform. Generate viral shorts, cinematic scenes, automate your entire YouTube workflow, and grow your channel with AI agents.',
@@ -40,8 +41,8 @@ export const metadata: Metadata = {
     'AI agents',
     'viral shorts',
   ],
-  authors: [{ name: 'kumar project Team' }],
-  creator: 'kumar project',
+  authors: [{ name: 'YouTube Buddy X' }],
+  creator: 'YouTube Buddy X',
   openGraph: {
     type: 'website',
     locale: 'en_US',

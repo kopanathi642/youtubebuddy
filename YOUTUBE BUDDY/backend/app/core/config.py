@@ -55,6 +55,10 @@ class Settings(BaseModel):
     OPENROUTER_API_KEY: str | None = os.getenv("OPENROUTER_API_KEY")
     OPENROUTER_MODEL: str = os.getenv("OPENROUTER_MODEL", "meta-llama/llama-3.2-3b-instruct:free")
 
+    ALLOW_REMOTE_INFERENCE: bool = os.getenv("ALLOW_REMOTE_INFERENCE", "False").lower() == "true"
+    LOCAL_IMAGE_MODEL_PATH: str | None = os.getenv("LOCAL_IMAGE_MODEL_PATH")
+    LOCAL_WHISPER_MODEL_PATH: str | None = os.getenv("LOCAL_WHISPER_MODEL_PATH")
+
     # Default AI Provider ("auto", "gemini", "groq", "openrouter", "ollama")
     AI_PROVIDER_DEFAULT: str = os.getenv("AI_PROVIDER_DEFAULT", "auto")
 
@@ -77,12 +81,12 @@ class Settings(BaseModel):
 
     @property
     def demo_login_enabled(self) -> bool:
-        return self.ENVIRONMENT.lower() in {"development", "test"} or self.ENABLE_DEMO_LOGIN
+        return self.ENABLE_DEMO_LOGIN and self.ENVIRONMENT.lower() in {"development", "test"}
 
     def validate_production_security(self) -> None:
         """Enforce strict security parameters when running in production."""
         if self.ENVIRONMENT.lower() == "production":
-            if "change_in_production" in self.JWT_SECRET_KEY or len(self.JWT_SECRET_KEY) < 32:
+            if "change_in_production" in self.JWT_SECRET_KEY or self.JWT_SECRET_KEY.startswith("local_demo_only") or len(self.JWT_SECRET_KEY) < 32:
                 raise ValueError(
                     "FATAL SECURITY RISK: Production deployment requires a secure JWT_SECRET of at least 32 characters."
                 )

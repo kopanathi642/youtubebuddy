@@ -101,42 +101,8 @@ def transcribe_audio(
 
 
 def _get_fallback_transcription() -> dict[str, Any]:
-    """Fallback transcript for testing and systems without CUDA."""
-    return {
-        "text": "Stop scrolling right now. If you want to scale your YouTube Shorts from zero to millions of views, here are the three secrets top creators use every single day. First, nail the hook in under 2 seconds. Second, cut out all dead air. Third, make the ending loop directly into the beginning. Save this short and try it on your next video!",
-        "duration": 28.5,
-        "language": "en",
-        "simulated": True,
-        "segments": [
-            {
-                "id": 0,
-                "start": 0.0,
-                "end": 3.5,
-                "text": "Stop scrolling right now. If you want to scale your YouTube Shorts from zero to millions of views,",
-                "words": [
-                    {"word": "Stop", "start": 0.0, "end": 0.5},
-                    {"word": "scrolling", "start": 0.5, "end": 1.2},
-                    {"word": "right", "start": 1.2, "end": 1.8},
-                    {"word": "now.", "start": 1.8, "end": 2.2},
-                ],
-            },
-            {
-                "id": 1,
-                "start": 3.5,
-                "end": 18.0,
-                "text": "here are the three secrets top creators use every single day. First, nail the hook in under 2 seconds. Second, cut out all dead air.",
-                "words": [],
-            },
-            {
-                "id": 2,
-                "start": 18.0,
-                "end": 28.5,
-                "text": "Third, make the ending loop directly into the beginning. Save this short and try it on your next video!",
-                "words": [],
-            },
-        ],
-    }
-
+    from app.ai.providers.errors import ProviderUnavailable
+    raise ProviderUnavailable("Transcription requires installed Whisper weights and a compatible runtime. No transcript was generated.", "transcription")
 
 def extract_timestamps(transcript_response: dict) -> list[dict]:
     """Extract structured timestamp segments from a transcription response."""

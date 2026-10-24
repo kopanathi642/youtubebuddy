@@ -89,6 +89,8 @@ async def authenticate_user(session: AsyncSession, email: str, password: str) ->
     query = select(User).where(User.email == email.lower())
     result = await session.execute(query)
     user = result.scalar_one_or_none()
+    if user and user.uid == "demo-user-123" and not settings.demo_login_enabled:
+        return None
     if not user or not verify_password(password, user.password_hash):
         return None
     if _is_legacy_hash(user.password_hash):
@@ -101,6 +103,8 @@ async def authenticate_user(session: AsyncSession, email: str, password: str) ->
 
 async def get_or_create_demo_user(session: AsyncSession) -> User:
     """Return the stable local demo account used by the development login page."""
+    if not settings.demo_login_enabled:
+        raise HTTPException(403, "Demo authentication is disabled outside explicit local testing")
     user = await get_user_by_email(session, settings.DEMO_LOGIN_EMAIL)
     if user:
         if not verify_password(settings.DEMO_LOGIN_PASSWORD, user.password_hash):

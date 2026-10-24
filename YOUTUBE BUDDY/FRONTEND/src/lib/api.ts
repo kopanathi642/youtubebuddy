@@ -2,7 +2,7 @@ import axios, { AxiosInstance, AxiosError, InternalAxiosRequestConfig } from 'ax
 import { auth } from './firebase';
 
 // ── API Client Configuration ──────────────────────────────────────────────
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8000');
 const API_VERSION = process.env.NEXT_PUBLIC_API_VERSION || 'v1';
 
 const apiClient: AxiosInstance = axios.create({
@@ -89,6 +89,7 @@ export const createUploadClient = (
 
 // ── API Endpoints ─────────────────────────────────────────────────────────
 export const api = {
+  tools: { jobs: () => apiClient.get('/tools/jobs'), cancel: (id: string) => apiClient.post(`/tools/jobs/${id}/cancel`), submit: (params: Record<string, unknown>) => apiClient.post('/tools/jobs',params) },
   // Videos
   videos: {
     upload: (formData: FormData, onProgress: (p: number) => void) =>
@@ -121,6 +122,7 @@ export const api = {
 
   // AI Studio
   studio: {
+    providers: () => apiClient.get('/studio/providers'),
     generate: (params: Record<string, unknown>) =>
       apiClient.post(`/studio/generate`, params),
   },

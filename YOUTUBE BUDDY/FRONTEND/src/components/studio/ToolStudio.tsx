@@ -85,7 +85,7 @@ export function ToolStudio({ toolId, category }: { toolId: string; category: Too
   const [generating, setGenerating] = useState(false);
   const [style, setStyle] = useState('Realistic');
   const [aspectRatio, setAspectRatio] = useState<'16:9' | '9:16' | '1:1'>('16:9');
-  const [provider, setProvider] = useState<'gemini' | 'groq' | 'openrouter' | 'ollama' | 'openai' | 'huggingface'>('gemini');
+  const [provider, setProvider] = useState<'gemini' | 'groq' | 'openrouter' | 'ollama' | 'openai' | 'huggingface' | 'auto'>('auto');
   const [generatedResult, setGeneratedResult] = useState<string | null>(null);
   const [generatedText, setGeneratedText] = useState<string | null>(null);
   const [modelOutput, setModelOutput] = useState<Record<string, unknown> | null>(null);
@@ -138,7 +138,8 @@ export function ToolStudio({ toolId, category }: { toolId: string; category: Too
   };
 
   const handleGenerate = async () => {
-    const effectivePrompt = prompt.trim() || `High quality cinematic ${config.name} artwork and composition`;
+    const effectivePrompt = prompt.trim();
+    if (!effectivePrompt) { toast.error('Describe the result you want first.'); return; }
 
     setGenerating(true);
     setGeneratedResult(null);
@@ -147,6 +148,7 @@ export function ToolStudio({ toolId, category }: { toolId: string; category: Too
     try {
       const response = await api.studio.generate({
         tool_id: config.id,
+        category,
         prompt: effectivePrompt,
         style,
         aspect_ratio: isVideo || isImage ? aspectRatio : undefined,
@@ -155,6 +157,7 @@ export function ToolStudio({ toolId, category }: { toolId: string; category: Too
         upload_id: uploadId || undefined,
       });
 
+      if (response.data.simulated) throw new Error('Simulated output was rejected. Configure a real provider.');
       setGeneratedResult(response.data.preview_url || null);
       setGeneratedText(response.data.generated_text || null);
       const parsed = typeof response.data.model_output === 'object' && response.data.model_output !== null

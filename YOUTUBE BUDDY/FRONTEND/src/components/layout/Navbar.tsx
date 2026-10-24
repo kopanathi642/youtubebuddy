@@ -21,6 +21,7 @@ type DropdownItem = {
 };
 
 const navLinks = [
+  { label: 'Studio', href: '/create', hasDropdown: false },
   { label: 'Products', href: '#', hasDropdown: true, dropdownKey: 'products' },
   { label: 'AI Categories', href: '#', hasDropdown: true, dropdownKey: 'categories' },
   { label: 'Resources', href: '#', hasDropdown: true, dropdownKey: 'resources' },
@@ -93,7 +94,7 @@ export function Navbar() {
               <Zap className="w-4 h-4 text-black fill-black" />
             </div>
             <span className="font-display font-bold text-lg text-white tracking-wide">
-              kumar<span className="text-neon-lime"> project</span>
+              Buddy<span className="text-neon-lime"> X</span>
             </span>
           </Link>
 
