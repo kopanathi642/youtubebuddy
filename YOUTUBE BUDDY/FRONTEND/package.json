@@ -7,7 +7,7 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint .",
-    "test:studio": "node --experimental-strip-types --test tests/studio.test.mjs"
+    "test:studio": "node --experimental-strip-types --test tests/*.test.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^6.0.0",

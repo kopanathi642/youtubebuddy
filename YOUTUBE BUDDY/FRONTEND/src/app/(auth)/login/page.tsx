@@ -19,10 +19,14 @@ const schema = z.object({
   password: z.string().min(6, 'Password must be at least 6 characters'),
 });
 
+import {useDemoEntry} from '@/lib/studio/use-demo-entry';
+
 export default function LoginPage() {
+  const entryChecked=useDemoEntry();
   const router = useRouter();
   const [googleLoading, setGoogleLoading] = useState(false);
   const [authError,setAuthError]=useState('');
+
 
   const {
     register,
@@ -34,7 +38,7 @@ export default function LoginPage() {
     setAuthError('');
     try {
       if (isDemoId(data.email)) {
-        const destination=beginBrowserDemo(data.email,data.password,window.sessionStorage);
+        const destination=beginBrowserDemo(data.email,data.password,window.localStorage);
         window.location.assign(destination);
         return;
       }
@@ -63,6 +67,7 @@ export default function LoginPage() {
     }
   };
 
+  if(!entryChecked)return <main className="min-h-dvh bg-bg-primary text-white flex items-center justify-center" role="status">Opening your workspace…</main>;
   return (
     <div className="min-h-screen bg-bg-primary flex items-center justify-center px-4 relative overflow-hidden">
       {/* BG Effects */}
