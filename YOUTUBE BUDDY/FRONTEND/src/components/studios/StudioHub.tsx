@@ -1,4 +1,5 @@
 'use client';
+import {WorkspaceEntry} from '@/components/auth/WorkspaceEntry';
 import {useState,useEffect,useRef,useCallback} from 'react';
 import Link from 'next/link';
 import {motion,useReducedMotion,AnimatePresence} from 'framer-motion';
@@ -16,7 +17,8 @@ import {type PanelProps,Block,Note,BriefPanel,PromptPanel,StoryPanel,CameraPanel
 const groups=['Start','Create','Plan','Edit','Grow','Manage','Explore'];
 const iconList=[LayoutGrid,Sparkles,Command,Palette,Film,Clapperboard,Film,Palette,Film,Palette,Layers,Workflow,Palette,Layers,Volume2,Type,Palette,Film,Sparkles,ArrowUpRight,Workflow,FolderOpen,FolderOpen,Download,ShieldCheck,Sparkles,Palette,LayoutGrid,ShieldCheck,Workflow];
 function statusClass(status:string){return status==='Tested'||status==='Implemented'?'available':status==='Blocked'||status==='Unavailable'?'blocked':'';}
-export function StudioHub({initialCategory=''}:{initialCategory?:string}){
+export function StudioHub({initialCategory=''}:{initialCategory?:string}){return <WorkspaceEntry><StudioHubContent initialCategory={initialCategory}/></WorkspaceEntry>;}
+function StudioHubContent({initialCategory=''}:{initialCategory?:string}){
  const reduce=useReducedMotion(),category=registry.find(c=>c.slug===initialCategory),[projects,setProjects]=useState<Project[]>([]),[project,setProject]=useState<Project|null>(null),[ready,setReady]=useState(false),[namespace,setNamespace]=useState('local'),[saveStatus,setSaveStatus]=useState('Opening local projects…'),[storageError,setStorageError]=useState(''),[notice,setNotice]=useState({text:'',error:false}),[view,setView]=useState<'studio'|'tracker'|'versions'>('studio'),[history,setHistory]=useState<Revision[]>([]),[query,setQuery]=useState(''),[filter,setFilter]=useState('All statuses'),[command,setCommand]=useState(false),[mobile,setMobile]=useState(false),[theme,setTheme]=useState('dark'),[mode,setMode]=useState('Simple'),[openGroups,setOpenGroups]=useState<string[]>(groups);
  const saveQueue=useRef<Promise<void>>(Promise.resolve()),current=useRef<Project|null>(null),notify=useCallback((text:string,error=false)=>setNotice({text,error}),[]),searchInput=useRef<HTMLInputElement>(null),dialog=useRef<HTMLDivElement>(null);
  useEffect(()=>{let active=true;(async()=>{let ns='local';try{ns=isBrowserDemo(localStorage,sessionStorage)?'demo':'local';setNamespace(ns);setTheme(localStorage.getItem('buddy-studio-theme')||'dark');setMode(localStorage.getItem('buddy-studio-complexity')||'Simple');const rows=await allProjects(ns);if(!active)return;const preferred=localStorage.getItem('buddy-active-project-'+ns);const p=rows.find(p=>p.id===preferred)||rows[0]||newProject('My first production');if(!rows.length)await saveProject(ns,p);if(!active)return;setProjects(rows.length?rows:[p]);current.current=p;setProject(p);localStorage.setItem('buddy-active-project-'+ns,p.id);setSaveStatus('Saved on this device');}catch(e){if(active){setStorageError((e as Error).message);setSaveStatus('Storage unavailable');}}finally{if(active)setReady(true);}})();return()=>{active=false;};},[]);

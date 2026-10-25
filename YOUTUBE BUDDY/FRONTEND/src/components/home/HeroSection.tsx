@@ -104,7 +104,7 @@ export function HeroSection() {
           transition={{ delay: 0.65 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
         >
-          <Link href="/create">
+          <Link href="/login/?next=%2Fstudios%2F">
             <Button
               variant="primary"
               size="xl"

@@ -1,4 +1,5 @@
 'use client';
+import {WorkspaceEntry} from '@/components/auth/WorkspaceEntry';
 import {useState,useRef,useEffect,useCallback} from 'react';
 import Link from 'next/link';
 import {motion,AnimatePresence,useReducedMotion} from 'framer-motion';
@@ -21,7 +22,8 @@ const tabs:{id:Tab;label:string;icon:typeof Video}[]=[{id:'motion',label:'Motion
 function saveFile(name:string,body:Blob|string){const url=URL.createObjectURL(typeof body==='string'?new Blob([body],{type:'application/json'}):body),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);}
 function percent(n:number){return(n*100).toFixed(1)+'%';}
 function textError(e:unknown){toast.error(getErrorMessage(e,e instanceof Error?e.message:'The operation could not be completed.'));}
-export function CreateStudio(){
+export function CreateStudio(){return <WorkspaceEntry><CreateStudioContent/></WorkspaceEntry>;}
+function CreateStudioContent(){
  const [demoMode,setDemoMode]=useState(false);const modelStorageKey=useRef('buddy-studio-models-v2');
  const reduce=useReducedMotion(),[tab,setTab]=useState<Tab>('motion'),[settings,setSettings]=useState<MotionSettings>(defaultMotion),[playing,setPlaying]=useState(false),[progress,setProgress]=useState(0),[imageName,setImageName]=useState(''),[rendering,setRendering]=useState(false),[result,setResult]=useState<string|null>(null);
  const canvas=useRef<HTMLCanvasElement>(null),image=useRef<HTMLImageElement|null>(null),upload=useRef<HTMLInputElement>(null),frame=useRef(0),recorder=useRef<MediaRecorder|null>(null),cancelled=useRef(false),cancelFrame=useRef<(()=>void)|null>(null),exportUrl=useRef<string|null>(null),exportFrame=useRef(0);

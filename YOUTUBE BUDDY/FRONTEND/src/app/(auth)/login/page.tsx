@@ -19,6 +19,7 @@ const schema = z.object({
   password: z.string().min(6, 'Password must be at least 6 characters'),
 });
 
+import {workspaceDestination} from '@/lib/studio/entry';
 import {useDemoEntry} from '@/lib/studio/use-demo-entry';
 
 export default function LoginPage() {
@@ -39,12 +40,12 @@ export default function LoginPage() {
     try {
       if (isDemoId(data.email)) {
         const destination=beginBrowserDemo(data.email,data.password,window.localStorage);
-        window.location.assign(destination);
+        window.location.assign(workspaceDestination(new URLSearchParams(location.search).get('next')||destination));
         return;
       }
       await signInWithEmail(data.email, data.password);
       toast.success('Welcome back!');
-      router.push('/dashboard');
+      router.push(workspaceDestination(new URLSearchParams(location.search).get('next')));
     } catch (err: unknown) {
       const message =
         err instanceof Error ? err.message : 'Invalid credentials. Please try again.';
@@ -58,7 +59,7 @@ export default function LoginPage() {
     try {
       await signInWithGoogle();
       toast.success('Welcome back!');
-      router.push('/dashboard');
+      router.push(workspaceDestination(new URLSearchParams(location.search).get('next')));
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : 'Google sign-in failed.';
       if (!message.includes('popup-closed')) toast.error(message);

@@ -1,5 +1,6 @@
-'use client';
+ 'use client';
 import {useEffect,useState} from 'react';
-import {isBrowserDemo,DEMO_DESTINATION} from './demo';
-// Resolve the remembered public-demo preference before painting a login form.
-export function useDemoEntry(){const [checked,setChecked]=useState(false);useEffect(()=>{try{if(new URLSearchParams(location.search).get('account')!=='1'&&isBrowserDemo(localStorage,sessionStorage)){location.replace(DEMO_DESTINATION);return;}}catch{/* A blocked preference store must not break the sign-in form. */}setChecked(true);},[]);return checked;}
+import {useAuth} from '@/context/AuthContext';
+import {isBrowserDemo} from './demo';
+import {workspaceDestination} from './entry';
+export function useDemoEntry(){const [checked,setChecked]=useState(false);const {user,loading}=useAuth();useEffect(()=>{if(loading)return;try{const params=new URLSearchParams(location.search);if(params.get('account')!=='1'&&(user||isBrowserDemo(localStorage,sessionStorage))){location.replace(workspaceDestination(params.get('next')));return;}}catch{/* Storage errors must leave the form usable. */}setChecked(true);},[loading,user]);return checked;}

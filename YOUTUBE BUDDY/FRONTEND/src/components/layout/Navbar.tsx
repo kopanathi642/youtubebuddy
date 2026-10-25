@@ -1,240 +1,37 @@
 'use client';
-import { useState, useEffect } from 'react';
+import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Menu, X, Zap, ChevronDown, Video, ImageIcon, Mic, Bot,
-  MonitorPlay, Clapperboard, LineChart, MessageSquare, BookOpen, FileText, LifeBuoy
-} from 'lucide-react';
-import { Button } from '@/components/ui/Button';
-import { useAuth } from '@/context/AuthContext';
-import { logout } from '@/lib/firebase';
-import { cn } from '@/lib/utils';
-import Image from 'next/image';
-
-type DropdownItem = {
-  label: string;
-  desc: string;
-  icon: React.ComponentType<{ className?: string }>;
-  href: string;
+import {Zap,ChevronDown,ArrowUpRight,Search,X,Menu,Film,Image as ImageIcon,AudioLines,Layers,Sparkles,Workflow,Youtube,Clapperboard,FolderOpen,BookOpen,ArrowRight} from 'lucide-react';
+import {useAuth} from '@/context/AuthContext';
+import {isBrowserDemo} from '@/lib/studio/demo';
+import {loginHref} from '@/lib/studio/entry';
+import registry from '@/lib/studio/categories.json';
+import {navSections} from './Sidebar';
+import './site-nav.css';
+type Entry={name:string;description:string;href:string;status?:string};
+const original=navSections.filter(s=>!['Main','All 30 categories','Account'].includes(s.label)).flatMap(s=>s.items.map(i=>({name:i.label,description:s.label+' workspace',href:i.href} as Entry)));
+const categories:Entry[]=registry.map(c=>({name:c.name,description:c.purpose,href:'/studios/'+c.slug+'/',status:c.status}));
+const features:Entry[]=registry.flatMap(c=>c.features.map(f=>({name:f.name,description:c.name+' · '+f.section,href:'/studios/'+c.slug+'/',status:f.status})));
+const groups=['Image','Video','Audio','Editor','Canvas','Director','YouTube','Automation','All tools'];
+const links:Record<string,Entry[]>={
+ Image:original.filter(i=>i.href.startsWith('/image/')),
+ Video:original.filter(i=>i.href.startsWith('/studio/')),
+ Audio:original.filter(i=>i.href.startsWith('/audio/')),
+ Editor:[{name:'Video editor',description:'Media pool, preview, sequential cuts and inspector',href:'/studios/video-editor/'},{name:'Color & finishing',description:'Local image adjustments and finishing',href:'/studios/color/'},{name:'Captions',description:'Edit and export subtitle files',href:'/studios/captions/'},{name:'Audio workspace',description:'Trim, fade and export local audio',href:'/studios/audio/'}],
+ Canvas:[{name:'Design canvas',description:'Text, shapes, images and layered PNG export',href:'/studios/design/'},{name:'Image editor',description:'Adjust and reframe your images',href:'/studios/image-editor/'},{name:'Brand & presets',description:'Keep your visual direction together',href:'/studios/brand/'},{name:'Assets & projects',description:'Your shared local media library',href:'/studios/assets/'}],
+ Director:[{name:'Buddy AI Director',description:'Creative brief, prompt direction and supervisor',href:'/studios/director/'},{name:'Story & film',description:'Editable scenes and shot lists',href:'/studios/story/'},{name:'Cinema & camera',description:'Plan framing, movement and lighting',href:'/studios/camera/'},{name:'Local model lab',description:'Train and evaluate a small text classifier',href:'/create/?tab=models'}],
+ YouTube:[{name:'Channel analytics',description:'Connect or import daily channel reports',href:'/studios/youtube/'},{name:'Creator intelligence',description:'Plan experiments using your evidence',href:'/studios/intelligence/'},{name:'Publishing',description:'Prepare metadata and review a publishing package',href:'/studios/publishing/'}],
+ Automation:[{name:'Creative supervisor',description:'Native LangGraph backend and local preparation',href:'/studios/automation/'},{name:'Production pipeline',description:'Review task handoffs and execution traces',href:'/studios/pipeline/'},{name:'Processing jobs',description:'Configured server workers and job status',href:'/create/?tab=jobs'},{name:'Capability catalog',description:'360 capability entries with explicit availability',href:'/create/?tab=catalog'}],
+ 'All tools':categories,
 };
-
-const navLinks = [
-  { label: 'Studio', href: '/create', hasDropdown: false },
-  { label: 'Products', href: '#', hasDropdown: true, dropdownKey: 'products' },
-  { label: 'AI Categories', href: '#', hasDropdown: true, dropdownKey: 'categories' },
-  { label: 'Resources', href: '#', hasDropdown: true, dropdownKey: 'resources' },
-  { label: 'Pricing', href: '/pricing' }
-];
-
-const productDropdown = [
-  { label: 'Video Studio', desc: 'AI-powered short & long form videos', icon: Video, href: '/studio/shorts' },
-  { label: 'Image Creator', desc: 'Generate thumbnails & assets', icon: ImageIcon, href: '/image' },
-  { label: 'Voice AI', desc: 'Text-to-speech & cloning', icon: Mic, href: '/audio' },
-  { label: 'AI Agents', desc: 'Automate scripting & SEO', icon: Bot, href: '/agents' }
-];
-
-const categoriesDropdown = [
-  { label: 'Shorts & Reels', desc: 'Viral short-form AI generation', icon: MonitorPlay, href: '/studio/shorts' },
-  { label: 'Cinematic Video', desc: 'Text-to-video & b-roll', icon: Clapperboard, href: '/studio/cinematic' },
-  { label: 'SEO & Metadata', desc: 'Optimize titles & tags', icon: LineChart, href: '/agents' },
-  { label: 'Scripting & Ideas', desc: 'AI scripting agents', icon: MessageSquare, href: '/agents' },
-  { label: 'Thumbnails', desc: 'High-CTR image generation', icon: ImageIcon, href: '/image' },
-  { label: 'Voiceovers', desc: 'Ultra-realistic voice cloning', icon: Mic, href: '/audio' }
-];
-
-const resourcesDropdown = [
-  { label: 'Blog', desc: 'Latest YouTube strategies', icon: FileText, href: '#' },
-  { label: 'Documentation', desc: 'API & Platform docs', icon: BookOpen, href: '#' },
-  { label: 'Help Center', desc: 'Support & tutorials', icon: LifeBuoy, href: '#' }
-];
-
-const dropdowns: Record<string, DropdownItem[]> = {
-  products: productDropdown,
-  categories: categoriesDropdown,
-  resources: resourcesDropdown
-};
-
-export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const pathname = usePathname();
-  const { user, profile, isAuthenticated } = useAuth();
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const handleLogout = async () => {
-    await logout();
-  };
-
-  return (
-    <motion.nav
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
-        scrolled || activeDropdown
-          ? 'bg-[#0f0f11] border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.5)]'
-          : 'bg-[#0f0f11]/90 backdrop-blur-md border-b border-transparent'
-      )}
-      onMouseLeave={() => setActiveDropdown(null)}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 bg-neon-lime rounded-xl flex items-center justify-center shadow-glow-lime">
-              <Zap className="w-4 h-4 text-black fill-black" />
-            </div>
-            <span className="font-display font-bold text-lg text-white tracking-wide">
-              Buddy<span className="text-neon-lime"> X</span>
-            </span>
-          </Link>
-
-          {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-            {navLinks.map((link) => (
-              <div
-                key={link.label}
-                className="relative"
-                onMouseEnter={() => link.hasDropdown ? setActiveDropdown(link.label) : setActiveDropdown(null)}
-              >
-                <Link
-                  href={link.href}
-                  className={cn(
-                    'text-sm font-medium transition-colors flex items-center gap-1.5 py-2',
-                    activeDropdown === link.label || pathname === link.href
-                      ? 'text-neon-lime'
-                      : 'text-white/70 hover:text-white'
-                  )}
-                >
-                  {link.label}
-                  {link.hasDropdown && (
-                    <ChevronDown className={cn('w-4 h-4 transition-transform duration-200', activeDropdown === link.label && 'rotate-180')} />
-                  )}
-                </Link>
-
-                {/* Dropdown Menu */}
-                {link.hasDropdown && link.dropdownKey && (
-                  <AnimatePresence>
-                    {activeDropdown === link.label && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                        transition={{ duration: 0.2 }}
-                        className={cn(
-                          "absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-bg-secondary border border-white/10 rounded-2xl shadow-xl overflow-hidden p-2 grid",
-                          link.dropdownKey === 'categories' ? "grid-cols-2 w-[550px] gap-2 p-3" : "w-[320px]"
-                        )}
-                      >
-                        {dropdowns[link.dropdownKey]?.map((item) => {
-                          const Icon = item.icon;
-                          return (
-                            <Link key={item.label} href={item.href} className="flex items-start gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors group">
-                              <div className="w-10 h-10 rounded-lg bg-neon-lime/10 flex items-center justify-center shrink-0 border border-neon-lime/20 group-hover:bg-neon-lime/20 transition-colors">
-                                <Icon className="w-5 h-5 text-neon-lime" />
-                              </div>
-                              <div>
-                                <h4 className="text-sm font-semibold text-white group-hover:text-neon-lime transition-colors">{item.label}</h4>
-                                <p className="text-xs text-white/50 mt-0.5">{item.desc}</p>
-                              </div>
-                            </Link>
-                          );
-                        })}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Right Actions */}
-          <div className="hidden md:flex items-center gap-4">
-            {isAuthenticated ? (
-              <>
-                <Link href="/dashboard">
-                  <Button variant="secondary" size="sm" className="h-9">Dashboard</Button>
-                </Link>
-                <button onClick={handleLogout} className="flex items-center gap-2 group ml-2">
-                  {profile?.photoURL ? (
-                    <Image src={profile.photoURL} alt="Profile" width={36} height={36} className="rounded-full border-2 border-white/20 group-hover:border-neon-lime transition-colors" />
-                  ) : (
-                    <div className="w-9 h-9 bg-neon-lime/20 rounded-full flex items-center justify-center border-2 border-neon-lime/30 text-neon-lime font-bold">
-                      {user?.email?.[0]?.toUpperCase() || 'U'}
-                    </div>
-                  )}
-                </button>
-              </>
-            ) : (
-              <>
-                <Link href="/login">
-                  <Button variant="ghost" size="sm" className="h-9">Sign in</Button>
-                </Link>
-                <Link href="/signup">
-                  <Button variant="primary" size="sm" className="h-9 shadow-glow-lime">Get started free</Button>
-                </Link>
-              </>
-            )}
-          </div>
-
-          {/* Mobile Toggle */}
-          <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden p-2 text-white/70 hover:text-white transition-colors" aria-label="Toggle menu">
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-white/8 bg-bg-secondary/95 backdrop-blur-xl"
-          >
-            <div className="px-6 py-6 space-y-6">
-              <div className="space-y-4">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="block text-lg font-medium text-white/80 hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-              <div className="pt-6 flex flex-col gap-3 border-t border-white/8">
-                {isAuthenticated ? (
-                  <Link href="/dashboard" onClick={() => setMobileOpen(false)}>
-                    <Button variant="primary" fullWidth className="h-11">Go to Dashboard</Button>
-                  </Link>
-                ) : (
-                  <>
-                    <Link href="/login" onClick={() => setMobileOpen(false)}>
-                      <Button variant="secondary" fullWidth className="h-11">Sign in</Button>
-                    </Link>
-                    <Link href="/signup" onClick={() => setMobileOpen(false)}>
-                      <Button variant="primary" fullWidth className="h-11 shadow-glow-lime">Get started free</Button>
-                    </Link>
-                  </>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
-  );
+const iconMap={Image:ImageIcon,Video:Film,Audio:AudioLines,Editor:Clapperboard,Canvas:Layers,Director:Sparkles,YouTube:Youtube,Automation:Workflow,'All tools':FolderOpen};
+export function Navbar(){const {isAuthenticated}=useAuth();const [active,setActive]=useState<string|null>(null),[query,setQuery]=useState(''),[mobile,setMobile]=useState(false),[remembered,setRemembered]=useState(false);const root=useRef<HTMLElement>(null),trigger=useRef<HTMLButtonElement|null>(null),search=useRef<HTMLInputElement>(null);
+ useEffect(()=>{try{setRemembered(isBrowserDemo(localStorage,sessionStorage));}catch{}const close=(e:PointerEvent)=>{if(root.current&&!root.current.contains(e.target as Node)){setActive(null);setMobile(false);}};const key=(e:KeyboardEvent)=>{if(e.key==='Escape'){setActive(null);setMobile(false);trigger.current?.focus();}};document.addEventListener('pointerdown',close);document.addEventListener('keydown',key);return()=>{document.removeEventListener('pointerdown',close);document.removeEventListener('keydown',key);};},[]);
+ useEffect(()=>{if(active==='Search')search.current?.focus();},[active]);
+ const all=active==='All tools'||active==='Search',items=all?(query.trim()?[...categories,...original,...features].filter(i=>(i.name+' '+i.description).toLowerCase().includes(query.toLowerCase())):categories):links[active||'']||[];
+ const secondary:Entry[]=all&&!query.trim()?original:[{name:'Model & provider setup',description:'Check what is configured before generating',href:'/create/?tab=generate'},{name:'All 30 workspaces',description:'Explore the complete category directory',href:'/studios/'},{name:'Feature tracker',description:'807 requirements, with honest status and gaps',href:'/studios/'},{name:'Security & reliability',description:'Account, storage and server setup guidance',href:'/studios/security/'}];
+ const toggle=(label:string,button:HTMLButtonElement)=>{trigger.current=button;setActive(a=>a===label?null:label);setQuery('');};
+ return <header className="bn-header" ref={root} onBlur={e=>{if(e.relatedTarget&&!e.currentTarget.contains(e.relatedTarget as Node))setActive(null);}}><div className="bn-bar"><Link href="/" className="bn-logo" aria-label="Buddy X home"><span><Zap size={20} fill="currentColor"/></span><b>Buddy <em>X</em></b></Link><Link href="/#tools" className="bn-explore">Explore</Link><nav className={mobile?'bn-nav mobile-open':'bn-nav'} aria-label="Main tools and features">{groups.map(label=><button key={label} aria-expanded={active===label} aria-controls="buddy-tools-menu" className={active===label?'active':''} onClick={e=>toggle(label,e.currentTarget)} onKeyDown={e=>{if(e.key==='ArrowDown'){e.preventDefault();trigger.current=e.currentTarget;setActive(label);setQuery('');}}}>{label}{['Image','Video','Audio','All tools'].includes(label)&&<ChevronDown size={11}/>}</button>)}</nav><div className="bn-actions"><button className="bn-search" aria-label="Search all tools and features" aria-expanded={active==='Search'} aria-controls="buddy-tools-menu" onClick={e=>toggle('Search',e.currentTarget)}><Search size={16}/></button><Link href={loginHref()} className="bn-signin">{isAuthenticated||remembered?'My studio':'Sign in'}</Link><Link className="bn-start" href={loginHref()}>{isAuthenticated||remembered?'Open studio':'Get started'}<ArrowUpRight size={12}/></Link><button aria-label={mobile?'Close navigation':'Open navigation'} aria-expanded={mobile} className="bn-mobile" onClick={()=>setMobile(v=>!v)}>{mobile?<X size={19}/>:<Menu size={19}/>}</button></div></div>
+ {active&&<section id="buddy-tools-menu" className={'bn-mega '+(all?'bn-wide':'')} aria-label={active+' tools and features'}><div className="bn-menu-heading"><div><span>EXPLORE BUDDY X</span><h2>{active==='Search'?'Find your next creative tool.':active==='All tools'?'Every tool. One creative home.':active+' tools'}</h2></div><button aria-label="Close tools menu" onClick={()=>{setActive(null);trigger.current?.focus();}}><X size={18}/></button></div>{all&&<label className="bn-search-field"><Search size={16}/><input ref={search} aria-label="Search tool and feature directory" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search all 30 categories, tools and 807 feature requirements…"/></label>}<div className="bn-menu-columns"><div><h3>{all?(query?'Search results':'All 30 categories'):'Features'}</h3><div className="bn-menu-list">{items.slice(0,80).map((item,i)=>{const Icon=iconMap[active as keyof typeof iconMap]||Sparkles;return <Link href={loginHref(item.href)} key={item.name+i} onClick={()=>setActive(null)}><span className="bn-tool-icon"><Icon size={20} strokeWidth={1.5}/></span><span><b>{item.name}</b><small>{item.description}</small></span>{item.status&&<em className={['Implemented','Tested'].includes(item.status)?'available':''}>{item.status}</em>}<ArrowUpRight size={13}/></Link>;})}{!items.length&&<p className="bn-empty">No matches. Try “captions”, “camera” or “YouTube”.</p>}{items.length>80&&<p className="bn-empty">Showing 80 of {items.length} matches. Refine your search to find a specific feature.</p>}</div></div><div><h3>{all&&!query?'Original tools':'In your workspace'}</h3><div className="bn-menu-list">{secondary.map((item,i)=><Link href={loginHref(item.href)} key={item.name+i} onClick={()=>setActive(null)}><span className="bn-tool-icon"><Layers size={20} strokeWidth={1.5}/></span><span><b>{item.name}</b><small>{item.description}</small></span><ArrowUpRight size={13}/></Link>)}</div>{!all&&<div className="bn-menu-note"><BookOpen size={16}/><p>Each tool shows its actual availability. Media generation requires a configured model and processing server.</p></div>}</div></div><footer><span>30 workspaces · 807 feature requirements · status shown where available</span><Link href={loginHref()}>Enter your studio <ArrowRight size={13}/></Link></footer></section>}
+ </header>;
 }

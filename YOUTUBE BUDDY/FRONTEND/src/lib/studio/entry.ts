@@ -1,0 +1,4 @@
+// Navigation policy only. This never creates backend authority or authentication.
+const allowed=['/studios','/studio','/image','/audio','/create','/workbench','/agents','/dashboard','/collab','/marketing','/cinema','/profile'];
+export function workspaceDestination(value:string|null|undefined):string{if(!value||value.length>2048||!value.startsWith('/')||value.startsWith('//')||/[\\\x00-\x20]/.test(value))return '/studios/';try{const url=new URL(value,'https://buddy.invalid');if(url.origin!=='https://buddy.invalid'||!allowed.some(p=>url.pathname===p||url.pathname.startsWith(p+'/')))return '/studios/';return url.pathname+url.search+url.hash;}catch{return '/studios/';}}
+export function loginHref(destination='/studios/'){return '/login/?next='+encodeURIComponent(workspaceDestination(destination));}
