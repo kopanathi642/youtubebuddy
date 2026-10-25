@@ -60,6 +60,7 @@ export const navSections: SidebarSection[] = [
     label: 'Main',
     items: [
       { label: 'All 30 studios', href: '/studios', icon: LayoutDashboard, badge: 'NEW' },
+      { label: 'Master inventory', href: '/master/', icon: LayoutDashboard },
       { label: 'Creative studio', href: '/create', icon: Sparkles, badge: 'NEW' },
       { label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
       { label: 'Explore', href: '/explore', icon: Globe },
