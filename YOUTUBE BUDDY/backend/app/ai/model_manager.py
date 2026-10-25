@@ -48,14 +48,7 @@ def ensure_ollama_model(model: str, base_url: str = "http://localhost:11434") ->
         for name in available:
             if model in name:
                 return True
-        # Model not found — try pulling it
-        logger.info("Model '%s' not found locally. Pulling via Ollama...", model)
-        pull_resp = requests.post(
-            f"{base_url}/api/pull",
-            json={"name": model, "stream": False},
-            timeout=600,
-        )
-        return pull_resp.status_code == 200
+        return False  # Installing weights is an explicit owner action.
     except Exception as exc:
         logger.warning("Ollama model check failed: %s", exc)
         return False
@@ -88,10 +81,16 @@ def get_diffusion_pipeline(
 
         logger.info("Loading Stable Diffusion XL pipeline: %s", model_id)
 
+        from app.core.config import settings
+        from pathlib import Path
+        if not settings.LOCAL_IMAGE_MODEL_PATH or not Path(settings.LOCAL_IMAGE_MODEL_PATH).is_dir():
+            raise RuntimeError("Configure LOCAL_IMAGE_MODEL_PATH with an installed licensed checkpoint.")
+        model_id = settings.LOCAL_IMAGE_MODEL_PATH
         pipe = StableDiffusionXLPipeline.from_pretrained(
             model_id,
             torch_dtype=torch.float16,
             use_safetensors=True,
+            local_files_only=True,
             variant="fp16",
         )
 
@@ -143,10 +142,16 @@ def get_whisper_model(
             model_size, device, compute_type,
         )
 
+        from app.core.config import settings
+        from pathlib import Path
+        if not settings.LOCAL_WHISPER_MODEL_PATH or not Path(settings.LOCAL_WHISPER_MODEL_PATH).is_dir():
+            raise RuntimeError("Configure LOCAL_WHISPER_MODEL_PATH with installed Whisper weights.")
+        model_size = settings.LOCAL_WHISPER_MODEL_PATH
         model = WhisperModel(
             model_size,
             device=device,
             compute_type=compute_type,
+            local_files_only=True,
         )
 
         _whisper_model = model

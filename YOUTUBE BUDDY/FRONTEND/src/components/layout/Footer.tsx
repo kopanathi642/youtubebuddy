@@ -4,28 +4,26 @@ import Link from 'next/link';
 import { Zap, Twitter, Github, Youtube, Linkedin } from 'lucide-react';
 
 const footerLinks = {
-  Product: [
-    { label: 'AI Shorts Studio', href: '/studio/shorts' },
-    { label: 'Cinematic AI', href: '/studio/cinematic' },
-    { label: 'AI Agents', href: '/agents' },
-    { label: 'Pricing', href: '/pricing' },
+  Create: [
+    {label:'Image workspace',href:'/studios/reframe'},
+    {label:'Motion studio',href:'/create?tab=motion'},
+    {label:'Story and film',href:'/studios/story'},
+    {label:'Captions',href:'/studios/captions'},
   ],
-  Company: [
-    { label: 'About', href: '/about' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'Careers', href: '/careers' },
-    { label: 'Contact', href: '/contact' },
+  Grow: [
+    {label:'Channel intelligence',href:'/studios/youtube'},
+    {label:'Production tasks',href:'/studios/production'},
+    {label:'Brand presets',href:'/studios/brand'},
   ],
-  Legal: [
-    { label: 'Privacy Policy', href: '/privacy' },
-    { label: 'Terms of Service', href: '/terms' },
-    { label: 'Cookie Policy', href: '/cookies' },
+  Workspace: [
+    {label:'All 30 studios',href:'/studios'},
+    {label:'Assets and projects',href:'/studios/assets'},
+    {label:'Workflow preparation',href:'/studios/pipeline'},
   ],
   Resources: [
-    { label: 'Documentation', href: '/docs' },
-    { label: 'API Reference', href: '/api-docs' },
-    { label: 'Changelog', href: '/changelog' },
-    { label: 'Status', href: '/status' },
+    {label:'Setup and service status',href:'/studios/security'},
+    {label:'Rights and provenance',href:'/studios/rights'},
+    {label:'Implementation report',href:'/CATEGORY-GAP-REPORT.md'},
   ],
 };
 
@@ -56,14 +54,14 @@ export function Footer() {
             <span className="text-gradient-lime">with AI.</span>
           </h2>
           <p className="text-white/50 text-lg mb-8 max-w-xl mx-auto">
-            Join thousands of creators automating their YouTube workflow with YouTube Buddy.
+            Start with the working local tools. Connect your own services when you are ready.
           </p>
           <Link
-            href="/signup"
+            href="/studios/"
             className="inline-flex items-center gap-2 px-8 py-4 bg-neon-lime text-black font-bold rounded-xl hover:bg-lime-300 transition-all duration-200 shadow-glow-lime hover:shadow-[0_0_40px_rgba(163,230,53,0.5)] active:scale-95"
           >
             <Zap className="w-5 h-5" />
-            Get started — it&apos;s free
+            Open your creative workspace
           </Link>
         </div>
       </div>
@@ -127,7 +125,7 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 bg-neon-lime rounded-full shadow-[0_0_6px_rgba(163,230,53,0.8)]" />
-            <span className="text-xs text-white/30">All systems operational</span>
+            <span className="text-xs text-white/30">Local tools available · Server setup required</span>
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@ services:
       - db
       - redis
     ports:
-      - '8000:8000'
+      - '127.0.0.1:8000:8000'
     volumes:
       - uploads-data:/app/uploads
       - rendered-data:/app/rendered
@@ -21,7 +21,8 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     container_name: youtube-buddy-worker
-    command: celery -A app.core.celery_app.celery_app worker --loglevel=info
+    command: celery -A app.core.celery_app.celery_app worker --loglevel=info --concurrency=1
+    restart: unless-stopped
     env_file:
       - .env
     depends_on:
@@ -44,7 +45,11 @@ services:
     image: redis:7
     container_name: youtube-buddy-redis
     restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redis-data:/data
 volumes:
   postgres-data:
   uploads-data:
   rendered-data:
+  redis-data:

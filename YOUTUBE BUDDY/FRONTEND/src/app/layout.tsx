@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
+import './creator.css';
 import { AuthProvider } from '@/context/AuthContext';
 import { QueryProvider } from '@/context/QueryProvider';
 import { Toaster } from 'react-hot-toast';
@@ -25,11 +26,11 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'kumar project — AI Creator Platform',
-    template: '%s | kumar project',
+    default: 'YouTube Buddy X — Creative Studio',
+    template: '%s | YouTube Buddy X',
   },
   description:
-    'The most advanced AI-powered creator platform. Generate viral shorts, cinematic scenes, automate your entire YouTube workflow, and grow your channel with AI agents.',
+    'Create and edit locally, organize creative projects and analyze authorized or imported YouTube reports. AI generation requires a configured processing engine.',
   keywords: [
     'YouTube automation',
     'AI creator tools',
@@ -40,21 +41,21 @@ export const metadata: Metadata = {
     'AI agents',
     'viral shorts',
   ],
-  authors: [{ name: 'kumar project Team' }],
-  creator: 'kumar project',
+  authors: [{ name: 'YouTube Buddy X' }],
+  creator: 'YouTube Buddy X',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: process.env.NEXT_PUBLIC_APP_URL,
     title: 'YouTube Buddy — AI Creator Platform',
     description:
-      'The most advanced AI-powered creator platform for YouTube automation and growth.',
+      'A creative workspace for local editing, story planning and evidence-led YouTube reporting.',
     siteName: 'YouTube Buddy',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'YouTube Buddy — AI Creator Platform',
-    description: 'The most advanced AI-powered creator platform.',
+    description: 'Creative tools and evidence-led channel reporting.',
     creator: '@youtubebuddy',
   },
   robots: {
@@ -69,9 +70,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
+    icon: {url:'/favicon.svg',type:'image/svg+xml'},
   },
 };
 

@@ -1,0 +1,41 @@
+name: Verify studio and CPU engines
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: YOUTUBE BUDDY/backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: pip install -r requirements-dev.txt
+      - run: pytest -m 'not live' -q
+        env:
+          ENVIRONMENT: test
+          ENABLE_DEMO_LOGIN: 'False'
+          ALLOW_REMOTE_INFERENCE: 'False'
+          CELERY_TASK_ALWAYS_EAGER: 'True'
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: YOUTUBE BUDDY/FRONTEND
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm ci
+      - run: npm run test:studio
+      - run: npm run lint
+      - run: npm audit --omit=dev
+      - run: npm run build
+        env:
+          BUDDY_STATIC_EXPORT: '1'
+          NEXT_TELEMETRY_DISABLED: '1'

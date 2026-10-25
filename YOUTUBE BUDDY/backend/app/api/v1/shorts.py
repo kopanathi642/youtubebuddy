@@ -34,7 +34,7 @@ async def _process_short_render_job(
         try:
             job = await session.get(RenderJob, job_id)
             if job:
-                job.progress = 20
+                job.progress = 0  # No measured engine percentage is available.
                 await session.commit()
 
             await create_short_clip(source_path, start, end, ratio, output_path)
@@ -101,7 +101,7 @@ async def generate_short(
         user_id=user.id,
         job_type="short",
         status="processing",
-        progress=5,
+        progress=0,
         result_path=output_path,
     )
     session.add(render_job)

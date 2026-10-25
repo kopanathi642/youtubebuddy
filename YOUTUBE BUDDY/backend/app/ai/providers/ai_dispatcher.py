@@ -1,140 +1,51 @@
-"""
-Central AI Provider Dispatcher & Free-Tier Fallback Manager.
-
-Enforces:
-  1. Free-tier priority: Gemini -> Groq -> OpenRouter -> Ollama -> Built-in Synthesis.
-  2. Zero-cost expenditure guarantee (₹0 cost control).
-  3. Seamless failover if any provider hits rate limits (HTTP 429) or is not configured.
-  4. Server-side only; never exposes API secrets.
-"""
-import json
-import logging
-from typing import Any, Dict, Optional
-
-from app.ai.providers.gemini_provider import generate_text as gemini_generate, is_gemini_available
-from app.ai.providers.groq_provider import (
-    generate_text as groq_generate,
-    is_groq_available,
-    transcribe_audio_groq,
-)
-from app.ai.providers.ollama_provider import (
-    _generate_offline_fallback,
-    generate_text as ollama_generate,
-    is_ollama_online,
-)
-from app.ai.providers.openrouter_provider import (
-    generate_text as openrouter_generate,
-    is_openrouter_available,
-)
+"""Capability-specific gateway. Explicit choices never silently switch providers."""
+from typing import Any
+from pathlib import Path
 from app.core.config import settings
-
-logger = logging.getLogger(__name__)
-
-
-def get_active_providers() -> Dict[str, bool]:
-    """Inspect and report currently available AI providers without exposing keys."""
-    return {
-        "gemini": is_gemini_available(),
-        "groq": is_groq_available(),
-        "openrouter": is_openrouter_available(),
-        "ollama_local": is_ollama_online(),
-        "offline_synthesizer": True,
-    }
+from app.ai.providers.errors import ProviderUnavailable
+from app.ai.providers.ollama_provider import generate_text as ollama_generate, is_ollama_online
+from app.ai.providers.gemini_provider import generate_text as gemini_generate, is_gemini_available
+from app.ai.providers.groq_provider import generate_text as groq_generate, is_groq_available, transcribe_audio_groq
+from app.ai.providers.openrouter_provider import generate_text as openrouter_generate, is_openrouter_available
 
 
-def generate_ai_text(
-    prompt: str,
-    system: Optional[str] = None,
-    preferred_provider: Optional[str] = None,
-    temperature: float = 0.7,
-    max_tokens: int = 2048,
-    json_mode: bool = False,
-) -> str:
-    """
-    Route text generation through the best available free-tier AI provider
-    with an automatic resilience cascade.
-    """
-    target = (preferred_provider or settings.AI_PROVIDER_DEFAULT or "auto").lower()
+def get_active_providers():
+    remote = settings.ALLOW_REMOTE_INFERENCE
+    return {"gemini":remote and is_gemini_available(),"groq":remote and is_groq_available(),"openrouter":remote and is_openrouter_available(),"ollama_local":is_ollama_online(),"offline_synthesizer":False}
 
-    # 1. Handle explicit provider choice if configured
-    if target == "gemini" and is_gemini_available():
+
+def provider_status():
+    active=get_active_providers()
+    return {"active_default":next((k for k,v in active.items() if v),None),"remote_inference_allowed":settings.ALLOW_REMOTE_INFERENCE,"providers":{name:{"name":name,"configured":bool(enabled),"available":bool(enabled) if name=="ollama_local" else False,"status":("service_reachable" if enabled else "requires_configuration") if name=="ollama_local" else ("requires_verification" if enabled else "requires_configuration"),"verification":"Ollama service probe" if name=='ollama_local' else "Configuration only; live credentials and quotas not verified"} for name,enabled in active.items() if name!='offline_synthesizer'},"image":{"available":False,"configured":bool(settings.LOCAL_IMAGE_MODEL_PATH and Path(settings.LOCAL_IMAGE_MODEL_PATH).is_dir()),"status":"requires_configuration","message":"Installed checkpoint and successful GPU inference must be verified."},"video":{"available":False,"status":"requires_configuration","message":"No generative video adapter installed."}}
+
+
+def generate_ai_text(prompt: str, system: str | None=None, preferred_provider: str | None=None, temperature: float=.7, max_tokens: int=2048, json_mode: bool=False) -> str:
+    if not prompt.strip() or len(prompt)>30000:raise ValueError("Prompt must contain 1–30,000 characters.")
+    target=(preferred_provider or settings.AI_PROVIDER_DEFAULT or 'auto').lower()
+    entries={'ollama':(is_ollama_online,ollama_generate),'gemini':(is_gemini_available,gemini_generate),'groq':(is_groq_available,groq_generate),'openrouter':(is_openrouter_available,openrouter_generate)}
+    if target not in {*entries,'auto'}:raise ProviderUnavailable(f"Provider {target} has no configured text adapter.","text")
+    candidates=['ollama'] if target=='auto' else [target]
+    if target=='auto' and settings.ALLOW_REMOTE_INFERENCE:candidates+=['gemini','groq','openrouter']
+    for name in candidates:
+        if name!='ollama' and not settings.ALLOW_REMOTE_INFERENCE:raise ProviderUnavailable("Remote inference is disabled. An owner must explicitly enable it after reviewing cost and privacy.","text")
+        available,run=entries[name]
+        if not available():continue
         try:
-            return gemini_generate(prompt, system=system, temperature=temperature, max_tokens=max_tokens, json_mode=json_mode)
+            result=run(prompt,system=system,temperature=temperature,max_tokens=max_tokens,json_mode=json_mode)
+            if not isinstance(result,str) or not result.strip():raise RuntimeError("Provider returned empty text.")
+            return result
         except Exception as exc:
-            logger.warning("Preferred provider Gemini failed (%s), falling back to auto-cascade.", exc)
-
-    if target == "groq" and is_groq_available():
-        try:
-            return groq_generate(prompt, system=system, temperature=temperature, max_tokens=max_tokens, json_mode=json_mode)
-        except Exception as exc:
-            logger.warning("Preferred provider Groq failed (%s), falling back to auto-cascade.", exc)
-
-    if target == "openrouter" and is_openrouter_available():
-        try:
-            return openrouter_generate(prompt, system=system, temperature=temperature, max_tokens=max_tokens, json_mode=json_mode)
-        except Exception as exc:
-            logger.warning("Preferred provider OpenRouter failed (%s), falling back to auto-cascade.", exc)
-
-    if target == "ollama" and is_ollama_online():
-        try:
-            return ollama_generate(prompt, system=system, temperature=temperature, max_tokens=max_tokens, json_mode=json_mode)
-        except Exception as exc:
-            logger.warning("Preferred provider Ollama failed (%s), falling back to auto-cascade.", exc)
-
-    # 2. Free-tier Cascade Chain: Gemini -> Groq -> OpenRouter -> Ollama -> Built-in
-    if is_gemini_available():
-        try:
-            return gemini_generate(prompt, system=system, temperature=temperature, max_tokens=max_tokens, json_mode=json_mode)
-        except Exception as exc:
-            logger.warning("Gemini cascade failed (%s), attempting Groq...", exc)
-
-    if is_groq_available():
-        try:
-            return groq_generate(prompt, system=system, temperature=temperature, max_tokens=max_tokens, json_mode=json_mode)
-        except Exception as exc:
-            logger.warning("Groq cascade failed (%s), attempting OpenRouter...", exc)
-
-    if is_openrouter_available():
-        try:
-            return openrouter_generate(prompt, system=system, temperature=temperature, max_tokens=max_tokens, json_mode=json_mode)
-        except Exception as exc:
-            logger.warning("OpenRouter cascade failed (%s), attempting local Ollama...", exc)
-
-    if is_ollama_online():
-        try:
-            return ollama_generate(prompt, system=system, temperature=temperature, max_tokens=max_tokens, json_mode=json_mode)
-        except Exception as exc:
-            logger.warning("Ollama cascade failed (%s), using local synthesis...", exc)
-
-    # 3. Final safety net: zero-cost high-fidelity built-in synthesizer
-    logger.info("Using built-in structured generator (Zero external API dependencies active).")
-    return _generate_offline_fallback(prompt, system=system, json_mode=json_mode)
+            # Do not quietly send the same private input to a different provider after failure.
+            raise ProviderUnavailable(f"Selected text engine failed: {type(exc).__name__}. Retry or change configuration.","text") from exc
+    raise ProviderUnavailable("No compatible text engine is available. Start Ollama and install a licensed local model, or explicitly configure a permitted provider.","text")
 
 
-def dispatch_transcription(
-    audio_path: str,
-    language: str = "en",
-) -> Dict[str, Any]:
-    """
-    Route audio transcription:
-      1. Groq Cloud Whisper (free, instant, zero local VRAM needed) if GROQ_API_KEY is present
-      2. Local faster-whisper on GPU
-      3. Built-in structured segment fallback
-    """
-    # Try Groq free Whisper first if key exists
-    if is_groq_available():
-        try:
-            logger.info("Routing transcription to Groq Cloud Whisper...")
-            return transcribe_audio_groq(audio_path, language=language)
-        except Exception as exc:
-            logger.warning("Groq transcription failed (%s). Falling back to local whisper...", exc)
-
-    # Fall back to local faster-whisper provider
-    try:
-        from app.ai.providers.whisper_provider import transcribe_audio as local_whisper_transcribe
-        return local_whisper_transcribe(audio_path, language=language)
-    except Exception as exc:
-        logger.warning("Local whisper failed (%s). Falling back to structured transcript generator.", exc)
-
-    from app.ai.providers.whisper_provider import _get_fallback_transcription
-    return _get_fallback_transcription()
+def dispatch_transcription(audio_path: str, language: str='en') -> dict[str,Any]:
+    if not Path(audio_path).is_file():raise FileNotFoundError("Audio source does not exist.")
+    if settings.ALLOW_REMOTE_INFERENCE and is_groq_available():
+        result=transcribe_audio_groq(audio_path,language=language)
+    else:
+        from app.ai.providers.whisper_provider import transcribe_audio
+        result=transcribe_audio(audio_path,language=language)
+    if result.get('simulated'):raise ProviderUnavailable("Simulated transcription is rejected.","transcription")
+    return result

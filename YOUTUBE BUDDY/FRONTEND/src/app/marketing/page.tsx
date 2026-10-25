@@ -1,9 +1,9 @@
 'use client';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { TrendingUp, MousePointerClick, BarChart3, Target, Zap } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
 
 const features = [
   { label: 'AdForge', desc: 'Turn any product URL into a high-converting video ad', icon: MousePointerClick },
@@ -28,7 +28,7 @@ export default function MarketingPage() {
           <p className="text-lg text-white/50 max-w-2xl mx-auto mb-8">
             AI-powered marketing tools to create ads, find trends, and grow your YouTube audience on autopilot.
           </p>
-          <Button variant="primary" size="lg" leftIcon={<Zap className="w-5 h-5" />}>Start Growing</Button>
+          <Link href="/studios/youtube/" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-lime-300 text-black font-semibold"><Zap className="w-5 h-5"/>Start Growing</Link>
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-4xl mx-auto">
           {features.map((f, i) => {

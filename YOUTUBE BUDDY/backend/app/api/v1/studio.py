@@ -11,7 +11,7 @@ from pathlib import Path
 from uuid import uuid4
 
 from fastapi import APIRouter, Depends, HTTPException, Query, status
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -45,8 +45,9 @@ class Provider(str, Enum):
 
 
 class StudioGenerateRequest(BaseModel):
-    tool_id: str
-    prompt: str | None = None
+    tool_id: str = Field(min_length=1, max_length=100)
+    category: str | None = None
+    prompt: str | None = Field(default=None, max_length=6000)
     style: str | None = None
     aspect_ratio: str | None = None
     duration: int | None = None
@@ -102,10 +103,16 @@ async def generate_tool(
     prompt_text = (request.prompt or "").strip()
     if request.upload_id is not None:
         await require_upload(session, request.upload_id, user)
-    if not prompt_text and request.upload_id is None:
-        prompt_text = f"Professional studio generation for {request.tool_id}."
-    elif not prompt_text:
-        prompt_text = f"Run {request.tool_id} on uploaded media #{request.upload_id}."
+    if not prompt_text:
+        raise HTTPException(422, "Describe the output you want to create.")
+    if request.tool_id in {"create", "draw", "upscale"} and request.category is None:
+        raise HTTPException(422, "category is required for ambiguous legacy tool IDs.")
+    if request.category in {"video", "audio"}:
+        raise HTTPException(503, detail={"status":"requires_configuration", "capability":request.category, "message":"No compatible generative model is configured. Text and poster cards are not substitutes for media."})
+    if request.tool_id not in {"create", "cineshot", "aesthetic", "fashion", "script", "seo", "cinematic_brief"}:
+        raise HTTPException(501, detail={"status":"unavailable", "message":"This specialist editing operation does not have an implemented engine."})
+    if request.upload_id is not None:
+        raise HTTPException(501, "Reference-guided generation is not implemented by the current adapter.")
 
     preview_url: str | None = None
     generated_text: str | None = None
@@ -126,13 +133,14 @@ async def generate_tool(
             # Save image to disk
             filename = f"{request.tool_id}_{uuid4().hex[:8]}.png"
             local_path = save_generated_image(image_result, filename)
-            preview_url = f"{settings.BACKEND_HOST}/rendered/{filename}"
+            from app.services.media_access import signed_media_url
+            preview_url = signed_media_url("rendered", filename, user.id)
 
             generated_text = f"Image generated successfully using {request.provider.value}."
             model_output = {
                 "type": "image",
                 "url": preview_url,
-                "local_path": local_path,
+                "asset_filename": filename,
                 "original_url": image_result if image_result.startswith("http") else None,
             }
         else:
@@ -147,25 +155,6 @@ async def generate_tool(
             )
             generated_text = result.get("raw", "")
             model_output = result.get("parsed", generated_text)
-
-            # For video-centric tools, also generate a visual poster/thumbnail card
-            simulated_before_poster = was_simulated()
-            try:
-                from app.services.ai_generation import generate_mock_image, _clean_user_prompt
-                poster_result = generate_mock_image(
-                    tool_id=request.tool_id,
-                    prompt=_clean_user_prompt(prompt_text),
-                    aspect_ratio="9:16",
-                    style=request.style or "Cinematic",
-                )
-                filename = f"{request.tool_id}_{uuid4().hex[:8]}.png"
-                save_generated_image(poster_result, filename)
-                preview_url = f"{settings.BACKEND_HOST}/rendered/{filename}"
-            except Exception:
-                pass
-            finally:
-                # The poster card is always locally drawn; it must not mark real text as simulated.
-                set_simulation_flag(simulated_before_poster)
 
     except RuntimeError as exc:
         raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail=str(exc)) from exc
@@ -184,6 +173,7 @@ async def generate_tool(
                 "aspect_ratio": request.aspect_ratio,
                 "duration": request.duration,
                 "preview_url": preview_url,
+                "asset_filename": Path(local_path).name if preview_url else None,
             }
         ),
         status="completed",
@@ -250,44 +240,5 @@ async def studio_history(
 @router.get("/providers")
 async def get_providers_status() -> dict:
     """Return health and availability of all AI generation providers."""
-    providers = {
-        "openai": {
-            "name": "OpenAI",
-            "available": bool(settings.OPENAI_API_KEY),
-            "model": settings.OPENAI_MODEL,
-            "image_model": settings.OPENAI_IMAGE_MODEL,
-            "transcription_model": settings.OPENAI_TRANSCRIPTION_MODEL,
-        },
-        "gemini": {
-            "name": "Google Gemini",
-            "available": bool(settings.GEMINI_API_KEY),
-            "model": settings.GEMINI_MODEL,
-            "free_tier": True,
-            "info": "Free 15 RPM / 1M tokens/day via Google AI Studio",
-        },
-        "huggingface": {
-            "name": "Hugging Face",
-            "available": bool(settings.HUGGINGFACE_API_KEY),
-            "model": settings.HUGGINGFACE_MODEL,
-        },
-        "ollama": {
-            "name": "Ollama (Local)",
-            "available": True,
-            "base_url": settings.OLLAMA_BASE_URL,
-            "model": settings.OLLAMA_MODEL,
-        },
-    }
-
-    if settings.OPENAI_API_KEY:
-        active = "openai"
-    elif settings.GEMINI_API_KEY:
-        active = "gemini"
-    elif settings.HUGGINGFACE_API_KEY:
-        active = "huggingface"
-    else:
-        active = "ollama"
-
-    return {
-        "active_default": active,
-        "providers": providers,
-    }
+    from app.ai.providers.ai_dispatcher import provider_status
+    return provider_status()

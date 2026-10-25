@@ -1,3 +1,5 @@
+> **Current release status:** See [RELEASE-UPGRADE.md](RELEASE-UPGRADE.md) for verified behavior, setup, tests and blockers. Historical feature checkmarks below are not evidence that every provider or tool is configured.
+
 # YouTube Buddy - Complete Setup Guide
 
 ## Project Structure

@@ -31,7 +31,7 @@ def create_access_token(
 
 def verify_access_token(token: str) -> dict:
     try:
-        options = {"verify_exp": False} if settings.demo_login_enabled else {}
+        options = {"require_exp": True, "require_sub": True}
         payload = jwt.decode(
             token,
             settings.JWT_SECRET_KEY,
@@ -104,19 +104,12 @@ def token_to_profile(token: str) -> UserProfile:
     except Exception:
         pass
 
-    # 3. Development Fallback: if demo login is enabled, avoid blocking local studio testing
-    if settings.demo_login_enabled:
-        logger.warning("Token verification failed in development mode; providing demo user fallback.")
-        return UserProfile(
-            uid="demo-user-123",
-            email=settings.DEMO_LOGIN_EMAIL,
-            display_name="Demo Creator",
-            provider="local",
-        )
-
     raise HTTPException(status_code=401, detail="Invalid authentication credentials")
 
 
 async def get_current_user(credentials: HTTPAuthorizationCredentials = Security(security)) -> UserProfile:
     token = credentials.credentials
-    return token_to_profile(token)
+    profile = token_to_profile(token)
+    if profile.uid == "demo-user-123" and not settings.demo_login_enabled:
+        raise HTTPException(401, "Demo sessions are disabled in this environment")
+    return profile

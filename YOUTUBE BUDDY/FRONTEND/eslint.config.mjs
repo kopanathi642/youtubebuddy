@@ -6,6 +6,6 @@ const baseDirectory = path.dirname(fileURLToPath(import.meta.url));
 const compat = new FlatCompat({ baseDirectory });
 
 export default [
-  { ignores: ['.next/**', 'node_modules/**', 'next-env.d.ts', 'eslint.config.mjs'] },
+  { ignores: ['.next/**', 'out/**', 'node_modules/**', 'next-env.d.ts', 'eslint.config.mjs'] },
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
 ];

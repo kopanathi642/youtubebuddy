@@ -1,0 +1,6 @@
+# Optional: install explicitly, after reviewing hardware and model licenses.
+diffusers>=0.30.0
+transformers>=4.44.0
+accelerate>=0.34.0
+faster-whisper>=1.0.0
+safetensors>=0.4.0

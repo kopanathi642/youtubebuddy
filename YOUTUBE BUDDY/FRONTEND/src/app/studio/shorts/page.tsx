@@ -1,7 +1,8 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { Sidebar } from '@/components/layout/Sidebar';
-import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
+import {ProcessingAccess} from '@/components/auth/ProcessingAccess';
+import {backend} from '@/lib/studio/runtime';
 import { DropZone } from '@/components/studio/DropZone';
 import { Scissors, Mic, Flame, Settings, Download, Play, ChevronRight, Wand2 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
@@ -85,7 +86,7 @@ export default function ShortsStudioPage() {
   };
 
   return (
-    <ProtectedRoute>
+    <ProcessingAccess>
       <div className="flex h-screen bg-bg-primary overflow-hidden">
         <Sidebar />
         <main className="flex-1 overflow-y-auto scrollbar-thin">
@@ -101,7 +102,7 @@ export default function ShortsStudioPage() {
                 </div>
               </div>
               {videoId && (
-                <Button variant="primary" size="sm" loading={generating} onClick={handleGenerateShorts} leftIcon={<Wand2 className="w-4 h-4" />}>
+                <Button variant="primary" size="sm" loading={generating} disabled={!backend.available} onClick={handleGenerateShorts} leftIcon={<Wand2 className="w-4 h-4" />}>
                   Generate Shorts
                 </Button>
               )}
@@ -233,15 +234,14 @@ export default function ShortsStudioPage() {
                 videoId={videoId}
                 aspectRatio={selectedRatio}
                 captionsEnabled={captions}
-                onPipelineComplete={() => {
-                  setLastShortStatus('completed');
-                  toast.success('Pipeline finished! Video ready for export.');
-                }}
+                jobStatus={lastShortStatus}
+                onRun={handleGenerateShorts}
+                busy={generating}
               />
             </div>
           </div>
         </main>
       </div>
-    </ProtectedRoute>
+    </ProcessingAccess>
   );
 }

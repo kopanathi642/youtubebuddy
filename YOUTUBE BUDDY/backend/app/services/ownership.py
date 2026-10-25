@@ -12,7 +12,7 @@ from app.services.storage import require_safe_upload_path
 
 async def require_user(session: AsyncSession, current_user: UserProfile) -> User:
     user = await get_user_by_uid(session, current_user.uid)
-    if not user:
+    if not user or not user.is_active:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
     return user
 

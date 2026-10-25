@@ -8,19 +8,26 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Mail, Lock } from 'lucide-react';
 import toast from 'react-hot-toast';
-import { signInWithEmail, signInWithGoogle } from '@/lib/firebase';
+import { signInWithEmail, signInWithGoogle, isConfigured, isAccountApiConfigured } from '@/lib/firebase';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 import type { LoginFormData } from '@/types';
+import {beginBrowserDemo,isDemoId,DEMO_ID,DEMO_PASSWORD} from '@/lib/studio/demo';
 
 const schema = z.object({
-  email: z.string().email('Please enter a valid email'),
+  email: z.string().trim().email('Please enter a valid email'),
   password: z.string().min(6, 'Password must be at least 6 characters'),
 });
 
+import {workspaceDestination} from '@/lib/studio/entry';
+import {useDemoEntry} from '@/lib/studio/use-demo-entry';
+
 export default function LoginPage() {
+  const entryChecked=useDemoEntry();
   const router = useRouter();
   const [googleLoading, setGoogleLoading] = useState(false);
+  const [authError,setAuthError]=useState('');
+
 
   const {
     register,
@@ -29,13 +36,20 @@ export default function LoginPage() {
   } = useForm<LoginFormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = async (data: LoginFormData) => {
+    setAuthError('');
     try {
+      if (isDemoId(data.email)) {
+        const destination=beginBrowserDemo(data.email,data.password,window.localStorage);
+        window.location.assign(workspaceDestination(new URLSearchParams(location.search).get('next')||destination));
+        return;
+      }
       await signInWithEmail(data.email, data.password);
       toast.success('Welcome back!');
-      router.push('/dashboard');
+      router.push(workspaceDestination(new URLSearchParams(location.search).get('next')));
     } catch (err: unknown) {
       const message =
         err instanceof Error ? err.message : 'Invalid credentials. Please try again.';
+      setAuthError(message);
       toast.error(message.includes('wrong-password') ? 'Invalid credentials.' : message);
     }
   };
@@ -45,7 +59,7 @@ export default function LoginPage() {
     try {
       await signInWithGoogle();
       toast.success('Welcome back!');
-      router.push('/dashboard');
+      router.push(workspaceDestination(new URLSearchParams(location.search).get('next')));
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : 'Google sign-in failed.';
       if (!message.includes('popup-closed')) toast.error(message);
@@ -54,6 +68,7 @@ export default function LoginPage() {
     }
   };
 
+  if(!entryChecked)return <main className="min-h-dvh bg-bg-primary text-white flex items-center justify-center" role="status">Opening your workspace…</main>;
   return (
     <div className="min-h-screen bg-bg-primary flex items-center justify-center px-4 relative overflow-hidden">
       {/* BG Effects */}
@@ -80,18 +95,25 @@ export default function LoginPage() {
             </span>
           </Link>
           <h1 className="font-display text-3xl font-bold text-white mt-4 mb-2">Welcome back</h1>
-          <p className="text-white/40 text-sm">Sign in to your creator dashboard</p>
+          <p className="text-white/40 text-sm">Sign in to your account or open the separate local demo</p>
         </div>
 
         {/* Card */}
         <div className="glass border border-white/8 rounded-3xl p-8 shadow-card-glow">
 
+          <div className="mb-6 rounded-xl border border-neon-lime/20 bg-neon-lime/5 p-4">
+            <p className="text-xs font-semibold text-neon-lime mb-2">Local demo · separate from your account</p>
+            <p className="text-xs text-white/70 leading-6">ID: <code>{DEMO_ID}</code><br/>Password: <code>{DEMO_PASSWORD}</code></p>
+            <p className="text-[11px] text-white/45 mt-2">Opens browser-only tools. No backend or YouTube account access.</p>
+            <Link href="/demo" className="inline-block mt-3 text-xs text-neon-lime underline">Open dedicated demo login</Link>
+          </div>
           {/* Google OAuth */}
           <Button
             type="button"
             variant="secondary"
             fullWidth
             loading={googleLoading}
+            disabled={!isConfigured || !isAccountApiConfigured}
             onClick={handleGoogle}
             className="mb-6 py-3 justify-center"
             leftIcon={
@@ -108,6 +130,7 @@ export default function LoginPage() {
             Continue with Google
           </Button>
 
+          {(!isConfigured||!isAccountApiConfigured)&&<p className="text-xs text-white/45 leading-5 mb-6">Google and personal-account sign-in need a configured authentication backend. The demo login above works without one.</p>}
           <div className="flex items-center gap-4 mb-6">
             <div className="flex-1 h-px bg-white/8" />
             <span className="text-white/25 text-xs">OR</span>
@@ -135,6 +158,7 @@ export default function LoginPage() {
               leftIcon={<Lock className="w-4 h-4" />}
             />
 
+            {authError&&<p role="alert" className="text-xs text-red-300 border border-red-400/20 bg-red-400/5 rounded-lg p-3 leading-5">{authError}</p>}
             <div className="flex justify-end">
               <Link
                 href="/forgot-password"

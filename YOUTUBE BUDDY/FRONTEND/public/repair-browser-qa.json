@@ -1,0 +1,194 @@
+[
+  {
+    "route": "/studio/create/",
+    "url": "http://terminal.local:4173/studio/create/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/studio/cinematic/",
+    "url": "http://terminal.local:4173/studio/cinematic/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/studio/canvas/",
+    "url": "http://terminal.local:4173/studio/canvas/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/studio/mixed/",
+    "url": "http://terminal.local:4173/studio/mixed/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/studio/edit/",
+    "url": "http://terminal.local:4173/studio/edit/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/studio/ads/",
+    "url": "http://terminal.local:4173/studio/ads/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/studio/trends/",
+    "url": "http://terminal.local:4173/studio/trends/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/studio/lipsync/",
+    "url": "http://terminal.local:4173/studio/lipsync/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/studio/draw/",
+    "url": "http://terminal.local:4173/studio/draw/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/studio/sketch/",
+    "url": "http://terminal.local:4173/studio/sketch/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/studio/ugc/",
+    "url": "http://terminal.local:4173/studio/ugc/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/studio/upscale/",
+    "url": "http://terminal.local:4173/studio/upscale/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/studio/animate/",
+    "url": "http://terminal.local:4173/studio/animate/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/studio/motion/",
+    "url": "http://terminal.local:4173/studio/motion/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/studio/recast/",
+    "url": "http://terminal.local:4173/studio/recast/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/image/cineshot/",
+    "url": "http://terminal.local:4173/image/cineshot/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/image/moodboard/",
+    "url": "http://terminal.local:4173/image/moodboard/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/image/character/",
+    "url": "http://terminal.local:4173/image/character/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/image/persona/",
+    "url": "http://terminal.local:4173/image/persona/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/image/aesthetic/",
+    "url": "http://terminal.local:4173/image/aesthetic/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/image/relight/",
+    "url": "http://terminal.local:4173/image/relight/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/image/inpaint/",
+    "url": "http://terminal.local:4173/image/inpaint/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/image/faceswap/",
+    "url": "http://terminal.local:4173/image/faceswap/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/image/charswap/",
+    "url": "http://terminal.local:4173/image/charswap/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/image/fashion/",
+    "url": "http://terminal.local:4173/image/fashion/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/audio/voiceover/",
+    "url": "http://terminal.local:4173/audio/voiceover/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/audio/changevoice/",
+    "url": "http://terminal.local:4173/audio/changevoice/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/audio/translation/",
+    "url": "http://terminal.local:4173/audio/translation/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/image/create/",
+    "url": "http://terminal.local:4173/image/create/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/image/draw/",
+    "url": "http://terminal.local:4173/image/draw/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/image/upscale/",
+    "url": "http://terminal.local:4173/image/upscale/",
+    "setupVisible": true,
+    "disabled": true
+  },
+  {
+    "route": "/studio/shorts/",
+    "url": "http://terminal.local:4173/studio/shorts/",
+    "setupVisible": true,
+    "disabled": true
+  }
+]

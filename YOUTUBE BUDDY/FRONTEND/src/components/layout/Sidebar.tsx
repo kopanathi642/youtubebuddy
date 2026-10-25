@@ -1,5 +1,7 @@
 'use client';
+import {LaunchStudioNav,ToolCatalogNav} from './ToolCatalogNav';
 import Link from 'next/link';
+import categoryRegistry from '@/lib/studio/categories.json';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import {
@@ -54,14 +56,21 @@ type SidebarSection = {
   items: SidebarItem[];
 };
 
-const navSections: SidebarSection[] = [
+export const navSections: SidebarSection[] = [
   {
     label: 'Main',
     items: [
+      { label: 'All 30 studios', href: '/studios', icon: LayoutDashboard, badge: 'NEW' },
+      { label: 'Master inventory', href: '/master/', icon: LayoutDashboard },
+      { label: 'Creative studio', href: '/create', icon: Sparkles, badge: 'NEW' },
       { label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
       { label: 'Explore', href: '/explore', icon: Globe },
       { label: 'My Videos', href: '/dashboard/videos', icon: Video },
     ],
+  },
+  {
+    label: 'All 30 categories',
+    items: categoryRegistry.map(category=>({label:category.name,href:'/studios/'+category.slug,icon:Sparkles})),
   },
   {
     label: 'Images',
@@ -172,13 +181,14 @@ export function Sidebar() {
             exit={{ opacity: 0 }}
             className="font-display font-bold text-base tracking-tight whitespace-nowrap"
           >
-            kumar<span className="text-neon-lime"> project</span>
+            Buddy<span className="text-neon-lime"> X</span>
           </motion.span>
         )}
       </div>
 
       {/* Nav Sections */}
       <nav className="flex-1 overflow-y-auto scrollbar-thin py-4 px-3 space-y-6">
+        <LaunchStudioNav collapsed={collapsed}/><ToolCatalogNav collapsed={collapsed}/>
         {navSections.map((section) => (
           <div key={section.label} className="space-y-1">
             {!collapsed && (
@@ -253,10 +263,10 @@ export function Sidebar() {
             {!collapsed && (
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-medium text-white truncate">
-                  {profile?.displayName || user?.email?.split('@')[0] || 'User'}
+                  {profile?.displayName || user?.email?.split('@')[0] || 'Local workspace'}
                 </p>
                 <p className="text-xs text-white/35 truncate capitalize">
-                  {profile?.plan || 'Free'} plan
+                  {user ? (profile?.plan || 'free') + ' plan' : 'No account connected'}
                 </p>
               </div>
             )}

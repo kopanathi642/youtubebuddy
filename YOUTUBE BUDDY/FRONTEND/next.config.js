@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  ...(process.env.BUDDY_STATIC_EXPORT === '1' ? { output: 'export', trailingSlash: true } : {}),
   compress: true,
   poweredByHeader: false,
   experimental: {
@@ -19,6 +20,7 @@ const nextConfig = {
     },
   },
   images: {
+    unoptimized: process.env.BUDDY_STATIC_EXPORT === '1',
     remotePatterns: [
       {
         protocol: 'https',

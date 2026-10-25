@@ -1,3 +1,4 @@
+import re
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -24,10 +25,10 @@ async def upload_chunk(
     current_user: UserProfile = Depends(get_current_user),
     session: AsyncSession = Depends(get_session),
 ) -> dict:
-    await require_user(session, current_user)
+    user = await require_user(session, current_user)
     # Chunks after the first have no container header, so only the extension can be checked here.
     validate_extension(file.filename)
-    destination = unique_upload_path(file.filename or "upload.mp4")
+    destination = unique_upload_path(f"owner_{user.id}_" + (file.filename or "upload.mp4"))
     size_bytes = await save_upload_file(file, destination, settings.MAX_UPLOAD_SIZE_BYTES)
     return {"uploaded": True, "path": destination, "size_bytes": size_bytes}
 
@@ -44,6 +45,8 @@ async def register_upload(
     validate_extension(payload.filename)
     # The client must only reference a file the server itself stored (e.g. via /chunk).
     stored_path = require_safe_upload_path(payload.storage_path)
+    if not re.fullmatch(r"[0-9a-f]{32}_owner_" + str(user.id) + r"_.+", stored_path.name):
+        raise HTTPException(404, "Upload not found")
     if not stored_path.is_file():
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Referenced upload does not exist.")
 

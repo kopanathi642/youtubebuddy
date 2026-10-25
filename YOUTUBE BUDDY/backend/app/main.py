@@ -3,7 +3,8 @@ from pathlib import Path
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
-from fastapi.staticfiles import StaticFiles
+from fastapi.responses import JSONResponse
+from app.ai.providers.errors import ProviderUnavailable
 
 from app.ai.model_manager import get_gpu_info, unload_all_models
 from app.api.v1 import (
@@ -21,6 +22,7 @@ from app.api.v1 import (
     videos,
 )
 from app.api.v1.users import router as users_router
+from app.api.v1 import media, tools
 from app.core.cache import close_cache, init_cache
 from app.core.config import settings
 from app.core.database import init_db
@@ -32,6 +34,19 @@ app = FastAPI(
     openapi_url=f"{settings.API_PREFIX}/openapi.json",
     docs_url=f"{settings.API_PREFIX}/docs",
 )
+
+@app.exception_handler(ProviderUnavailable)
+async def unavailable_handler(request, exc):
+    return JSONResponse(status_code=503, content={"detail":{"status":exc.status,"capability":exc.capability,"message":str(exc)}})
+
+@app.middleware("http")
+async def private_api_headers(request, call_next):
+    response=await call_next(request)
+    response.headers['X-Content-Type-Options']='nosniff'
+    response.headers['Referrer-Policy']='no-referrer'
+    response.headers['X-Frame-Options']='DENY'
+    if request.url.path.startswith(settings.API_PREFIX):response.headers['Cache-Control']='private, no-store'
+    return response
 
 # ── Middleware ───────────────────────────────────────────────────────────────
 
@@ -50,11 +65,12 @@ _upload_dir = Path(settings.UPLOAD_DIR)
 _render_dir = Path(settings.RENDER_DIR)
 _upload_dir.mkdir(parents=True, exist_ok=True)
 _render_dir.mkdir(parents=True, exist_ok=True)
-app.mount("/uploads", StaticFiles(directory=str(_upload_dir)), name="uploads")
-app.mount("/rendered", StaticFiles(directory=str(_render_dir)), name="rendered")
+# Source and rendered media are served only through scoped media grants.
 
 # ── API Routes ──────────────────────────────────────────────────────────────
 
+app.include_router(tools.router, prefix=f"{settings.API_PREFIX}/tools", tags=["tools"])
+app.include_router(media.router, prefix=f"{settings.API_PREFIX}/media", tags=["media"])
 app.include_router(auth.router, prefix=f"{settings.API_PREFIX}/auth", tags=["auth"])
 app.include_router(users_router, prefix=f"{settings.API_PREFIX}/user", tags=["user"])
 app.include_router(uploads.router, prefix=f"{settings.API_PREFIX}/uploads", tags=["uploads"])
@@ -95,7 +111,7 @@ async def health_check():
     return {
         "status": "ok",
         "service": settings.APP_NAME,
-        "ai_engine": "hybrid-free-tier",
+        "ai_engine": "configured-adapters; no free-compute guarantee",
         "providers": get_active_providers(),
         "gpu": get_gpu_info(),
     }

@@ -1,0 +1,3 @@
+import type {Project,Asset} from './project';
+export type LibraryItem={key:string;projectId:string;projectTitle:string;asset:Asset;kind:'video'|'image'|'audio'};
+export function libraryItems(projects:Project[],kind='all',query=''):LibraryItem[]{const search=query.trim().toLowerCase();return projects.flatMap(p=>p.assets.filter(a=>/^(video|image|audio)\//.test(a.type)).map(asset=>({key:p.id+':'+asset.id,projectId:p.id,projectTitle:p.title,asset,kind:asset.type.split('/')[0] as LibraryItem['kind']}))).filter(i=>(kind==='all'||i.kind===kind)&&(!search||(i.asset.name+' '+i.projectTitle).toLowerCase().includes(search))).sort((a,b)=>b.asset.createdAt.localeCompare(a.asset.createdAt)||a.key.localeCompare(b.key));}

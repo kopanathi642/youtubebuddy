@@ -36,7 +36,8 @@ class ShortResponse(BaseModel):
     @computed_field  # type: ignore[prop-decorator]
     @property
     def url(self) -> str:
-        return f"{settings.BACKEND_HOST.rstrip('/')}/rendered/{Path(self.storage_path).name}"
+        from app.services.media_access import signed_media_url
+        return signed_media_url("rendered", Path(self.storage_path).name, self.user_id)
 
     model_config = {
         "from_attributes": True,
