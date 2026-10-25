@@ -1,0 +1,3830 @@
+{
+  "description": "Real local CPU engine outputs from synthetic test media. Not AI inference or Higgsfield output. Not proof of deployed workers.",
+  "cpu_engines": [
+    {
+      "tool": "video.trim_split",
+      "outcome": "passed",
+      "input": "synthetic-source.mp4",
+      "options": {
+        "ranges": [
+          [
+            0,
+            0.5
+          ],
+          [
+            0.5,
+            1.5
+          ]
+        ]
+      },
+      "files": [
+        {
+          "filename": "video-trim_split-0.mp4",
+          "bytes": 12602,
+          "sha256": "31268edb8586cfb0e11c5f24d341c4e4ebb65029e1ae4d589f504f328b10a286",
+          "probe": {
+            "streams": [
+              {
+                "index": 0,
+                "codec_name": "h264",
+                "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+                "profile": "High",
+                "codec_type": "video",
+                "codec_tag_string": "avc1",
+                "codec_tag": "0x31637661",
+                "width": 192,
+                "height": 108,
+                "coded_width": 192,
+                "coded_height": 108,
+                "closed_captions": 0,
+                "film_grain": 0,
+                "has_b_frames": 2,
+                "sample_aspect_ratio": "1:1",
+                "display_aspect_ratio": "16:9",
+                "pix_fmt": "yuv420p",
+                "level": 10,
+                "chroma_location": "left",
+                "field_order": "progressive",
+                "refs": 1,
+                "is_avc": "true",
+                "nal_length_size": "4",
+                "id": "0x1",
+                "r_frame_rate": "12/1",
+                "avg_frame_rate": "12/1",
+                "time_base": "1/12288",
+                "start_pts": 0,
+                "start_time": "0.000000",
+                "duration_ts": 6144,
+                "duration": "0.500000",
+                "bit_rate": "98480",
+                "bits_per_raw_sample": "8",
+                "nb_frames": "6",
+                "extradata_size": 44,
+                "disposition": {
+                  "default": 1,
+                  "dub": 0,
+                  "original": 0,
+                  "comment": 0,
+                  "lyrics": 0,
+                  "karaoke": 0,
+                  "forced": 0,
+                  "hearing_impaired": 0,
+                  "visual_impaired": 0,
+                  "clean_effects": 0,
+                  "attached_pic": 0,
+                  "timed_thumbnails": 0,
+                  "non_diegetic": 0,
+                  "captions": 0,
+                  "descriptions": 0,
+                  "metadata": 0,
+                  "dependent": 0,
+                  "still_image": 0
+                },
+                "tags": {
+                  "language": "und",
+                  "handler_name": "VideoHandler",
+                  "vendor_id": "[0][0][0][0]",
+                  "encoder": "Lavc60.31.102 libx264"
+                }
+              },
+              {
+                "index": 1,
+                "codec_name": "aac",
+                "codec_long_name": "AAC (Advanced Audio Coding)",
+                "profile": "LC",
+                "codec_type": "audio",
+                "codec_tag_string": "mp4a",
+                "codec_tag": "0x6134706d",
+                "sample_fmt": "fltp",
+                "sample_rate": "48000",
+                "channels": 1,
+                "channel_layout": "mono",
+                "bits_per_sample": 0,
+                "initial_padding": 0,
+                "id": "0x2",
+                "r_frame_rate": "0/0",
+                "avg_frame_rate": "0/0",
+                "time_base": "1/48000",
+                "start_pts": 0,
+                "start_time": "0.000000",
+                "duration_ts": 24000,
+                "duration": "0.500000",
+                "bit_rate": "73120",
+                "nb_frames": "25",
+                "extradata_size": 5,
+                "disposition": {
+                  "default": 1,
+                  "dub": 0,
+                  "original": 0,
+                  "comment": 0,
+                  "lyrics": 0,
+                  "karaoke": 0,
+                  "forced": 0,
+                  "hearing_impaired": 0,
+                  "visual_impaired": 0,
+                  "clean_effects": 0,
+                  "attached_pic": 0,
+                  "timed_thumbnails": 0,
+                  "non_diegetic": 0,
+                  "captions": 0,
+                  "descriptions": 0,
+                  "metadata": 0,
+                  "dependent": 0,
+                  "still_image": 0
+                },
+                "tags": {
+                  "language": "und",
+                  "handler_name": "SoundHandler",
+                  "vendor_id": "[0][0][0][0]"
+                }
+              }
+            ],
+            "format": {
+              "filename": "/workspace/scratch/25c398c71429/upstream-youtubebuddy/YOUTUBE BUDDY/FRONTEND/public/qa/cpu-outputs/video-trim_split-0.mp4",
+              "nb_streams": 2,
+              "nb_programs": 0,
+              "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+              "format_long_name": "QuickTime / MOV",
+              "start_time": "0.000000",
+              "duration": "0.500000",
+              "size": "12602",
+              "bit_rate": "201632",
+              "probe_score": 100,
+              "tags": {
+                "major_brand": "isom",
+                "minor_version": "512",
+                "compatible_brands": "isomiso2avc1mp41",
+                "encoder": "Lavf60.16.100"
+              }
+            }
+          }
+        },
+        {
+          "filename": "video-trim_split-1.mp4",
+          "bytes": 21030,
+          "sha256": "deb666da919f342bc3e7a6f362769c54924b3740cf9c8dbc0891f59148c2340f",
+          "probe": {
+            "streams": [
+              {
+                "index": 0,
+                "codec_name": "h264",
+                "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+                "profile": "High",
+                "codec_type": "video",
+                "codec_tag_string": "avc1",
+                "codec_tag": "0x31637661",
+                "width": 192,
+                "height": 108,
+                "coded_width": 192,
+                "coded_height": 108,
+                "closed_captions": 0,
+                "film_grain": 0,
+                "has_b_frames": 2,
+                "sample_aspect_ratio": "1:1",
+                "display_aspect_ratio": "16:9",
+                "pix_fmt": "yuv420p",
+                "level": 10,
+                "chroma_location": "left",
+                "field_order": "progressive",
+                "refs": 1,
+                "is_avc": "true",
+                "nal_length_size": "4",
+                "id": "0x1",
+                "r_frame_rate": "12/1",
+                "avg_frame_rate": "12/1",
+                "time_base": "1/12288",
+                "start_pts": 0,
+                "start_time": "0.000000",
+                "duration_ts": 12288,
+                "duration": "1.000000",
+                "bit_rate": "81096",
+                "bits_per_raw_sample": "8",
+                "nb_frames": "12",
+                "extradata_size": 44,
+                "disposition": {
+                  "default": 1,
+                  "dub": 0,
+                  "original": 0,
+                  "comment": 0,
+                  "lyrics": 0,
+                  "karaoke": 0,
+                  "forced": 0,
+                  "hearing_impaired": 0,
+                  "visual_impaired": 0,
+                  "clean_effects": 0,
+                  "attached_pic": 0,
+                  "timed_thumbnails": 0,
+                  "non_diegetic": 0,
+                  "captions": 0,
+                  "descriptions": 0,
+                  "metadata": 0,
+                  "dependent": 0,
+                  "still_image": 0
+                },
+                "tags": {
+                  "language": "und",
+                  "handler_name": "VideoHandler",
+                  "vendor_id": "[0][0][0][0]",
+                  "encoder": "Lavc60.31.102 libx264"
+                }
+              },
+              {
+                "index": 1,
+                "codec_name": "aac",
+                "codec_long_name": "AAC (Advanced Audio Coding)",
+                "profile": "LC",
+                "codec_type": "audio",
+                "codec_tag_string": "mp4a",
+                "codec_tag": "0x6134706d",
+                "sample_fmt": "fltp",
+                "sample_rate": "48000",
+                "channels": 1,
+                "channel_layout": "mono",
+                "bits_per_sample": 0,
+                "initial_padding": 0,
+                "id": "0x2",
+                "r_frame_rate": "0/0",
+                "avg_frame_rate": "0/0",
+                "time_base": "1/48000",
+                "start_pts": 0,
+                "start_time": "0.000000",
+                "duration_ts": 48000,
+                "duration": "1.000000",
+                "bit_rate": "70550",
+                "nb_frames": "48",
+                "extradata_size": 5,
+                "disposition": {
+                  "default": 1,
+                  "dub": 0,
+                  "original": 0,
+                  "comment": 0,
+                  "lyrics": 0,
+                  "karaoke": 0,
+                  "forced": 0,
+                  "hearing_impaired": 0,
+                  "visual_impaired": 0,
+                  "clean_effects": 0,
+                  "attached_pic": 0,
+                  "timed_thumbnails": 0,
+                  "non_diegetic": 0,
+                  "captions": 0,
+                  "descriptions": 0,
+                  "metadata": 0,
+                  "dependent": 0,
+                  "still_image": 0
+                },
+                "tags": {
+                  "language": "und",
+                  "handler_name": "SoundHandler",
+                  "vendor_id": "[0][0][0][0]"
+                }
+              }
+            ],
+            "format": {
+              "filename": "/workspace/scratch/25c398c71429/upstream-youtubebuddy/YOUTUBE BUDDY/FRONTEND/public/qa/cpu-outputs/video-trim_split-1.mp4",
+              "nb_streams": 2,
+              "nb_programs": 0,
+              "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+              "format_long_name": "QuickTime / MOV",
+              "start_time": "0.000000",
+              "duration": "1.000000",
+              "size": "21030",
+              "bit_rate": "168240",
+              "probe_score": 100,
+              "tags": {
+                "major_brand": "isom",
+                "minor_version": "512",
+                "compatible_brands": "isomiso2avc1mp41",
+                "encoder": "Lavf60.16.100"
+              }
+            }
+          }
+        }
+      ],
+      "metadata": {
+        "source_duration": 2.0,
+        "engine": "ffmpeg",
+        "operation": "video.trim_split",
+        "audio_policy": "source when supported"
+      }
+    },
+    {
+      "tool": "video.slow_motion",
+      "outcome": "passed",
+      "input": "synthetic-source.mp4",
+      "options": {
+        "speed": 0.5
+      },
+      "files": [
+        {
+          "filename": "video-slow_motion-0.mp4",
+          "bytes": 23340,
+          "sha256": "0ac1660585a7f2c150f34a0a128b02fe0607e7ce596c26bc2f10d3d7ac36c46a",
+          "probe": {
+            "streams": [
+              {
+                "index": 0,
+                "codec_name": "h264",
+                "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+                "profile": "High",
+                "codec_type": "video",
+                "codec_tag_string": "avc1",
+                "codec_tag": "0x31637661",
+                "width": 192,
+                "height": 108,
+                "coded_width": 192,
+                "coded_height": 108,
+                "closed_captions": 0,
+                "film_grain": 0,
+                "has_b_frames": 2,
+                "sample_aspect_ratio": "1:1",
+                "display_aspect_ratio": "16:9",
+                "pix_fmt": "yuv420p",
+                "level": 10,
+                "chroma_location": "left",
+                "field_order": "progressive",
+                "refs": 1,
+                "is_avc": "true",
+                "nal_length_size": "4",
+                "id": "0x1",
+                "r_frame_rate": "12/1",
+                "avg_frame_rate": "12/1",
+                "time_base": "1/12288",
+                "start_pts": 0,
+                "start_time": "0.000000",
+                "duration_ts": 48128,
+                "duration": "3.916667",
+                "bit_rate": "44754",
+                "bits_per_raw_sample": "8",
+                "nb_frames": "47",
+                "extradata_size": 44,
+                "disposition": {
+                  "default": 1,
+                  "dub": 0,
+                  "original": 0,
+                  "comment": 0,
+                  "lyrics": 0,
+                  "karaoke": 0,
+                  "forced": 0,
+                  "hearing_impaired": 0,
+                  "visual_impaired": 0,
+                  "clean_effects": 0,
+                  "attached_pic": 0,
+                  "timed_thumbnails": 0,
+                  "non_diegetic": 0,
+                  "captions": 0,
+                  "descriptions": 0,
+                  "metadata": 0,
+                  "dependent": 0,
+                  "still_image": 0
+                },
+                "tags": {
+                  "language": "und",
+                  "handler_name": "VideoHandler",
+                  "vendor_id": "[0][0][0][0]",
+                  "encoder": "Lavc60.31.102 libx264"
+                }
+              }
+            ],
+            "format": {
+              "filename": "/workspace/scratch/25c398c71429/upstream-youtubebuddy/YOUTUBE BUDDY/FRONTEND/public/qa/cpu-outputs/video-slow_motion-0.mp4",
+              "nb_streams": 1,
+              "nb_programs": 0,
+              "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+              "format_long_name": "QuickTime / MOV",
+              "start_time": "0.000000",
+              "duration": "3.916667",
+              "size": "23340",
+              "bit_rate": "47673",
+              "probe_score": 100,
+              "tags": {
+                "major_brand": "isom",
+                "minor_version": "512",
+                "compatible_brands": "isomiso2avc1mp41",
+                "encoder": "Lavf60.16.100"
+              }
+            }
+          }
+        }
+      ],
+      "metadata": {
+        "source_duration": 2.0,
+        "engine": "ffmpeg",
+        "operation": "video.slow_motion",
+        "audio_policy": "muted for slow motion"
+      }
+    },
+    {
+      "tool": "video.freeze_frame",
+      "outcome": "passed",
+      "input": "synthetic-source.mp4",
+      "options": {
+        "at": 0.5
+      },
+      "files": [
+        {
+          "filename": "video-freeze_frame-0.png",
+          "bytes": 16880,
+          "sha256": "5be0e0eec5eb679e63b98b932e1fce83411013a921a69b407d2578b997e27244"
+        }
+      ],
+      "metadata": {
+        "source_duration": 2.0,
+        "engine": "ffmpeg",
+        "operation": "video.freeze_frame",
+        "audio_policy": "source when supported"
+      }
+    },
+    {
+      "tool": "video.crop_portrait",
+      "outcome": "passed",
+      "input": "synthetic-source.mp4",
+      "options": {},
+      "files": [
+        {
+          "filename": "video-crop_portrait-0.mp4",
+          "bytes": 29637,
+          "sha256": "3bd9797f618e2f9caaae6f2886b621d947dec9adf23e98c0382d561a95a479ea",
+          "probe": {
+            "streams": [
+              {
+                "index": 0,
+                "codec_name": "h264",
+                "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+                "profile": "High",
+                "codec_type": "video",
+                "codec_tag_string": "avc1",
+                "codec_tag": "0x31637661",
+                "width": 60,
+                "height": 108,
+                "coded_width": 60,
+                "coded_height": 108,
+                "closed_captions": 0,
+                "film_grain": 0,
+                "has_b_frames": 2,
+                "sample_aspect_ratio": "1:1",
+                "display_aspect_ratio": "5:9",
+                "pix_fmt": "yuv420p",
+                "level": 10,
+                "chroma_location": "left",
+                "field_order": "progressive",
+                "refs": 1,
+                "is_avc": "true",
+                "nal_length_size": "4",
+                "id": "0x1",
+                "r_frame_rate": "12/1",
+                "avg_frame_rate": "12/1",
+                "time_base": "1/12288",
+                "start_pts": 0,
+                "start_time": "0.000000",
+                "duration_ts": 24576,
+                "duration": "2.000000",
+                "bit_rate": "38348",
+                "bits_per_raw_sample": "8",
+                "nb_frames": "24",
+                "extradata_size": 44,
+                "disposition": {
+                  "default": 1,
+                  "dub": 0,
+                  "original": 0,
+                  "comment": 0,
+                  "lyrics": 0,
+                  "karaoke": 0,
+                  "forced": 0,
+                  "hearing_impaired": 0,
+                  "visual_impaired": 0,
+                  "clean_effects": 0,
+                  "attached_pic": 0,
+                  "timed_thumbnails": 0,
+                  "non_diegetic": 0,
+                  "captions": 0,
+                  "descriptions": 0,
+                  "metadata": 0,
+                  "dependent": 0,
+                  "still_image": 0
+                },
+                "tags": {
+                  "language": "und",
+                  "handler_name": "VideoHandler",
+                  "vendor_id": "[0][0][0][0]",
+                  "encoder": "Lavc60.31.102 libx264"
+                }
+              },
+              {
+                "index": 1,
+                "codec_name": "aac",
+                "codec_long_name": "AAC (Advanced Audio Coding)",
+                "profile": "LC",
+                "codec_type": "audio",
+                "codec_tag_string": "mp4a",
+                "codec_tag": "0x6134706d",
+                "sample_fmt": "fltp",
+                "sample_rate": "48000",
+                "channels": 1,
+                "channel_layout": "mono",
+                "bits_per_sample": 0,
+                "initial_padding": 0,
+                "id": "0x2",
+                "r_frame_rate": "0/0",
+                "avg_frame_rate": "0/0",
+                "time_base": "1/48000",
+                "start_pts": 0,
+                "start_time": "0.000000",
+                "duration_ts": 96240,
+                "duration": "2.005000",
+                "bit_rate": "69978",
+                "nb_frames": "95",
+                "extradata_size": 5,
+                "disposition": {
+                  "default": 1,
+                  "dub": 0,
+                  "original": 0,
+                  "comment": 0,
+                  "lyrics": 0,
+                  "karaoke": 0,
+                  "forced": 0,
+                  "hearing_impaired": 0,
+                  "visual_impaired": 0,
+                  "clean_effects": 0,
+                  "attached_pic": 0,
+                  "timed_thumbnails": 0,
+                  "non_diegetic": 0,
+                  "captions": 0,
+                  "descriptions": 0,
+                  "metadata": 0,
+                  "dependent": 0,
+                  "still_image": 0
+                },
+                "tags": {
+                  "language": "und",
+                  "handler_name": "SoundHandler",
+                  "vendor_id": "[0][0][0][0]"
+                }
+              }
+            ],
+            "format": {
+              "filename": "/workspace/scratch/25c398c71429/upstream-youtubebuddy/YOUTUBE BUDDY/FRONTEND/public/qa/cpu-outputs/video-crop_portrait-0.mp4",
+              "nb_streams": 2,
+              "nb_programs": 0,
+              "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+              "format_long_name": "QuickTime / MOV",
+              "start_time": "0.000000",
+              "duration": "2.005000",
+              "size": "29637",
+              "bit_rate": "118252",
+              "probe_score": 100,
+              "tags": {
+                "major_brand": "isom",
+                "minor_version": "512",
+                "compatible_brands": "isomiso2avc1mp41",
+                "encoder": "Lavf60.16.100"
+              }
+            }
+          }
+        }
+      ],
+      "metadata": {
+        "source_duration": 2.0,
+        "engine": "ffmpeg",
+        "operation": "video.crop_portrait",
+        "audio_policy": "source when supported"
+      }
+    },
+    {
+      "tool": "video.crop_square",
+      "outcome": "passed",
+      "input": "synthetic-source.mp4",
+      "options": {},
+      "files": [
+        {
+          "filename": "video-crop_square-0.mp4",
+          "bytes": 35489,
+          "sha256": "515f81999b11bcca2f27e6d8020f79d6c7ad096569a193e41757faed1c6098eb",
+          "probe": {
+            "streams": [
+              {
+                "index": 0,
+                "codec_name": "h264",
+                "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+                "profile": "High",
+                "codec_type": "video",
+                "codec_tag_string": "avc1",
+                "codec_tag": "0x31637661",
+                "width": 108,
+                "height": 108,
+                "coded_width": 108,
+                "coded_height": 108,
+                "closed_captions": 0,
+                "film_grain": 0,
+                "has_b_frames": 2,
+                "sample_aspect_ratio": "1:1",
+                "display_aspect_ratio": "1:1",
+                "pix_fmt": "yuv420p",
+                "level": 10,
+                "chroma_location": "left",
+                "field_order": "progressive",
+                "refs": 1,
+                "is_avc": "true",
+                "nal_length_size": "4",
+                "id": "0x1",
+                "r_frame_rate": "12/1",
+                "avg_frame_rate": "12/1",
+                "time_base": "1/12288",
+                "start_pts": 0,
+                "start_time": "0.000000",
+                "duration_ts": 24576,
+                "duration": "2.000000",
+                "bit_rate": "61756",
+                "bits_per_raw_sample": "8",
+                "nb_frames": "24",
+                "extradata_size": 44,
+                "disposition": {
+                  "default": 1,
+                  "dub": 0,
+                  "original": 0,
+                  "comment": 0,
+                  "lyrics": 0,
+                  "karaoke": 0,
+                  "forced": 0,
+                  "hearing_impaired": 0,
+                  "visual_impaired": 0,
+                  "clean_effects": 0,
+                  "attached_pic": 0,
+                  "timed_thumbnails": 0,
+                  "non_diegetic": 0,
+                  "captions": 0,
+                  "descriptions": 0,
+                  "metadata": 0,
+                  "dependent": 0,
+                  "still_image": 0
+                },
+                "tags": {
+                  "language": "und",
+                  "handler_name": "VideoHandler",
+                  "vendor_id": "[0][0][0][0]",
+                  "encoder": "Lavc60.31.102 libx264"
+                }
+              },
+              {
+                "index": 1,
+                "codec_name": "aac",
+                "codec_long_name": "AAC (Advanced Audio Coding)",
+                "profile": "LC",
+                "codec_type": "audio",
+                "codec_tag_string": "mp4a",
+                "codec_tag": "0x6134706d",
+                "sample_fmt": "fltp",
+                "sample_rate": "48000",
+                "channels": 1,
+                "channel_layout": "mono",
+                "bits_per_sample": 0,
+                "initial_padding": 0,
+                "id": "0x2",
+                "r_frame_rate": "0/0",
+                "avg_frame_rate": "0/0",
+                "time_base": "1/48000",
+                "start_pts": 0,
+                "start_time": "0.000000",
+                "duration_ts": 96240,
+                "duration": "2.005000",
+                "bit_rate": "69978",
+                "nb_frames": "95",
+                "extradata_size": 5,
+                "disposition": {
+                  "default": 1,
+                  "dub": 0,
+                  "original": 0,
+                  "comment": 0,
+                  "lyrics": 0,
+                  "karaoke": 0,
+                  "forced": 0,
+                  "hearing_impaired": 0,
+                  "visual_impaired": 0,
+                  "clean_effects": 0,
+                  "attached_pic": 0,
+                  "timed_thumbnails": 0,
+                  "non_diegetic": 0,
+                  "captions": 0,
+                  "descriptions": 0,
+                  "metadata": 0,
+                  "dependent": 0,
+                  "still_image": 0
+                },
+                "tags": {
+                  "language": "und",
+                  "handler_name": "SoundHandler",
+                  "vendor_id": "[0][0][0][0]"
+                }
+              }
+            ],
+            "format": {
+              "filename": "/workspace/scratch/25c398c71429/upstream-youtubebuddy/YOUTUBE BUDDY/FRONTEND/public/qa/cpu-outputs/video-crop_square-0.mp4",
+              "nb_streams": 2,
+              "nb_programs": 0,
+              "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+              "format_long_name": "QuickTime / MOV",
+              "start_time": "0.000000",
+              "duration": "2.005000",
+              "size": "35489",
+              "bit_rate": "141601",
+              "probe_score": 100,
+              "tags": {
+                "major_brand": "isom",
+                "minor_version": "512",
+                "compatible_brands": "isomiso2avc1mp41",
+                "encoder": "Lavf60.16.100"
+              }
+            }
+          }
+        }
+      ],
+      "metadata": {
+        "source_duration": 2.0,
+        "engine": "ffmpeg",
+        "operation": "video.crop_square",
+        "audio_policy": "source when supported"
+      }
+    },
+    {
+      "tool": "video.crop_landscape",
+      "outcome": "passed",
+      "input": "synthetic-source.mp4",
+      "options": {},
+      "files": [
+        {
+          "filename": "video-crop_landscape-0.mp4",
+          "bytes": 37805,
+          "sha256": "7932d0e26604821d435cafd2f8e6afcb731cd03006918dccebf659def8725ea9",
+          "probe": {
+            "streams": [
+              {
+                "index": 0,
+                "codec_name": "h264",
+                "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+                "profile": "High",
+                "codec_type": "video",
+                "codec_tag_string": "avc1",
+                "codec_tag": "0x31637661",
+                "width": 192,
+                "height": 108,
+                "coded_width": 192,
+                "coded_height": 108,
+                "closed_captions": 0,
+                "film_grain": 0,
+                "has_b_frames": 2,
+                "sample_aspect_ratio": "1:1",
+                "display_aspect_ratio": "16:9",
+                "pix_fmt": "yuv420p",
+                "level": 10,
+                "chroma_location": "left",
+                "field_order": "progressive",
+                "refs": 1,
+                "is_avc": "true",
+                "nal_length_size": "4",
+                "id": "0x1",
+                "r_frame_rate": "12/1",
+                "avg_frame_rate": "12/1",
+                "time_base": "1/12288",
+                "start_pts": 0,
+                "start_time": "0.000000",
+                "duration_ts": 24576,
+                "duration": "2.000000",
+                "bit_rate": "71052",
+                "bits_per_raw_sample": "8",
+                "nb_frames": "24",
+                "extradata_size": 44,
+                "disposition": {
+                  "default": 1,
+                  "dub": 0,
+                  "original": 0,
+                  "comment": 0,
+                  "lyrics": 0,
+                  "karaoke": 0,
+                  "forced": 0,
+                  "hearing_impaired": 0,
+                  "visual_impaired": 0,
+                  "clean_effects": 0,
+                  "attached_pic": 0,
+                  "timed_thumbnails": 0,
+                  "non_diegetic": 0,
+                  "captions": 0,
+                  "descriptions": 0,
+                  "metadata": 0,
+                  "dependent": 0,
+                  "still_image": 0
+                },
+                "tags": {
+                  "language": "und",
+                  "handler_name": "VideoHandler",
+                  "vendor_id": "[0][0][0][0]",
+                  "encoder": "Lavc60.31.102 libx264"
+                }
+              },
+              {
+                "index": 1,
+                "codec_name": "aac",
+                "codec_long_name": "AAC (Advanced Audio Coding)",
+                "profile": "LC",
+                "codec_type": "audio",
+                "codec_tag_string": "mp4a",
+                "codec_tag": "0x6134706d",
+                "sample_fmt": "fltp",
+                "sample_rate": "48000",
+                "channels": 1,
+                "channel_layout": "mono",
+                "bits_per_sample": 0,
+                "initial_padding": 0,
+                "id": "0x2",
+                "r_frame_rate": "0/0",
+                "avg_frame_rate": "0/0",
+                "time_base": "1/48000",
+                "start_pts": 0,
+                "start_time": "0.000000",
+                "duration_ts": 96240,
+                "duration": "2.005000",
+                "bit_rate": "69978",
+                "nb_frames": "95",
+                "extradata_size": 5,
+                "disposition": {
+                  "default": 1,
+                  "dub": 0,
+                  "original": 0,
+                  "comment": 0,
+                  "lyrics": 0,
+                  "karaoke": 0,
+                  "forced": 0,
+                  "hearing_impaired": 0,
+                  "visual_impaired": 0,
+                  "clean_effects": 0,
+                  "attached_pic": 0,
+                  "timed_thumbnails": 0,
+                  "non_diegetic": 0,
+                  "captions": 0,
+                  "descriptions": 0,
+                  "metadata": 0,
+                  "dependent": 0,
+                  "still_image": 0
+                },
+                "tags": {
+                  "language": "und",
+                  "handler_name": "SoundHandler",
+                  "vendor_id": "[0][0][0][0]"
+                }
+              }
+            ],
+            "format": {
+              "filename": "/workspace/scratch/25c398c71429/upstream-youtubebuddy/YOUTUBE BUDDY/FRONTEND/public/qa/cpu-outputs/video-crop_landscape-0.mp4",
+              "nb_streams": 2,
+              "nb_programs": 0,
+              "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+              "format_long_name": "QuickTime / MOV",
+              "start_time": "0.000000",
+              "duration": "2.005000",
+              "size": "37805",
+              "bit_rate": "150842",
+              "probe_score": 100,
+              "tags": {
+                "major_brand": "isom",
+                "minor_version": "512",
+                "compatible_brands": "isomiso2avc1mp41",
+                "encoder": "Lavf60.16.100"
+              }
+            }
+          }
+        }
+      ],
+      "metadata": {
+        "source_duration": 2.0,
+        "engine": "ffmpeg",
+        "operation": "video.crop_landscape",
+        "audio_policy": "source when supported"
+      }
+    },
+    {
+      "tool": "audio.normalize",
+      "outcome": "passed",
+      "input": "synthetic-source.mp4",
+      "options": {},
+      "files": [
+        {
+          "filename": "audio-normalize-0.m4a",
+          "bytes": 19221,
+          "sha256": "345ed8408a0a6fc417b95ec4eee2df99b32534d429139d7ee82d0f245aa3df59",
+          "probe": {
+            "streams": [
+              {
+                "index": 0,
+                "codec_name": "aac",
+                "codec_long_name": "AAC (Advanced Audio Coding)",
+                "profile": "LC",
+                "codec_type": "audio",
+                "codec_tag_string": "mp4a",
+                "codec_tag": "0x6134706d",
+                "sample_fmt": "fltp",
+                "sample_rate": "96000",
+                "channels": 1,
+                "channel_layout": "mono",
+                "bits_per_sample": 0,
+                "initial_padding": 0,
+                "id": "0x1",
+                "r_frame_rate": "0/0",
+                "avg_frame_rate": "0/0",
+                "time_base": "1/96000",
+                "start_pts": 0,
+                "start_time": "0.000000",
+                "duration_ts": 192480,
+                "duration": "2.005000",
+                "bit_rate": "70103",
+                "nb_frames": "189",
+                "extradata_size": 5,
+                "disposition": {
+                  "default": 1,
+                  "dub": 0,
+                  "original": 0,
+                  "comment": 0,
+                  "lyrics": 0,
+                  "karaoke": 0,
+                  "forced": 0,
+                  "hearing_impaired": 0,
+                  "visual_impaired": 0,
+                  "clean_effects": 0,
+                  "attached_pic": 0,
+                  "timed_thumbnails": 0,
+                  "non_diegetic": 0,
+                  "captions": 0,
+                  "descriptions": 0,
+                  "metadata": 0,
+                  "dependent": 0,
+                  "still_image": 0
+                },
+                "tags": {
+                  "language": "und",
+                  "handler_name": "SoundHandler",
+                  "vendor_id": "[0][0][0][0]"
+                }
+              }
+            ],
+            "format": {
+              "filename": "/workspace/scratch/25c398c71429/upstream-youtubebuddy/YOUTUBE BUDDY/FRONTEND/public/qa/cpu-outputs/audio-normalize-0.m4a",
+              "nb_streams": 1,
+              "nb_programs": 0,
+              "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+              "format_long_name": "QuickTime / MOV",
+              "start_time": "0.000000",
+              "duration": "2.005000",
+              "size": "19221",
+              "bit_rate": "76692",
+              "probe_score": 100,
+              "tags": {
+                "major_brand": "M4A ",
+                "minor_version": "512",
+                "compatible_brands": "M4A isomiso2",
+                "encoder": "Lavf60.16.100"
+              }
+            }
+          }
+        }
+      ],
+      "metadata": {
+        "source_duration": 2.0,
+        "engine": "ffmpeg",
+        "operation": "audio.normalize",
+        "audio_policy": "source when supported"
+      }
+    },
+    {
+      "tool": "media.inspect",
+      "outcome": "passed",
+      "input": "synthetic-source.mp4",
+      "options": {},
+      "files": [],
+      "metadata": {
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+            "profile": "High",
+            "codec_type": "video",
+            "codec_tag_string": "avc1",
+            "codec_tag": "0x31637661",
+            "width": 192,
+            "height": 108,
+            "coded_width": 192,
+            "coded_height": 108,
+            "closed_captions": 0,
+            "film_grain": 0,
+            "has_b_frames": 2,
+            "sample_aspect_ratio": "1:1",
+            "display_aspect_ratio": "16:9",
+            "pix_fmt": "yuv420p",
+            "level": 10,
+            "chroma_location": "left",
+            "field_order": "progressive",
+            "refs": 1,
+            "is_avc": "true",
+            "nal_length_size": "4",
+            "id": "0x1",
+            "r_frame_rate": "12/1",
+            "avg_frame_rate": "12/1",
+            "time_base": "1/12288",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 24576,
+            "duration": "2.000000",
+            "bit_rate": "49992",
+            "bits_per_raw_sample": "8",
+            "nb_frames": "24",
+            "extradata_size": 46,
+            "disposition": {
+              "default": 1,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0
+            },
+            "tags": {
+              "language": "und",
+              "handler_name": "VideoHandler",
+              "vendor_id": "[0][0][0][0]",
+              "encoder": "Lavc60.31.102 libx264"
+            }
+          },
+          {
+            "index": 1,
+            "codec_name": "aac",
+            "codec_long_name": "AAC (Advanced Audio Coding)",
+            "profile": "LC",
+            "codec_type": "audio",
+            "codec_tag_string": "mp4a",
+            "codec_tag": "0x6134706d",
+            "sample_fmt": "fltp",
+            "sample_rate": "48000",
+            "channels": 1,
+            "channel_layout": "mono",
+            "bits_per_sample": 0,
+            "initial_padding": 0,
+            "id": "0x2",
+            "r_frame_rate": "0/0",
+            "avg_frame_rate": "0/0",
+            "time_base": "1/48000",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 96000,
+            "duration": "2.000000",
+            "bit_rate": "69922",
+            "nb_frames": "95",
+            "extradata_size": 5,
+            "disposition": {
+              "default": 1,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0
+            },
+            "tags": {
+              "language": "und",
+              "handler_name": "SoundHandler",
+              "vendor_id": "[0][0][0][0]"
+            }
+          }
+        ],
+        "format": {
+          "filename": "/workspace/scratch/25c398c71429/upstream-youtubebuddy/YOUTUBE BUDDY/FRONTEND/public/qa/cpu-outputs/synthetic-source.mp4",
+          "nb_streams": 2,
+          "nb_programs": 0,
+          "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+          "format_long_name": "QuickTime / MOV",
+          "start_time": "0.000000",
+          "duration": "2.000000",
+          "size": "32497",
+          "bit_rate": "129988",
+          "probe_score": 100,
+          "tags": {
+            "major_brand": "isom",
+            "minor_version": "512",
+            "compatible_brands": "isomiso2avc1mp41",
+            "encoder": "Lavf60.16.100"
+          }
+        }
+      }
+    },
+    {
+      "tool": "media.validate_ratio",
+      "outcome": "passed",
+      "input": "synthetic-source.mp4",
+      "options": {
+        "ratio": "16:9"
+      },
+      "files": [],
+      "metadata": {
+        "ratio": "16:9",
+        "matches": true,
+        "width": 192,
+        "height": 108
+      }
+    },
+    {
+      "tool": "media.check_corruption",
+      "outcome": "passed",
+      "input": "synthetic-source.mp4",
+      "options": {},
+      "files": [],
+      "metadata": {
+        "decoded_without_error": true,
+        "duration": 2.0
+      }
+    },
+    {
+      "tool": "media.validate_export",
+      "outcome": "passed",
+      "input": "synthetic-source.mp4",
+      "options": {},
+      "files": [],
+      "metadata": {
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+            "profile": "High",
+            "codec_type": "video",
+            "codec_tag_string": "avc1",
+            "codec_tag": "0x31637661",
+            "width": 192,
+            "height": 108,
+            "coded_width": 192,
+            "coded_height": 108,
+            "closed_captions": 0,
+            "film_grain": 0,
+            "has_b_frames": 2,
+            "sample_aspect_ratio": "1:1",
+            "display_aspect_ratio": "16:9",
+            "pix_fmt": "yuv420p",
+            "level": 10,
+            "chroma_location": "left",
+            "field_order": "progressive",
+            "refs": 1,
+            "is_avc": "true",
+            "nal_length_size": "4",
+            "id": "0x1",
+            "r_frame_rate": "12/1",
+            "avg_frame_rate": "12/1",
+            "time_base": "1/12288",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 24576,
+            "duration": "2.000000",
+            "bit_rate": "49992",
+            "bits_per_raw_sample": "8",
+            "nb_frames": "24",
+            "extradata_size": 46,
+            "disposition": {
+              "default": 1,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0
+            },
+            "tags": {
+              "language": "und",
+              "handler_name": "VideoHandler",
+              "vendor_id": "[0][0][0][0]",
+              "encoder": "Lavc60.31.102 libx264"
+            }
+          },
+          {
+            "index": 1,
+            "codec_name": "aac",
+            "codec_long_name": "AAC (Advanced Audio Coding)",
+            "profile": "LC",
+            "codec_type": "audio",
+            "codec_tag_string": "mp4a",
+            "codec_tag": "0x6134706d",
+            "sample_fmt": "fltp",
+            "sample_rate": "48000",
+            "channels": 1,
+            "channel_layout": "mono",
+            "bits_per_sample": 0,
+            "initial_padding": 0,
+            "id": "0x2",
+            "r_frame_rate": "0/0",
+            "avg_frame_rate": "0/0",
+            "time_base": "1/48000",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 96000,
+            "duration": "2.000000",
+            "bit_rate": "69922",
+            "nb_frames": "95",
+            "extradata_size": 5,
+            "disposition": {
+              "default": 1,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0
+            },
+            "tags": {
+              "language": "und",
+              "handler_name": "SoundHandler",
+              "vendor_id": "[0][0][0][0]"
+            }
+          }
+        ],
+        "format": {
+          "filename": "/workspace/scratch/25c398c71429/upstream-youtubebuddy/YOUTUBE BUDDY/FRONTEND/public/qa/cpu-outputs/synthetic-source.mp4",
+          "nb_streams": 2,
+          "nb_programs": 0,
+          "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+          "format_long_name": "QuickTime / MOV",
+          "start_time": "0.000000",
+          "duration": "2.000000",
+          "size": "32497",
+          "bit_rate": "129988",
+          "probe_score": 100,
+          "tags": {
+            "major_brand": "isom",
+            "minor_version": "512",
+            "compatible_brands": "isomiso2avc1mp41",
+            "encoder": "Lavf60.16.100"
+          }
+        }
+      }
+    }
+  ],
+  "catalog": [
+    {
+      "id": "video_generation.text_to_video_generation",
+      "name": "Text-to-video generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "video_generation.image_to_video_generation",
+      "name": "Image-to-video generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "video_generation.start_frame_end_frame_video_generation",
+      "name": "Start-frame/end-frame video generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "video_generation.reference_video_guided_generation",
+      "name": "Reference-video-guided generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "video_generation.multi_shot_video_generation",
+      "name": "Multi-shot video generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "video_generation.consistent_character_video_generation",
+      "name": "Consistent-character video generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "video_generation.consistent_product_video_generation",
+      "name": "Consistent-product video generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "video_generation.environment_and_location_generation",
+      "name": "Environment and location generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "video_generation.b_roll_generation",
+      "name": "B-roll generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "video_generation.cinematic_establishing_shot_generation",
+      "name": "Cinematic establishing-shot generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "video_generation.seamless_looping_video_generation",
+      "name": "Seamless looping video generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "video_generation.video_continuation_and_scene_extension",
+      "name": "Video continuation and scene extension",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "shorts.viral_moment_detection",
+      "name": "Viral-moment detection",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "shorts.hook_detection",
+      "name": "Hook detection",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "shorts.speaker_aware_vertical_cropping",
+      "name": "Speaker-aware vertical cropping",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "shorts.face_tracking_for_shorts",
+      "name": "Face tracking for Shorts",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "shorts.multi_speaker_crop_switching",
+      "name": "Multi-speaker crop switching",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "shorts.automatic_clip_segmentation",
+      "name": "Automatic clip segmentation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "shorts.silence_and_dead_air_removal",
+      "name": "Silence and dead-air removal",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "shorts.highlight_reel_assembly",
+      "name": "Highlight-reel assembly",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "shorts.long_video_to_multiple_shorts_conversion",
+      "name": "Long-video-to-multiple-Shorts conversion",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "shorts.narrative_aware_clip_selection",
+      "name": "Narrative-aware clip selection",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "shorts.clip_retention_and_engagement_scoring",
+      "name": "Clip retention and engagement scoring",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "shorts.automatic_ending_and_loop_optimization",
+      "name": "Automatic ending and loop optimization",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "video_editing.natural_language_video_editing",
+      "name": "Natural-language video editing",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "video_editing.timeline_editing",
+      "name": "Timeline editing",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "video.trim_split",
+      "name": "Clip trimming and splitting",
+      "status": "implemented",
+      "engine": "ffmpeg",
+      "verification": "real CPU fixture execution passed"
+    },
+    {
+      "id": "video_editing.multi_clip_assembly",
+      "name": "Multi-clip assembly",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "video_editing.scene_reordering",
+      "name": "Scene reordering",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "video_editing.automatic_jump_cut_removal",
+      "name": "Automatic jump-cut removal",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "video_editing.audio_video_synchronization",
+      "name": "Audio-video synchronization",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "video_editing.speed_ramping",
+      "name": "Speed ramping",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "video.slow_motion",
+      "name": "Slow-motion processing",
+      "status": "implemented",
+      "engine": "ffmpeg",
+      "verification": "real CPU fixture execution passed"
+    },
+    {
+      "id": "video.freeze_frame",
+      "name": "Freeze-frame creation",
+      "status": "implemented",
+      "engine": "ffmpeg",
+      "verification": "real CPU fixture execution passed"
+    },
+    {
+      "id": "video_editing.transition_selection_and_application",
+      "name": "Transition selection and application",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "video_editing.batch_editing_across_multiple_clips",
+      "name": "Batch editing across multiple clips",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_generation.text_to_image_generation",
+      "name": "Text-to-image generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_generation.reference_image_guided_generation",
+      "name": "Reference-image-guided generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_generation.thumbnail_image_generation",
+      "name": "Thumbnail image generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_generation.cinematic_still_generation",
+      "name": "Cinematic still generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_generation.character_concept_generation",
+      "name": "Character concept generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_generation.environment_concept_generation",
+      "name": "Environment concept generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_generation.product_image_generation",
+      "name": "Product-image generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_generation.illustration_generation",
+      "name": "Illustration generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_generation.concept_art_generation",
+      "name": "Concept-art generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_generation.background_generation",
+      "name": "Background generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_generation.storyboard_frame_generation",
+      "name": "Storyboard-frame generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_generation.style_conditioned_image_generation",
+      "name": "Style-conditioned image generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_editing.image_inpainting",
+      "name": "Image inpainting",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_editing.image_outpainting",
+      "name": "Image outpainting",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_editing.object_removal",
+      "name": "Object removal",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_editing.object_replacement",
+      "name": "Object replacement",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_editing.background_removal",
+      "name": "Background removal",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_editing.background_replacement",
+      "name": "Background replacement",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_editing.image_relighting",
+      "name": "Image relighting",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_editing.image_recoloring",
+      "name": "Image recoloring",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_editing.image_restoration",
+      "name": "Image restoration",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_editing.image_composition_repair",
+      "name": "Image composition repair",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_editing.mask_guided_editing",
+      "name": "Mask-guided editing",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "image_editing.reference_preserving_image_editing",
+      "name": "Reference-preserving image editing",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "video.crop_portrait",
+      "name": "Landscape-to-portrait reframing",
+      "status": "implemented",
+      "engine": "ffmpeg",
+      "verification": "real CPU fixture execution passed"
+    },
+    {
+      "id": "video.crop_square",
+      "name": "Landscape-to-square reframing",
+      "status": "implemented",
+      "engine": "ffmpeg",
+      "verification": "real CPU fixture execution passed"
+    },
+    {
+      "id": "video.crop_landscape",
+      "name": "Portrait-to-landscape reframing",
+      "status": "implemented",
+      "engine": "ffmpeg",
+      "verification": "real CPU fixture execution passed"
+    },
+    {
+      "id": "reframing.adaptive_aspect_ratio_conversion",
+      "name": "Adaptive aspect-ratio conversion",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "reframing.subject_aware_image_cropping",
+      "name": "Subject-aware image cropping",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "reframing.multi_person_composition_preservation",
+      "name": "Multi-person composition preservation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "reframing.smart_canvas_expansion",
+      "name": "Smart canvas expansion",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "reframing.subject_position_correction",
+      "name": "Subject-position correction",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "reframing.horizon_and_framing_correction",
+      "name": "Horizon and framing correction",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "reframing.automatic_composition_balancing",
+      "name": "Automatic composition balancing",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "reframing.safe_area_and_title_area_placement",
+      "name": "Safe-area and title-area placement",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "reframing.batch_aspect_ratio_conversion",
+      "name": "Batch aspect-ratio conversion",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "cinema.ai_director_s_brief_generation",
+      "name": "AI director's brief generation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "cinema.camera_movement_planning",
+      "name": "Camera-movement planning",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "cinema.lens_and_focal_length_recommendation",
+      "name": "Lens and focal-length recommendation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "cinema.shot_size_recommendation",
+      "name": "Shot-size recommendation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "cinema.lighting_plan_generation",
+      "name": "Lighting-plan generation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "cinema.color_palette_planning",
+      "name": "Color-palette planning",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "cinema.scene_mood_development",
+      "name": "Scene mood development",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "cinema.camera_blocking_visualization",
+      "name": "Camera-blocking visualization",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "cinema.cinematic_shot_list_creation",
+      "name": "Cinematic shot-list creation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "cinema.visual_continuity_checking",
+      "name": "Visual continuity checking",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "cinema.scene_to_scene_transition_planning",
+      "name": "Scene-to-scene transition planning",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "cinema.cinematic_production_breakdown",
+      "name": "Cinematic production breakdown",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "story.video_script_generation",
+      "name": "Video script generation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "story.short_form_script_generation",
+      "name": "Short-form script generation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "story.long_form_script_generation",
+      "name": "Long-form script generation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "story.story_concept_development",
+      "name": "Story concept development",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "story.plot_and_outline_creation",
+      "name": "Plot and outline creation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "story.dialogue_writing",
+      "name": "Dialogue writing",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "story.character_development",
+      "name": "Character development",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "story.story_arc_construction",
+      "name": "Story-arc construction",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "story.hook_and_opening_line_writing",
+      "name": "Hook and opening-line writing",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "story.call_to_action_writing",
+      "name": "Call-to-action writing",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "story.script_rewriting_by_tone",
+      "name": "Script rewriting by tone",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "story.script_quality_and_consistency_checking",
+      "name": "Script quality and consistency checking",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "storyboard.script_to_storyboard_conversion",
+      "name": "Script-to-storyboard conversion",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "storyboard.shot_by_shot_storyboard_creation",
+      "name": "Shot-by-shot storyboard creation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "storyboard.storyboard_panel_editing",
+      "name": "Storyboard panel editing",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "storyboard.scene_continuity_boards",
+      "name": "Scene continuity boards",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "storyboard.camera_position_visualization",
+      "name": "Camera-position visualization",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "storyboard.lighting_reference_boards",
+      "name": "Lighting-reference boards",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "storyboard.character_reference_sheets",
+      "name": "Character-reference sheets",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "storyboard.prop_reference_sheets",
+      "name": "Prop-reference sheets",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "storyboard.location_reference_sheets",
+      "name": "Location-reference sheets",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "storyboard.animatic_assembly",
+      "name": "Animatic assembly",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "storyboard.storyboard_to_shot_list_conversion",
+      "name": "Storyboard-to-shot-list conversion",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "storyboard.storyboard_export_and_review",
+      "name": "Storyboard export and review",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "motion.image_animation",
+      "name": "Image animation",
+      "status": "implemented",
+      "engine": "canvas_mediarecorder",
+      "verification": "browser runtime not verified; logic tests only"
+    },
+    {
+      "id": "motion.keyframe_generation",
+      "name": "Keyframe generation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "motion.motion_curve_editing",
+      "name": "Motion-curve editing",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "motion.logo_animation",
+      "name": "Logo animation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "motion.animated_typography",
+      "name": "Animated typography",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "motion.lower_third_animation",
+      "name": "Lower-third animation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "motion.title_sequence_generation",
+      "name": "Title-sequence generation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "motion.motion_tracked_text_overlays",
+      "name": "Motion-tracked text overlays",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "motion.animated_infographic_creation",
+      "name": "Animated infographic creation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "motion.character_motion_generation",
+      "name": "Character-motion generation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "motion.motion_template_customization",
+      "name": "Motion-template customization",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "motion.motion_graphics_compositing",
+      "name": "Motion-graphics compositing",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "vfx.3d_scene_planning",
+      "name": "3D scene planning",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "vfx.3d_asset_generation_through_a_configured_model",
+      "name": "3D asset generation through a configured model",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "vfx.3d_model_format_conversion",
+      "name": "3D model format conversion",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "vfx.texture_generation",
+      "name": "Texture generation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "vfx.material_generation",
+      "name": "Material generation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "vfx.environment_map_generation",
+      "name": "Environment-map generation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "vfx.object_masking_and_segmentation",
+      "name": "Object masking and segmentation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "vfx.rotoscoping_assistance",
+      "name": "Rotoscoping assistance",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "vfx.object_tracking",
+      "name": "Object tracking",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "vfx.camera_tracking",
+      "name": "Camera tracking",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "vfx.green_screen_keying",
+      "name": "Green-screen keying",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "vfx.visual_effects_shot_breakdown",
+      "name": "Visual-effects shot breakdown",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "audio.text_to_music_generation",
+      "name": "Text-to-music generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "audio.background_music_selection",
+      "name": "Background-music selection",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "audio.music_mood_matching",
+      "name": "Music mood matching",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "audio.music_tempo_matching",
+      "name": "Music tempo matching",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "audio.beat_detection",
+      "name": "Beat detection",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "audio.beat_synchronized_editing",
+      "name": "Beat-synchronized editing",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "audio.audio_noise_reduction",
+      "name": "Audio noise reduction",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "audio.audio_de_reverberation",
+      "name": "Audio de-reverberation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "audio.dialogue_isolation",
+      "name": "Dialogue isolation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "audio.normalize",
+      "name": "Loudness normalization",
+      "status": "implemented",
+      "engine": "ffmpeg",
+      "verification": "real CPU fixture execution passed"
+    },
+    {
+      "id": "audio.audio_mastering",
+      "name": "Audio mastering",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "audio.sound_effect_generation",
+      "name": "Sound-effect generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "speech.text_to_speech_generation",
+      "name": "Text-to-speech generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "speech.multilingual_speech_generation",
+      "name": "Multilingual speech generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "speech.emotion_controlled_speech_synthesis",
+      "name": "Emotion-controlled speech synthesis",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "speech.voice_profile_management",
+      "name": "Voice-profile management",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "speech.consent_based_custom_voice_cloning",
+      "name": "Consent-based custom voice cloning",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "speech.voice_conversion_with_permission_checks",
+      "name": "Voice conversion with permission checks",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "speech.speaker_diarization",
+      "name": "Speaker diarization",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "speech.voice_over_timing_alignment",
+      "name": "Voice-over timing alignment",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "speech.dialogue_replacement",
+      "name": "Dialogue replacement",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "speech.multilingual_dubbing",
+      "name": "Multilingual dubbing",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "speech.dub_to_video_synchronization",
+      "name": "Dub-to-video synchronization",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "speech.pronunciation_dictionary_management",
+      "name": "Pronunciation dictionary management",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "captions.speech_to_text_transcription",
+      "name": "Speech-to-text transcription",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "captions.word_level_timestamp_extraction",
+      "name": "Word-level timestamp extraction",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "captions.automatic_subtitle_generation",
+      "name": "Automatic subtitle generation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "captions.animated_subtitle_styling",
+      "name": "Animated subtitle styling",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "captions.karaoke_style_captions",
+      "name": "Karaoke-style captions",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "captions.speaker_labeled_subtitles",
+      "name": "Speaker-labeled subtitles",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "captions.subtitle_translation",
+      "name": "Subtitle translation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "captions.validate_timing",
+      "name": "Subtitle timing correction",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "captions.subtitle_proofreading",
+      "name": "Subtitle proofreading",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "captions.export_srt",
+      "name": "SRT export",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "captions.export_vtt",
+      "name": "VTT export",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "captions.subtitle_burn_in_rendering",
+      "name": "Subtitle burn-in rendering",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "enhancement.image_super_resolution",
+      "name": "Image super-resolution",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "enhancement.video_super_resolution",
+      "name": "Video super-resolution",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "enhancement.video_denoising",
+      "name": "Video denoising",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "enhancement.video_deblurring",
+      "name": "Video deblurring",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "enhancement.video_stabilization",
+      "name": "Video stabilization",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "enhancement.frame_interpolation",
+      "name": "Frame interpolation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "enhancement.old_video_restoration",
+      "name": "Old-video restoration",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "enhancement.colorization_assistance",
+      "name": "Colorization assistance",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "enhancement.compression_artifact_reduction",
+      "name": "Compression-artifact reduction",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "enhancement.image_denoising",
+      "name": "Image denoising",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "enhancement.audio_restoration",
+      "name": "Audio restoration",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "enhancement.enhancement_quality_comparison",
+      "name": "Enhancement quality comparison",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "design.ai_thumbnail_creation",
+      "name": "AI thumbnail creation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "design.thumbnail_text_layout",
+      "name": "Thumbnail text layout",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "design.thumbnail_background_editing",
+      "name": "Thumbnail background editing",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "design.subject_cutout_creation",
+      "name": "Subject cutout creation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "design.thumbnail_variation_generation",
+      "name": "Thumbnail variation generation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "design.brand_template_thumbnail_creation",
+      "name": "Brand-template thumbnail creation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "design.typography_pairing",
+      "name": "Typography pairing",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "design.color_contrast_checking",
+      "name": "Color-contrast checking",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "design.social_media_graphic_creation",
+      "name": "Social media graphic creation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "design.channel_banner_generation",
+      "name": "Channel-banner generation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "design.profile_picture_design",
+      "name": "Profile-picture design",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "design.multi_platform_graphic_export",
+      "name": "Multi-platform graphic export",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "branding.brand_kit_creation",
+      "name": "Brand-kit creation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "branding.brand_color_extraction",
+      "name": "Brand-color extraction",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "branding.brand_font_management",
+      "name": "Brand-font management",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "branding.logo_asset_management",
+      "name": "Logo asset management",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "branding.creator_visual_style_profiles",
+      "name": "Creator visual-style profiles",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "branding.style_reference_libraries",
+      "name": "Style-reference libraries",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "branding.intro_and_outro_generation",
+      "name": "Intro and outro generation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "branding.reusable_title_templates",
+      "name": "Reusable title templates",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "branding.reusable_lower_thirds",
+      "name": "Reusable lower thirds",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "branding.watermark_management",
+      "name": "Watermark management",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "branding.brand_consistency_checking",
+      "name": "Brand-consistency checking",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "branding.cross_video_visual_style_matching",
+      "name": "Cross-video visual-style matching",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "metadata.video_title_generation",
+      "name": "Video-title generation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "metadata.description_generation",
+      "name": "Description generation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "metadata.keyword_research_integration",
+      "name": "Keyword research integration",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "metadata.tag_recommendations",
+      "name": "Tag recommendations",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "metadata.hashtag_recommendations",
+      "name": "Hashtag recommendations",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "metadata.thumbnail_title_alignment_analysis",
+      "name": "Thumbnail-title alignment analysis",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "metadata.chapter_marker_generation",
+      "name": "Chapter-marker generation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "metadata.video_metadata_validation",
+      "name": "Video metadata validation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "metadata.search_intent_analysis",
+      "name": "Search-intent analysis",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "metadata.audience_specific_title_rewriting",
+      "name": "Audience-specific title rewriting",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "metadata.content_cluster_recommendations",
+      "name": "Content-cluster recommendations",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "metadata.metadata_localization",
+      "name": "Metadata localization",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "research.trend_discovery_through_configured_data_sources",
+      "name": "Trend discovery through configured data sources",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "research.topic_cluster_analysis",
+      "name": "Topic-cluster analysis",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "research.content_gap_analysis",
+      "name": "Content-gap analysis",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "research.competitor_content_research",
+      "name": "Competitor-content research",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "research.trend_velocity_analysis",
+      "name": "Trend-velocity analysis",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "research.audience_question_extraction",
+      "name": "Audience-question extraction",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "research.idea_recommendation",
+      "name": "Idea recommendation",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "research.content_saturation_analysis",
+      "name": "Content saturation analysis",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "research.trend_relevance_scoring",
+      "name": "Trend relevance scoring",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "research.trend_to_script_planning",
+      "name": "Trend-to-script planning",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "research.source_backed_research_summaries",
+      "name": "Source-backed research summaries",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "research.trend_report_scheduling",
+      "name": "Trend-report scheduling",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "youtube.connect",
+      "name": "YouTube channel connection",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "youtube.subscriber_analytics",
+      "name": "Subscriber analytics",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "youtube.view_analytics",
+      "name": "View analytics",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "youtube.watch_time_analytics",
+      "name": "Watch-time analytics",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "youtube.audience_retention_analysis",
+      "name": "Audience-retention analysis",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "youtube.traffic_source_analysis",
+      "name": "Traffic-source analysis",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "youtube.video_performance_comparison",
+      "name": "Video performance comparison",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "youtube.shorts_performance_analysis",
+      "name": "Shorts performance analysis",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "youtube.publishing_time_performance_analysis",
+      "name": "Publishing-time performance analysis",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "youtube.new_versus_returning_viewer_analysis",
+      "name": "New-versus-returning-viewer analysis",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "youtube.real_metric_anomaly_detection",
+      "name": "Real metric anomaly detection",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "youtube.analytics_report_export",
+      "name": "Analytics report export",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "publishing.youtube_upload_preparation",
+      "name": "YouTube upload preparation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "publishing.youtube_publishing_through_an_authorized_api",
+      "name": "YouTube publishing through an authorized API",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "publishing.scheduled_publishing_where_supported",
+      "name": "Scheduled publishing where supported",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "publishing.draft_and_approval_workflow",
+      "name": "Draft and approval workflow",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "publishing.multi_platform_export_preparation",
+      "name": "Multi-platform export preparation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "publishing.caption_and_description_packaging",
+      "name": "Caption and description packaging",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "publishing.publishing_checklist_validation",
+      "name": "Publishing checklist validation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "publishing.thumbnail_assignment_where_api_supported",
+      "name": "Thumbnail assignment where API-supported",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "publishing.publishing_status_synchronization",
+      "name": "Publishing status synchronization",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "publishing.failed_publication_recovery",
+      "name": "Failed-publication recovery",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "publishing.platform_specific_format_adaptation",
+      "name": "Platform-specific format adaptation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "publishing.publication_history_and_audit_logs",
+      "name": "Publication history and audit logs",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "agents.ai_director_agent",
+      "name": "AI director agent",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "agents.scriptwriter_agent",
+      "name": "Scriptwriter agent",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "agents.video_analysis_agent",
+      "name": "Video-analysis agent",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "agents.shorts_selection_agent",
+      "name": "Shorts-selection agent",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "agents.subtitle_agent",
+      "name": "Subtitle agent",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "agents.thumbnail_agent",
+      "name": "Thumbnail agent",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "agents.seo_agent",
+      "name": "SEO agent",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "agents.research_agent",
+      "name": "Research agent",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "agents.localization_agent",
+      "name": "Localization agent",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "agents.quality_control_agent",
+      "name": "Quality-control agent",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "agents.multi_agent_workflow_orchestration",
+      "name": "Multi-agent workflow orchestration",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "agents.workflow_retry_and_recovery",
+      "name": "Workflow retry and recovery",
+      "status": "requires_configuration",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "assets.creative_asset_library",
+      "name": "Creative asset library",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "assets.searchable_asset_metadata",
+      "name": "Searchable asset metadata",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "assets.semantic_asset_search",
+      "name": "Semantic asset search",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "assets.project_asset_collections",
+      "name": "Project asset collections",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "assets.model_generated_asset_tracking",
+      "name": "Model-generated asset tracking",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "assets.asset_version_history",
+      "name": "Asset version history",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "assets.reference_image_library",
+      "name": "Reference-image library",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "assets.transcript_and_script_library",
+      "name": "Transcript and script library",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "assets.project_specific_retrieval_and_memory",
+      "name": "Project-specific retrieval and memory",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "assets.cross_project_style_references",
+      "name": "Cross-project style references",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "assets.duplicate_asset_detection",
+      "name": "Duplicate asset detection",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "assets.asset_archival_and_recovery",
+      "name": "Asset archival and recovery",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "collaboration.project_sharing",
+      "name": "Project sharing",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "collaboration.role_based_workspace_access",
+      "name": "Role-based workspace access",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "collaboration.commenting_on_assets",
+      "name": "Commenting on assets",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "collaboration.timestamped_review_comments",
+      "name": "Timestamped review comments",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "collaboration.revision_requests",
+      "name": "Revision requests",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "collaboration.approval_workflows",
+      "name": "Approval workflows",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "collaboration.review_status_tracking",
+      "name": "Review-status tracking",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "collaboration.collaboration_activity_history",
+      "name": "Collaboration activity history",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "collaboration.version_comparison",
+      "name": "Version comparison",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "collaboration.shared_project_templates",
+      "name": "Shared project templates",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "collaboration.permission_controlled_downloads",
+      "name": "Permission-controlled downloads",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "collaboration.project_handoff_packages",
+      "name": "Project handoff packages",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "integration.video_import",
+      "name": "Video import",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "integration.image_import",
+      "name": "Image import",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "integration.audio_import",
+      "name": "Audio import",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "integration.batch_file_import",
+      "name": "Batch file import",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "integration.metadata_import",
+      "name": "Metadata import",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "integration.subtitle_import",
+      "name": "Subtitle import",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "integration.project_interchange_export",
+      "name": "Project interchange export",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "integration.timeline_interchange_export_where_supported",
+      "name": "Timeline interchange export where supported",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "integration.webhook_integration",
+      "name": "Webhook integration",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "integration.api_integration_management",
+      "name": "API integration management",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "integration.provider_integration_health_checking",
+      "name": "Provider integration health checking",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "integration.asset_archive_export",
+      "name": "Asset archive export",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "render.jobs",
+      "name": "Render-job queue",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "rendering.render_job_retry",
+      "name": "Render-job retry",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "rendering.rendering_cancellation",
+      "name": "Rendering cancellation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "rendering.real_render_progress_reporting",
+      "name": "Real render-progress reporting",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "media.inspect",
+      "name": "Output-resolution validation",
+      "status": "implemented",
+      "engine": "ffmpeg",
+      "verification": "real CPU fixture execution passed"
+    },
+    {
+      "id": "media.validate_ratio",
+      "name": "Aspect-ratio validation",
+      "status": "implemented",
+      "engine": "ffmpeg",
+      "verification": "real CPU fixture execution passed"
+    },
+    {
+      "id": "rendering.audio_video_synchronization_checks",
+      "name": "Audio-video synchronization checks",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "media.check_corruption",
+      "name": "Corrupt-output detection",
+      "status": "implemented",
+      "engine": "ffmpeg",
+      "verification": "real CPU fixture execution passed"
+    },
+    {
+      "id": "rendering.missing_media_detection",
+      "name": "Missing-media detection",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "rendering.subtitle_synchronization_checks",
+      "name": "Subtitle synchronization checks",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "media.validate_export",
+      "name": "Export file validation",
+      "status": "implemented",
+      "engine": "ffmpeg",
+      "verification": "real CPU fixture execution passed"
+    },
+    {
+      "id": "rendering.render_cost_and_resource_estimation",
+      "name": "Render-cost and resource estimation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "rights.secure_asset_permissions",
+      "name": "Secure asset permissions",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "rights.prompt_and_job_audit_history",
+      "name": "Prompt and job audit history",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "rights.model_provenance_records",
+      "name": "Model provenance records",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "rights.model_license_tracking",
+      "name": "Model-license tracking",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "rights.dataset_license_tracking",
+      "name": "Dataset-license tracking",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "rights.consent_record_management",
+      "name": "Consent record management",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "rights.generated_content_provenance",
+      "name": "Generated-content provenance",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "rights.copyright_risk_warning_workflow",
+      "name": "Copyright-risk warning workflow",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "rights.voice_cloning_consent_verification",
+      "name": "Voice-cloning consent verification",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "rights.face_manipulation_consent_safeguards",
+      "name": "Face-manipulation consent safeguards",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "rights.private_export_controls",
+      "name": "Private export controls",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "rights.sensitive_data_deletion_workflow",
+      "name": "Sensitive-data deletion workflow",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "localization.language_detection",
+      "name": "Language detection",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "localization.transcript_translation",
+      "name": "Transcript translation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "localization.subtitle_localization",
+      "name": "Subtitle localization",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "localization.voice_over_localization",
+      "name": "Voice-over localization",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "localization.dub_timing_adaptation",
+      "name": "Dub timing adaptation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "localization.caption_readability_analysis",
+      "name": "Caption readability analysis",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "localization.caption_contrast_analysis",
+      "name": "Caption contrast analysis",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "localization.accessibility_audit",
+      "name": "Accessibility audit",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "localization.alternative_text_generation",
+      "name": "Alternative-text generation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "localization.language_specific_typography_checks",
+      "name": "Language-specific typography checks",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "localization.multilingual_metadata_creation",
+      "name": "Multilingual metadata creation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "localization.localized_project_export",
+      "name": "Localized project export",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "operations.production_project_planning",
+      "name": "Production project planning",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "operations.production_task_tracking",
+      "name": "Production task tracking",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "operations.project_deadlines_and_reminders",
+      "name": "Project deadlines and reminders",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "operations.asset_usage_tracking",
+      "name": "Asset-usage tracking",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "operations.compute_usage_dashboards",
+      "name": "Compute-usage dashboards",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "operations.storage_usage_dashboards",
+      "name": "Storage-usage dashboards",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "operations.api_usage_dashboards",
+      "name": "API-usage dashboards",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "operations.user_quota_enforcement",
+      "name": "User quota enforcement",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "operations.render_resource_scheduling",
+      "name": "Render-resource scheduling",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "operations.cloud_cost_monitoring",
+      "name": "Cloud-cost monitoring",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "operations.project_delivery_checklist",
+      "name": "Project delivery checklist",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "operations.usage_and_activity_audit_reporting",
+      "name": "Usage and activity audit reporting",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "orchestration.natural_language_task_interpretation",
+      "name": "Natural-language task interpretation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "orchestration.prompt_intent_and_constraint_extraction",
+      "name": "Prompt intent and constraint extraction",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "orchestration.automatic_tool_selection",
+      "name": "Automatic tool selection",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "orchestration.automatic_model_selection",
+      "name": "Automatic model selection",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "orchestration.multi_tool_workflow_planning",
+      "name": "Multi-tool workflow planning",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "orchestration.dependency_aware_job_sequencing",
+      "name": "Dependency-aware job sequencing",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "orchestration.output_requirement_validation",
+      "name": "Output-requirement validation",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "orchestration.model_capability_comparison",
+      "name": "Model capability comparison",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "orchestration.model_benchmarking",
+      "name": "Model benchmarking",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "orchestration.model_and_adapter_version_management",
+      "name": "Model and adapter version management",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "orchestration.model_evaluation_dataset_management",
+      "name": "Model evaluation dataset management",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    },
+    {
+      "id": "orchestration.feedback_based_improvement_proposals",
+      "name": "Feedback-based improvement proposals",
+      "status": "planned",
+      "engine": "not_installed",
+      "verification": "contract checked; unavailable engine rejects execution"
+    }
+  ]
+}
