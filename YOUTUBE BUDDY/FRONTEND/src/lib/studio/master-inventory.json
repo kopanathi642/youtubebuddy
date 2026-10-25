@@ -1954,9 +1954,9 @@
       "category": "Transcription and subtitles",
       "href": "/studios/captions/",
       "engineId": "captions.validate_timing",
-      "state": "Model/service required",
-      "evidence": "A compatible engine, licensed models and configured infrastructure must be implemented and verified.",
-      "runtime": "Not verified live"
+      "state": "Partial local/source workflow",
+      "evidence": "Shift existing subtitle timestamps by an explicit offset; no automatic speech alignment. Logic-tested; browser runtime verification incomplete.",
+      "runtime": "Browser-local tool workbench; no processing server required for this limited operation."
     },
     {
       "number": 165,
@@ -1965,9 +1965,9 @@
       "category": "Transcription and subtitles",
       "href": "/studios/captions/",
       "engineId": "captions.subtitle_proofreading",
-      "state": "Model/service required",
-      "evidence": "A compatible engine, licensed models and configured infrastructure must be implemented and verified.",
-      "runtime": "Not verified live"
+      "state": "Partial local/source workflow",
+      "evidence": "Find repeated words, repeated cues, long lines and uneven spaces. Rule-based checks, not AI grammar correction. Logic-tested; browser runtime verification incomplete.",
+      "runtime": "Browser-local tool workbench; no processing server required for this limited operation."
     },
     {
       "number": 166,
@@ -1977,8 +1977,8 @@
       "href": "/studios/captions/",
       "engineId": "captions.export_srt",
       "state": "Partial local/source workflow",
-      "evidence": "Local SRT export",
-      "runtime": "Not verified live"
+      "evidence": "Convert valid imported cues into a real SRT subtitle file. Logic-tested; browser runtime verification incomplete.",
+      "runtime": "Browser-local tool workbench; no processing server required for this limited operation."
     },
     {
       "number": 167,
@@ -1988,8 +1988,8 @@
       "href": "/studios/captions/",
       "engineId": "captions.export_vtt",
       "state": "Partial local/source workflow",
-      "evidence": "Local WebVTT export",
-      "runtime": "Not verified live"
+      "evidence": "Convert valid imported cues into a real WebVTT subtitle file. Logic-tested; browser runtime verification incomplete.",
+      "runtime": "Browser-local tool workbench; no processing server required for this limited operation."
     },
     {
       "number": 168,
@@ -2219,8 +2219,8 @@
       "href": "/studios/design/",
       "engineId": "design.color_contrast_checking",
       "state": "Partial local/source workflow",
-      "evidence": "Computes the chosen text color against the solid canvas background; image overlays and full accessibility audits are not evaluated",
-      "runtime": "Not verified live"
+      "evidence": "Compute text contrast against a solid background from two exact colors. Logic-tested; browser runtime verification incomplete.",
+      "runtime": "Browser-local tool workbench; no processing server required for this limited operation."
     },
     {
       "number": 189,
@@ -2284,9 +2284,9 @@
       "category": "Creator branding",
       "href": "/studios/brand/",
       "engineId": "branding.brand_color_extraction",
-      "state": "Planned",
-      "evidence": "A compatible engine, licensed models and configured infrastructure must be implemented and verified.",
-      "runtime": "Not verified live"
+      "state": "Partial local/source workflow",
+      "evidence": "Extract a quantized color palette from visible image pixels; transparent pixels are excluded. Logic-tested; browser runtime verification incomplete.",
+      "runtime": "Browser-local tool workbench; no processing server required for this limited operation."
     },
     {
       "number": 195,
@@ -2483,8 +2483,8 @@
       "href": "/studios/publishing/",
       "engineId": "metadata.video_metadata_validation",
       "state": "Partial local/source workflow",
-      "evidence": "Local publishing metadata validation",
-      "runtime": "Not verified live"
+      "evidence": "Validate a metadata JSON document against explicit local length/type limits. Does not predict SEO performance. Logic-tested; browser runtime verification incomplete.",
+      "runtime": "Browser-local tool workbench; no processing server required for this limited operation."
     },
     {
       "number": 213,
@@ -3175,9 +3175,9 @@
       "category": "Assets and project memory",
       "href": "/studios/assets/",
       "engineId": "assets.duplicate_asset_detection",
-      "state": "Planned",
-      "evidence": "A compatible engine, licensed models and configured infrastructure must be implemented and verified.",
-      "runtime": "Not verified live"
+      "state": "Partial local/source workflow",
+      "evidence": "Compare selected files by SHA-256 content hash; names are not used as proof of duplication. Logic-tested; browser runtime verification incomplete.",
+      "runtime": "Browser-local tool workbench; no processing server required for this limited operation."
     },
     {
       "number": 276,
@@ -3318,9 +3318,9 @@
       "category": "Collaboration and approvals",
       "href": "/collab/",
       "engineId": "collaboration.project_handoff_packages",
-      "state": "Planned",
-      "evidence": "A compatible engine, licensed models and configured infrastructure must be implemented and verified.",
-      "runtime": "Not verified live"
+      "state": "Partial local/source workflow",
+      "evidence": "Package selected assets and a generated manifest into a real ZIP. Full cross-editor project handoff remains partial. Logic-tested; browser runtime verification incomplete.",
+      "runtime": "Browser-local tool workbench; no processing server required for this limited operation."
     },
     {
       "number": 289,
@@ -3374,8 +3374,8 @@
       "href": "/studios/assets/",
       "engineId": "integration.metadata_import",
       "state": "Partial local/source workflow",
-      "evidence": "Validated project and daily channel report metadata imports",
-      "runtime": "Not verified live"
+      "evidence": "Import a bounded JSON object or array and export normalized JSON. Logic-tested; browser runtime verification incomplete.",
+      "runtime": "Browser-local tool workbench; no processing server required for this limited operation."
     },
     {
       "number": 294,
@@ -3385,8 +3385,8 @@
       "href": "/studios/captions/",
       "engineId": "integration.subtitle_import",
       "state": "Partial local/source workflow",
-      "evidence": "Local subtitle import and editing",
-      "runtime": "Not verified live"
+      "evidence": "Parse and validate existing SRT/WebVTT captions. Does not transcribe audio. Logic-tested; browser runtime verification incomplete.",
+      "runtime": "Browser-local tool workbench; no processing server required for this limited operation."
     },
     {
       "number": 295,
@@ -3450,9 +3450,9 @@
       "category": "Import, export and integrations",
       "href": "/studios/import/",
       "engineId": "integration.asset_archive_export",
-      "state": "Planned",
-      "evidence": "A compatible engine, licensed models and configured infrastructure must be implemented and verified.",
-      "runtime": "Not verified live"
+      "state": "Partial local/source workflow",
+      "evidence": "Export selected local assets with a manifest in an uncompressed ZIP. No server archive service required. Logic-tested; browser runtime verification incomplete.",
+      "runtime": "Browser-local tool workbench; no processing server required for this limited operation."
     },
     {
       "number": 301,
@@ -3505,9 +3505,9 @@
       "category": "Rendering and quality control",
       "href": "/studios/delivery/",
       "engineId": "media.inspect",
-      "state": "CPU engine \u00b7 server required",
-      "evidence": "Backend implementation exists; hosted authenticated service and worker are not verified live.",
-      "runtime": "Not verified live"
+      "state": "Partial local/source workflow",
+      "evidence": "Read image/video dimensions and compare with your exact target width and height. Logic-tested; browser runtime verification incomplete.",
+      "runtime": "Browser-local tool workbench; no processing server required for this limited operation."
     },
     {
       "number": 306,
@@ -3516,9 +3516,9 @@
       "category": "Rendering and quality control",
       "href": "/studios/delivery/",
       "engineId": "media.validate_ratio",
-      "state": "CPU engine \u00b7 server required",
-      "evidence": "Backend implementation exists; hosted authenticated service and worker are not verified live.",
-      "runtime": "Not verified live"
+      "state": "Partial local/source workflow",
+      "evidence": "Read image/video dimensions and check your requested aspect ratio within an explicit tolerance. Logic-tested; browser runtime verification incomplete.",
+      "runtime": "Browser-local tool workbench; no processing server required for this limited operation."
     },
     {
       "number": 307,
@@ -3549,9 +3549,9 @@
       "category": "Rendering and quality control",
       "href": "/studios/delivery/",
       "engineId": "rendering.missing_media_detection",
-      "state": "Planned",
-      "evidence": "A compatible engine, licensed models and configured infrastructure must be implemented and verified.",
-      "runtime": "Not verified live"
+      "state": "Partial local/source workflow",
+      "evidence": "Compare expected filenames from a JSON list with selected files; duplicate names are reported as ambiguous. Logic-tested; browser runtime verification incomplete.",
+      "runtime": "Browser-local tool workbench; no processing server required for this limited operation."
     },
     {
       "number": 310,
@@ -3560,9 +3560,9 @@
       "category": "Rendering and quality control",
       "href": "/studios/delivery/",
       "engineId": "rendering.subtitle_synchronization_checks",
-      "state": "Planned",
-      "evidence": "A compatible engine, licensed models and configured infrastructure must be implemented and verified.",
-      "runtime": "Not verified live"
+      "state": "Partial local/source workflow",
+      "evidence": "Check caption timing against the duration of your selected media. Does not infer spoken-word synchronization. Logic-tested; browser runtime verification incomplete.",
+      "runtime": "Browser-local tool workbench; no processing server required for this limited operation."
     },
     {
       "number": 311,
@@ -3571,9 +3571,9 @@
       "category": "Rendering and quality control",
       "href": "/studios/delivery/",
       "engineId": "media.validate_export",
-      "state": "CPU engine \u00b7 server required",
-      "evidence": "Backend implementation exists; hosted authenticated service and worker are not verified live.",
-      "runtime": "Not verified live"
+      "state": "Partial local/source workflow",
+      "evidence": "Inspect common file signatures, extensions, size and hash. This is a limited file check, not a full corruption decoder. Logic-tested; browser runtime verification incomplete.",
+      "runtime": "Browser-local tool workbench; no processing server required for this limited operation."
     },
     {
       "number": 312,
@@ -3780,9 +3780,9 @@
       "category": "Localization and accessibility",
       "href": "/studios/captions/",
       "engineId": "localization.caption_readability_analysis",
-      "state": "Planned",
-      "evidence": "A compatible engine, licensed models and configured infrastructure must be implemented and verified.",
-      "runtime": "Not verified live"
+      "state": "Partial local/source workflow",
+      "evidence": "Measure caption duration, line lengths and reading speed against adjustable thresholds. Logic-tested; browser runtime verification incomplete.",
+      "runtime": "Browser-local tool workbench; no processing server required for this limited operation."
     },
     {
       "number": 331,
@@ -3791,9 +3791,9 @@
       "category": "Localization and accessibility",
       "href": "/studios/captions/",
       "engineId": "localization.caption_contrast_analysis",
-      "state": "Planned",
-      "evidence": "A compatible engine, licensed models and configured infrastructure must be implemented and verified.",
-      "runtime": "Not verified live"
+      "state": "Partial local/source workflow",
+      "evidence": "Calculate solid-background caption contrast. Moving image backgrounds are not evaluated. Logic-tested; browser runtime verification incomplete.",
+      "runtime": "Browser-local tool workbench; no processing server required for this limited operation."
     },
     {
       "number": 332,
@@ -3912,9 +3912,9 @@
       "category": "Creator operations and business",
       "href": "/studios/production/",
       "engineId": "operations.storage_usage_dashboards",
-      "state": "Planned",
-      "evidence": "A compatible engine, licensed models and configured infrastructure must be implemented and verified.",
-      "runtime": "Not verified live"
+      "state": "Partial local/source workflow",
+      "evidence": "Calculate storage occupied by selected local files. Does not report cloud-account or entire-browser storage. Logic-tested; browser runtime verification incomplete.",
+      "runtime": "Browser-local tool workbench; no processing server required for this limited operation."
     },
     {
       "number": 343,
