@@ -95,14 +95,14 @@ export default function LoginPage() {
             </span>
           </Link>
           <h1 className="font-display text-3xl font-bold text-white mt-4 mb-2">Welcome back</h1>
-          <p className="text-white/40 text-sm">Sign in to your creator dashboard</p>
+          <p className="text-white/40 text-sm">Sign in to your account or open the separate local demo</p>
         </div>
 
         {/* Card */}
         <div className="glass border border-white/8 rounded-3xl p-8 shadow-card-glow">
 
           <div className="mb-6 rounded-xl border border-neon-lime/20 bg-neon-lime/5 p-4">
-            <p className="text-xs font-semibold text-neon-lime mb-2">Try the demo from this sign-in form</p>
+            <p className="text-xs font-semibold text-neon-lime mb-2">Local demo · separate from your account</p>
             <p className="text-xs text-white/70 leading-6">ID: <code>{DEMO_ID}</code><br/>Password: <code>{DEMO_PASSWORD}</code></p>
             <p className="text-[11px] text-white/45 mt-2">Opens browser-only tools. No backend or YouTube account access.</p>
             <Link href="/demo" className="inline-block mt-3 text-xs text-neon-lime underline">Open dedicated demo login</Link>
