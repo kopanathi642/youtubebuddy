@@ -1,4 +1,5 @@
 'use client';
+import {LaunchStudioNav,ToolCatalogNav} from './ToolCatalogNav';
 import Link from 'next/link';
 import categoryRegistry from '@/lib/studio/categories.json';
 import { usePathname } from 'next/navigation';
@@ -187,6 +188,7 @@ export function Sidebar() {
 
       {/* Nav Sections */}
       <nav className="flex-1 overflow-y-auto scrollbar-thin py-4 px-3 space-y-6">
+        <LaunchStudioNav collapsed={collapsed}/><ToolCatalogNav collapsed={collapsed}/>
         {navSections.map((section) => (
           <div key={section.label} className="space-y-1">
             {!collapsed && (
